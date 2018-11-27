@@ -1,16 +1,22 @@
 # Remerciements
 
+
+
 # Résumé technique
 
-# Présentation du Médialab
+# 1. Le Médialab ?
 
 ## Un laboratoire de SciencesPo un peu particulier
 
+Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été créé en 2009 pour aider les sciences sociales et 
+humaines à tirer le meilleur profit de la masse de données rendues 
+disponibles par la numérisation.
+
+Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://www.lafabriquedelaloi.fr) qui propose une visualisation graphique des procédures parlementaires, le projet [Datapol](https://medialab.github.io/datapol/app/#!/) qui analyse les données numériques de la campagne présidentielle de 2017, ou [Dime Web](https://dime-shs.sciencespo.fr/instruments/dime-web/), qui vise à établir un ensemble d'outils open source permettant de collecter des données sur le web et sur les réseaux socieux (Twitter notamment).
 
 
-Le Médialab est un des 10 centres de recherche de SciencesPo Paris. Laboratoire numérique, le médialab est consacré à l'étude et l'exploitation des données engendrées par les nouvelles technologies de l'information ainsi qu’à l'étude de leurs moyens de production et de circulation.
 
-## L'équipe
+## L'équipe technique
 
 # Ma mission
 
