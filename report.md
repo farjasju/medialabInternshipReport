@@ -58,6 +58,8 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 # Bibliographie
 
+https://stph.scenari-community.org/contribs/nos/es3/co/es3.html 
+
 # Glossaire
 
 <div style="page-break-after: always;"></div>
