@@ -42,6 +42,10 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 ### Gazouilloire
 
+Pourquoi changer de base de données ?
+
+MongoDB est un système de gestion de base de données très souple, et adapté au stockage de grandes masses de données. La limitation : la vitesse de lecture (indexation limitée), qui rend toute aggrégation impossible à partir d'une centaine de milliers de documents.
+
 ### Facebook
 
 ### Urlsresolver
