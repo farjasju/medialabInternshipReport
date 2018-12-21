@@ -10,7 +10,7 @@ Use Hackmd ?
 
 # 1. Le Médialab ?
 
-## Un laboratoire de SciencesPo un peu particulier
+## Un laboratoire un peu particulier
 
 Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été créé en 2009 pour aider les sciences sociales et 
 humaines à tirer le meilleur profit de la masse de données rendues 
@@ -24,13 +24,21 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 ## L'équipe
 
+Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
 
+L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'un ingénieur de recherche.
+
+J'ai principalement travaillé avec Guillaume Plique, mon tuteur (développeur) et Benjamin Ooghe-Tabanou, ingénieur de recherche. 
 
 # Ma mission
 
 ## Le sujet
 
+Le sujet global porte sur l'application des sciences des données à l'étude de l'espace public numérique.
+
 ## Le planning
+
+Itérations de 2 semaines.
 
 ## Mes contributions
 
@@ -44,15 +52,21 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 ### Hyphe
 
+
+
 ### Gazouilloire
 
 Pourquoi changer de base de données ?
 
 MongoDB est un système de gestion de base de données très souple, et adapté au stockage de grandes masses de données. La limitation : la vitesse de lecture (indexation limitée), qui rend toute aggrégation impossible à partir d'une centaine de milliers de documents.
 
+### Urlsresolver
+
+
+
 ### Facebook
 
-### Urlsresolver
+
 
 ### Graphology
 
