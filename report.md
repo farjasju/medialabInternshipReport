@@ -16,7 +16,8 @@ Mon stage a principalement consisté en
 
 ## Un laboratoire un peu particulier
 
-Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été créé en 2009 pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Le Médialab est un lieu de conception, de développement et d'expérimentation de méthodes numériques sur des objets relevant eux-même souvent du monde numérique.
+Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été créé en 2009 pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Ces données numériques sont au coeur des projets de recherche du labo : comment on perçoit/utilise les données numériques dans la société, ce qu'on en fait, quels outils on peut créer pour les collecter, les étudier, les exploiter, les visualiser, et ce, dans divers domaines (socio, histoire, art, ingénierie, design, pédagogie).
+Il en ressort des productions de types très variés et peu courants pour un labo de sciences sociales: aux traditionnels "papiers" (articles, livres, working paper, OpEd...) s'ajoutent des applis,  des outils de collecte, d'exploration, de visualisation des données...
 
 Constitué d'une trentaine de personnes, son équipe se distingue de celles des autres laboratoires de SciencesPo par sa grande diversité : chercheurs en sciences sociales, designers, ingénieurs pédagogiques et développeurs s'y côtoient.
 
@@ -75,9 +76,15 @@ Itérations de 2 semaines.
 
 *Outils, environnements, logiciels*
 
+Tout le travail effectué l'a été en Python ou en Javascript. En Python, le gestionnaire d'environnement virtuels pyenv a été utilisé, pour compartimenter la version de Python et les dépendances de propres à chaque projet. 
+
+Concernant les bases de données, ont été utilisés Elasticsearch (ainsi que son interface de visualisation et de monitoring Kibana) et MongoDB.
+
+Pour le développement d'interfaces, React et material-ui ont été plébiscités, ainsi que Recharts pour la visualisation de données.
+
 *Comment les développements ont été vérifiés/testés/validés ?*
 
-
+La plupart des projets comportent des tests unitaires, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI.
 
 ## Prise de recul
 
