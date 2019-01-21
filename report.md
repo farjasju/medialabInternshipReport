@@ -11,7 +11,7 @@ Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très
 
 # Résumé technique
 
-Mon stage a principalement consisté en 
+Mon stage a principalement consisté en l'amélioration d'outils et de librairies utilisés pour répondre aux besoins de chercheurs traitant de grandes masses de données issues du web.
 
 # 1. Un médialab à SciencesPo ?
 
