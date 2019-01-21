@@ -34,7 +34,7 @@ Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
 
 L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'un ingénieur de recherche.
 
-J'ai principalement travaillé avec Guillaume Plique, mon tuteur (développeur) et Benjamin Ooghe-Tabanou, ingénieur de recherche. 
+J'ai principalement travaillé avec mon tuteur Guillaume Plique (développeur) et Benjamin Ooghe-Tabanou, ingénieur de recherche. 
 
 *Donneurs d'ordre ? Comment l'info circule-t-elle ?*
 
@@ -48,7 +48,7 @@ J'ai principalement travaillé avec Guillaume Plique, mon tuteur (développeur) 
 
 *Sujet initial*
 
-Le sujet global porte sur l'application des sciences des données à l'étude de l'espace public numérique.
+Le sujet global porte sur l'application des sciences des données à l'étude de l'espace public numérique. Dans le cadre d'un projet de recherche étudiant la polarisation 
 
 *Ses évolutions (et leurs causes)*
 
@@ -139,7 +139,7 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 
 ![Image of Yaktocat](data/benchmark_results.png)
 
-
+-> Multithreading 
 
  
 
