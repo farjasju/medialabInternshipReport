@@ -7,7 +7,7 @@
 
 # Remerciements
 
-Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce qu'ils m'ont appris. 
+Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. 
 
 # Résumé technique
 
@@ -24,6 +24,8 @@ Constituée d'une trentaine de personnes, son équipe se distingue de celles des
 
 Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://www.lafabriquedelaloi.fr) qui propose une visualisation graphique des procédures parlementaires, le projet [Datapol](https://medialab.github.io/datapol/app/#!/) qui analyse les données numériques de la campagne présidentielle de 2017, ou [Dime Web](https://dime-shs.sciencespo.fr/instruments/dime-web/), qui vise à établir un ensemble d'outils open source permettant de collecter des données sur le web et sur les réseaux socieux (Twitter notamment).
 
+
+
 *Laboratoires similaires ?*
 
 
@@ -32,7 +34,7 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
 
-L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'ingénieurs de recherche, de designers et de développeurs. L'organisation est très horizontale, et aucune hiérarchie ne transparaît au quotidien
+L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'ingénieurs de recherche, de designers et de développeurs. L'organisation est très horizontale, et aucune hiérarchie ne transparaît au quotidien, les décisions étant prises en collectif.
 
 J'ai principalement travaillé avec mon tuteur Guillaume Plique (développeur) et Benjamin Ooghe-Tabanou, ingénieur de recherche. 
 
@@ -42,17 +44,23 @@ J'ai principalement travaillé avec mon tuteur Guillaume Plique (développeur) e
 
 *Méthodes et outils utilisés (agile, git) ? Validation des développements (tests) ?*
 
+L'équipe s'organise d'une part via une réunion hebdomadaire de tous les membres du laboratoire, où l'on partage les avancées et projets de chacun et où ont lieux des réflexions plus larges et globales sur le laboratoire, et d'autre part via la réunion technique, bimensuelle.
+
 # Ma mission
 
 ## Le sujet
 
 *Sujet initial*
 
-Le sujet global porte sur l'application des sciences des données à l'étude de l'espace public numérique. Dans le cadre d'un projet de recherche étudiant la polarisation 
+Dans le cadre d'un projet de recherche de [Dominique Cardon](https://fr.wikipedia.org/wiki/Dominique_Cardon_(sociologue)) étudiant la polarisation de l'espace médiatique numérique français, le stage porte sur les techniques de récolte de données web (sites, réseaux sociaux) et de visualisation de celles-ci. 
 
 *Ses évolutions (et leurs causes)*
 
+
+
 *Situer le sujet dans les objectifs du labo*
+
+
 
 *Cahier des charges précis ou participation à son élaboration ?*
 
@@ -111,7 +119,7 @@ Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du 
 
 ### Gazouilloire
 
-Utilisé en permanence par le laboratoire, Gazouilloire est un outil de collecte de tweets selon certains critères (mots-clés, période, langage...).
+Utilisé en permanence par le laboratoire, Gazouilloire est un outil de collecte de tweets selon certains critères (mots-clés, période, langage...). Imaginons que l'on souhaite étudier la polémique autour de Parcoursup ; il suffit de lancer une collecte sur le mot-clé `'parcoursup'` . En utilisant une clé d'API Twitter (générée via un compte développeur), l'outil va collecter les tweets contenant ce mot-clé, à la fois en direct (`stream`) et en remontant dans le passé ( `search` - sur quelques jours seulement, la limite étant fixée par l'API). Gazouilloire formate ensuite les champs récupérés pour chaque tweet (plus d'une cinquantaine : contenu texte, hashtags, auteur, date...) et les indexe dans une base de données.
 
 ##### Pourquoi changer de base de données ?
 
