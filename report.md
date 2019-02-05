@@ -56,13 +56,15 @@ Dans le cadre d'un projet de recherche de [Dominique Cardon](https://fr.wikipedi
 
 *Ses évolutions (et leurs causes)*
 
-
+Les besoins de collecte et de traitement de données étant multiples, j'ai été amené à travailler sur plusieurs outils.
 
 *Situer le sujet dans les objectifs du labo*
 
-
+Un des objectifs du laboratoire en termes de collecte de données est d'élargir son spectre de sources : les données récoltées proviennent actuellement de pages web (via le *crawler* [Hyphe](https://github.com/medialab/hyphe)) et de Twitter (via l'outil [Gazouilloire](https://github.com/medialab/gazouilloire)).
 
 *Cahier des charges précis ou participation à son élaboration ?*
+
+
 
 
 
