@@ -5,6 +5,10 @@
 - réflexion sur la portée de vos réalisations, leurs avantages et inconvénients, leur devenir dans l'entreprise
 - philosophie de l'open-source (contributions dans les 2 sens)
 
+
+
+Résumé : web-mining, open source
+
 # Remerciements
 
 Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. 
@@ -129,7 +133,9 @@ MongoDB est un système de gestion de base de données très souple, et adapté 
 
 ##### Comment changer de base de données ?
 
+abstraction
 
+mappings
 
 ### Extraction du contenu texte à partir de HTML
 
@@ -159,15 +165,25 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 
 ### Facebook
 
+problématique
 
+différentes options
 
 ### Graphology
 
-
+graphology-utils
 
 ### Ural
 
+utilité
 
+architecture
+
+tests unitaires
+
+### Minet
+
+-> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
 
 # Conclusion
 
