@@ -11,44 +11,48 @@ Résumé : web-mining, open source
 
 # Remerciements
 
-Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. 
+Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux., ainsi que toute l'équipe du laboratoire auprès de qui effectuer ce stage fut un plaisir.
 
 # Résumé technique
 
-Mon stage a principalement consisté en l'amélioration d'outils et de librairies utilisés pour répondre aux besoins de chercheurs traitant de grandes masses de données issues du web.
+Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. 
 
 # 1. Un médialab à SciencesPo ?
 
 ## Un laboratoire un peu particulier
 
 Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été créé en 2009 pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Ces données numériques sont au coeur des projets de recherche du labo : comment on perçoit/utilise les données numériques dans la société, ce qu'on en fait, quels outils on peut créer pour les collecter, les étudier, les exploiter, les visualiser, et ce, dans divers domaines (socio, histoire, art, ingénierie, design, pédagogie).
-Il en ressort des productions de types très variés et peu courants pour un labo de sciences sociales : aux traditionnels "papiers" (articles, livres, working paper, OpEd...) s'ajoutent des applis,  des outils de collecte, d'exploration, de visualisation des données...
+Il en ressort des productions de types très variés et peu courants pour un laboratoire de sciences sociales : aux traditionnels "papiers" (articles, livres, working paper, OpEd...) s'ajoutent des applis,  des outils de collecte, d'exploration, de visualisation des données...
 
 Constituée d'une trentaine de personnes, son équipe se distingue de celles des autres laboratoires de SciencesPo par sa grande diversité : chercheurs en sciences sociales, designers, ingénieurs pédagogiques et développeurs s'y côtoient.
 
-Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://www.lafabriquedelaloi.fr) qui propose une visualisation graphique des procédures parlementaires, le projet [Datapol](https://medialab.github.io/datapol/app/#!/) qui analyse les données numériques de la campagne présidentielle de 2017, ou [Dime Web](https://dime-shs.sciencespo.fr/instruments/dime-web/), qui vise à établir un ensemble d'outils open source permettant de collecter des données sur le web et sur les réseaux socieux (Twitter notamment).
+Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://www.lafabriquedelaloi.fr) qui propose une visualisation graphique  et détaillée des procédures parlementaires, le projet [Datapol](https://medialab.github.io/datapol/app/#!/) qui analyse les données numériques de la campagne présidentielle de 2017, ou [Dime Web](https://dime-shs.sciencespo.fr/instruments/dime-web/), qui vise à établir un ensemble d'outils open source permettant de collecter des données sur le web et sur les réseaux socieux (Twitter notamment).
 
 
 
 *Laboratoires similaires ?*
 
-
+Le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/) sont des laboratoires similaires, et travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/), qui répond aux mêmes types de problématiques qu'aborde le Médialab.
 
 ## L'équipe
 
 Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
 
-L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'ingénieurs de recherche, de designers et de développeurs. L'organisation est très horizontale, et aucune hiérarchie ne transparaît au quotidien, les décisions étant prises en collectif.
+L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'ingénieurs de recherche, de designers et de développeurs. L'organisation est très horizontale, et aucune hiérarchie ne transparaît au quotidien, les décisions étant prises en collectif, lors des réunions hebdomadaires et des conseils de laboratoires.
 
 J'ai principalement travaillé avec mon tuteur Guillaume Plique (développeur) et Benjamin Ooghe-Tabanou, ingénieur de recherche. 
 
 *Donneurs d'ordre ? Comment l'info circule-t-elle ?*
 
+
+
 *Technologies maîtrisées par l'équipe ?*
+
+Les langages utilisés par l'équipe sont principalement Python et Javascript, avec des frameworks comme React, ainsi que des outils comme Docker.
 
 *Méthodes et outils utilisés (agile, git) ? Validation des développements (tests) ?*
 
-L'équipe s'organise d'une part via une réunion hebdomadaire de tous les membres du laboratoire, où l'on partage les avancées et projets de chacun et où ont lieux des réflexions plus larges et globales sur le laboratoire, et d'autre part via la réunion technique, bimensuelle.
+L'équipe s'organise d'une part via une réunion hebdomadaire de tous les membres du laboratoire, où l'on partage les avancées et projets de chacun et où ont lieux des réflexions plus larges et globales sur le laboratoire, et d'autre part via la réunion technique, bimensuelle. C'est pendant cette réunion technique que sont gérés les projets en cours et à suivre, via une méthode agile.
 
 # Ma mission
 
@@ -60,11 +64,11 @@ Dans le cadre d'un projet de recherche de [Dominique Cardon](https://fr.wikipedi
 
 *Ses évolutions (et leurs causes)*
 
-Les besoins de collecte et de traitement de données étant multiples, j'ai été amené à travailler sur plusieurs outils.
+Les besoins de collecte et de traitement de données étant multiples, j'ai été amené à travailler sur plusieurs outils, répondant chacun à un besoin particulier.
 
 *Situer le sujet dans les objectifs du labo*
 
-Un des objectifs du laboratoire en termes de collecte de données est d'élargir son spectre de sources : les données récoltées proviennent actuellement de pages web (via le *crawler* [Hyphe](https://github.com/medialab/hyphe)) et de Twitter (via l'outil [Gazouilloire](https://github.com/medialab/gazouilloire)).
+Un des objectifs du laboratoire en termes de collecte de données est d'élargir son spectre de sources : les données récoltées proviennent actuellement de pages web (via le *crawler* [Hyphe](https://github.com/medialab/hyphe)) et de Twitter (via l'outil [Gazouilloire](https://github.com/medialab/gazouilloire)). Une partie importante de l'espace médiatique numérique échappe donc aux outils du laboratoire : Facebook, LinkedIn, Instagram par exemple. 
 
 *Cahier des charges précis ou participation à son élaboration ?*
 
@@ -99,7 +103,7 @@ Pour le développement d'interfaces, React et material-ui ont été plébiscité
 
 *Comment les développements ont été vérifiés/testés/validés ?*
 
-La plupart des projets comportent des tests unitaires, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI.
+La plupart des librairies comportent des tests unitaires, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI. Les développements de nouvelles fonctionnalités ont été faits sur des branches dédiées sur git, puis envoyés sous forme de Pull Requests avant d'être mergées à la branche master.
 
 
 
