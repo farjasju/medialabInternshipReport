@@ -32,7 +32,7 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 *Laboratoires similaires ?*
 
-Le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/) sont des laboratoires similaires, et travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/), qui répond aux mêmes types de problématiques qu'aborde le Médialab.
+On peut citer comme laboratoires similaires le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/), répondant aux mêmes types de problématiques abordées par le Médialab.
 
 ## L'équipe
 
@@ -113,7 +113,7 @@ La plupart des librairies comportent des tests unitaires, qui sont vérifiés gr
 Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
 Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur les utilisateurs**, les nouveaux usages, le respect de la **vie privée** ou de l'environnement...*
 
-
+Amélioration d'outils répondant à des besoins récurrents des chercheurs.
 
 # Le travail réalisé
 
@@ -122,6 +122,8 @@ Si besoin, vous pourriez structurer le reste du rapport en plusieurs parties et 
 Travaillez les liaisons pour aboutir à une lecture fluide. Voici un exemple (un peu exagéré) : "Après avoir inventorié les technologies disponibles dans la section précédente, cette section est consacrée aux expérimentations que nous avons menées avec chacune d'elles. Ce travail nous permettra de sélectionner les technologies retenues, présentées dans la section suivante."
 Présentez votre réflexion et vos choix, qui devraient être justifiés. Examinez rapidement les autres alternatives.
 Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du général au particulier. Evitez de présenter un catalogue des fonctions développées.*
+
+Le web-mining est un domaine vaste.
 
 ### Hyphe
 
@@ -143,11 +145,23 @@ MongoDB est un système de bases de données non-relationnelles, très souple à
 
 S'il permet de stocker rapidement de grandes quantitées de données, l'accès à ces données en lecture (une fois stockées) est en revanche limité en vitesse, particulièrement dans le cas d'aggrégations. Ce qui n'est pas problématique si l'on veut afficher une liste de 100 tweets, mais qui devient très handicapant lorsque l'on souhaite afficher la distribution temporelle d'un corpus de 2 millions de tweets.
 
+Aggrégation temporelle (nombre de tweets par jour) sur un corpus de 2 millions de tweets :
+
+| MongoDB       | Elasticsearch |
+| ------------- | ------------- |
+| 26,7 secondes | 120 ms        |
+
+
+
 ##### Comment changer de base de données ?
 
 abstraction
 
 mappings
+
+### Urlsresolver
+
+
 
 ### Extraction du contenu texte à partir de HTML
 
@@ -170,8 +184,6 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 -> Multithreading 
 
  
-
-### Urlsresolver
 
 
 
