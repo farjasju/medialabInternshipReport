@@ -32,7 +32,7 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 *Laboratoires similaires ?*
 
-On peut citer comme laboratoires similaires le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/), répondant aux mêmes types de problématiques abordées par le Médialab.
+On peut citer comme laboratoires similaires le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/), répondant aux mêmes types de problématiques abordées par le Médialab. DMI AMsterdam , OXford Internet Institute , TANTlab. DIfférences d'échelle.
 
 ## L'équipe
 
@@ -40,7 +40,7 @@ Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
 
 L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'ingénieurs de recherche, de designers et de développeurs. L'organisation est très horizontale, et aucune hiérarchie ne transparaît au quotidien, les décisions étant prises en collectif, lors des réunions hebdomadaires et des conseils de laboratoires.
 
-J'ai principalement travaillé avec mon tuteur Guillaume Plique (développeur) et Benjamin Ooghe-Tabanou, ingénieur de recherche. 
+J'ai principalement travaillé avec mon tuteur Guillaume Plique (ingénieur de recherche) et Benjamin Ooghe-Tabanou, ingénieur de recherche. 
 
 *Donneurs d'ordre ? Comment l'info circule-t-elle ?*
 
@@ -61,6 +61,20 @@ L'équipe s'organise d'une part via une réunion hebdomadaire de tous les membre
 *Sujet initial*
 
 Dans le cadre d'un projet de recherche de [Dominique Cardon](https://fr.wikipedia.org/wiki/Dominique_Cardon_(sociologue)) étudiant la polarisation de l'espace médiatique numérique français, le stage porte sur les techniques de récolte de données web (sites, réseaux sociaux) et de visualisation de celles-ci. 
+
+Répliquer une étude du Berman : intercitation des médias, comment les gens partagent ces médias, informations révélées apr le réseau, vérifier des hyptohèses sociologiques, Benalla : comment les thèmes d'un sujet se diffusent au travers des différents médias, légitimité des médias ?, 
+
+Hypothèse de l'institut Montaigne : aux US grosse polarisation des médias (gauche/droite assez hermétiques), qui s'accentue (Berkman). Hypothèse du directeur de Berkman : la droite s'éloigne (jeu dégueulasse) et le centre
+
+Même chose en France : globalement oui, mais bien moins dramatique. Médias alternatifs très peu considérés 
+
+Polarisation : réseaux de co-occurence de tweets (réseau bipartite : 2 types de noeuds : un utilisateur partage un média n fois) réseau de similarité de média par le truchement des utilisateurs
+
+Chaque média est un vecteur de ses utilisateurs -> similarité cosinus
+
+Deux médias seront liés s'ils ont un profil de gens qui les partagent similaire
+
+Problème : on finit par prouver des trucs
 
 *Ses évolutions (et leurs causes)*
 
@@ -158,6 +172,12 @@ Aggrégation temporelle (nombre de tweets par jour) sur un corpus de 2 millions 
 abstraction
 
 mappings
+
+
+
+Réseau de tweets : https://mail.google.com/mail/u/1/#search/jeanphilippe.cointet%40sciencespo.fr/FMfcgxvzKbVkNHcsdwmSfplLpRGNcDvg
+
+Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0NxLY3Zyi_7ubbLQ9RuqJknMk/edit?ts=5b31e7ec 
 
 ### Urlsresolver
 
