@@ -15,11 +15,19 @@ Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très
 
 # Sommaire
 
+[TOC]
+
 
 
 # Résumé technique
 
 Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Les développements ont été principalement réalisés en Python, 
+
+# Introduction
+
+
+
+
 
 # 1. Un Médialab à SciencesPo ?
 
@@ -159,58 +167,40 @@ Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du 
 
 ### Twitter
 
+#### Fonctionnement de l'outil Gazouilloire
+
 Pour récolter des tweets, le laboratoire utilise un outil maison, [Gazouilloire](https://github.com/medialab/gazouilloire). 
 
 Gazouilloire est un outil de collecte de tweets selon certains critères (mots-clés, hashtag, période, langage...). Imaginons que l'on souhaite étudier la polémique autour de Parcoursup et collecter les tweets liés au sujet ; il suffit de lancer une collecte sur le mot-clé `'parcoursup'` . En utilisant une clé d'API Twitter (générée via un compte développeur), l'outil va collecter les tweets contenant ce mot-clé, à la fois en direct (`stream`) et en remontant dans le passé ( `search` ). L'API Twitter étant limitée à une dizaine de jours de retour dans le passé, un chercheur souhaitant étudier un sujet sur plusieurs semaines ou plusieurs mois devra faire tourner sa collecte sur la durée souhaitée.
 
 Gazouilloire formate ensuite les champs récupérés pour chaque tweet (plus d'une cinquantaine : contenu texte, hashtags, auteur, date...) et les stocke dans une base de données.
 
-| Champ                   | Valeur                                                       |
-| ----------------------- | ------------------------------------------------------------ |
-| _id                     | `1093155603676086272`                                        |
-| _index                  | `parcoursup_tweets`                                          |
-| _type                   | `tweet`                                                      |
-| collected_at_timestamp  | `1547110205.4710896`                                         |
-| collected_via_search    | -                                                            |
-| collected_via_stream    | `true`                                                       |
-| coordinates             | -                                                            |
-| created_at              | `Thu Jan 10 09:16:55 +0000 2019`                             |
-| favorite_count          | `12`                                                         |
-| hashtags                | `parcoursup`                                                 |
-| in_reply_to_screen_name | -                                                            |
-| lang                    | `fr`                                                         |
-| links                   | `https://t.co/qfgDqxLivf`                                    |
-| links_to_resolve        | `false`                                                      |
-| medias                  | -                                                            |
-| mentions_names          | -                                                            |
-| possibly_sensitive      | -                                                            |
-| proper_links            | `https://www.francetvinfo.fr/societe/parcoursup/antilles.html` |
-| quoted_user             | -                                                            |
-| reply_count             | `0`                                                          |
-| retweet_count           | `9`                                                          |
-| retweet_id              | -                                                            |
-| retweet_timestamp       | -                                                            |
-| source                  | `<a href="https://about.twitter.com/products/tweetdeck" rel="nofollow">TweetDeck</a>` |
-| text                    | `#Parcoursup : la justice demande à l'université des Antilles de publier son algorithme de classement https://t.co/qfgDqxLivf` |
-| timestamp               | `1547110200`                                                 |
-| url                     | `https://twitter.com/franceinfo/status/1093155603676086272`  |
-| user_created_at         | `Thu May 07 08:17:50 +0000 2009`                             |
-| user_description        | `L'actualité en direct et en continu avec le média global du service public.` |
-| user_favourites         | `17765`                                                      |
-| user_followers          | `1326943`                                                    |
-| user_friends            | `1296`                                                       |
-| user_id                 | `38395124`                                                   |
-| user_location           | `Paris, France`                                              |
-| user_name               | `franceinfo`                                                 |
-| user_url                | `http://franceinfo.fr`                                       |
-| user_verified           | `true`                                                       |
+![Champs d'un tweet](data/tweet_fields.png)
 
 *Un tweet, tel que collecté par Gazouilloire (illustration, tous les champs ne sont pas représentés)*
 
 
-Gazouilloire est un outil écrit en Python 2, faisant appel à une base de données MongoDB.
+
+
+Techniquement, Gazouilloire est un outil écrit en Python 2, faisant appel à une base de données MongoDB.
 
 Mon travail a d'abord consisté à rendre l'outil compatible Python 3, tout en gardant la compatibilité avec Python 2, puis à migrer vers une base de données Elasticsearch.
+
+
+
+#### Prospection de fonctionnalités de visualisation
+
+Gazouilloire est un outil en ligne de commande, qui se lance donc via un terminal. Les paramètres de la collecte (mots-clés, hashtags, période, ...) sont entrés dans un fichier JSON avant le lancement du programme. Cela le rend difficilement accessible aux chercheurs en sciences sociales qui n'ayant pas de formation en informatique. 
+
+![](data/webapp_diagram.png)
+
+
+
+#### Compatibilité Python 3
+
+
+
+#### Migration de MongoDB à Elasticsearch
 
 ##### Pourquoi changer de base de données ?
 
