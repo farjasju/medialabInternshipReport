@@ -188,17 +188,35 @@ Mon travail a d'abord consisté à rendre l'outil compatible Python 3, tout en g
 
 
 
-#### Prospection de fonctionnalités de visualisation
+#### Ébauche d'une interface
 
 Gazouilloire est un outil en ligne de commande, qui se lance donc via un terminal. Les paramètres de la collecte (mots-clés, hashtags, période, ...) sont entrés dans un fichier JSON avant le lancement du programme. Cela le rend difficilement accessible aux chercheurs en sciences sociales qui n'ayant pas de formation en informatique. 
 
+Pour le développment de l'interface, le choix d'un framework comme React se révèle pertinent. Le recours à material-ui permet d'utiliser des composants responsive préexistants.
+
+Pages multiples : React Router
+
+Gestion des routes avec le serveur Flask
+
+Visualisations simples : D3.js ? Chart.js ? Chartist.js ? Recharts
+
+Recharts : nb tweets / jour : agrégation Mongo
+
+
+
 ![](data/webapp_diagram.png)
+
+monitoring
 
 
 
 #### Compatibilité Python 3
 
+future
 
+encodage
+
+urlsresolver : test Travis
 
 #### Migration de MongoDB à Elasticsearch
 
@@ -220,9 +238,29 @@ Agrégation temporelle (nombre de tweets par jour) sur un corpus de 2 millions d
 
 ##### Comment changer de base de données ?
 
-abstraction
+script d'indexation à partir de la mongo vers ES
+
+Branchement de l'interface sur ES (modification du serveur Flask)
+
+abstraction : 2 classes
+
+pb des 2 niveaux différents : Mongo (db1 -> tweets & links), ES (db1_tweets, db1_links)
 
 mappings
+
+choix de plusieurs collectes : plusieurs index
+
+remplacement des liens
+
+bulk indexing
+
+ids des tweets comme IDs ES
+
+keyword/text
+
+text analysis : fielddata, pas d'agrégatino avec les champs text (SEARCH : quels docs contiennent ce terme ?, AGG/SORT : Quelle est la valeur de ce champ pour tel doc ?)
+
+heap size (tweets FR : 35M)
 
 
 
@@ -232,7 +270,9 @@ Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0Nx
 
 ### Facebook
 
+1 appel toutes les 15s : 84h (3,5 jours) pour 10k pages
 
+-> doc utilisation graph API sur polarisation
 
 ### Pages web
 
@@ -240,7 +280,13 @@ Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0Nx
 
 ### Normalisation des urls
 
+ural fonctions
 
+CLI
+
+lruTRIE
+
+join
 
 ### Extraction du contenu pertinent d'une page web
 
