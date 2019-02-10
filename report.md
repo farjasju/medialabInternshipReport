@@ -159,9 +159,54 @@ Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du 
 
 ### Twitter
 
-Le laboratoire collecte des tweets grâce à un outil maison, [Gazouilloire](https://github.com/medialab/gazouilloire). 
+Pour récolter des tweets, le laboratoire utilise un outil maison, [Gazouilloire](https://github.com/medialab/gazouilloire). 
 
-Utilisé en permanence par le laboratoire, Gazouilloire est un outil de collecte de tweets selon certains critères (mots-clés, période, langage...). Imaginons que l'on souhaite étudier la polémique autour de Parcoursup ; il suffit de lancer une collecte sur le mot-clé `'parcoursup'` . En utilisant une clé d'API Twitter (générée via un compte développeur), l'outil va collecter les tweets contenant ce mot-clé, à la fois en direct (`stream`) et en remontant dans le passé ( `search` - sur quelques jours seulement, la limite étant fixée par l'API). Gazouilloire formate ensuite les champs récupérés pour chaque tweet (plus d'une cinquantaine : contenu texte, hashtags, auteur, date...) et les stocke dans une base de données.
+Gazouilloire est un outil de collecte de tweets selon certains critères (mots-clés, hashtag, période, langage...). Imaginons que l'on souhaite étudier la polémique autour de Parcoursup et collecter les tweets liés au sujet ; il suffit de lancer une collecte sur le mot-clé `'parcoursup'` . En utilisant une clé d'API Twitter (générée via un compte développeur), l'outil va collecter les tweets contenant ce mot-clé, à la fois en direct (`stream`) et en remontant dans le passé ( `search` ). L'API Twitter étant limitée à une dizaine de jours de retour dans le passé, un chercheur souhaitant étudier un sujet sur plusieurs semaines ou plusieurs mois devra faire tourner sa collecte sur la durée souhaitée.
+
+Gazouilloire formate ensuite les champs récupérés pour chaque tweet (plus d'une cinquantaine : contenu texte, hashtags, auteur, date...) et les stocke dans une base de données.
+
+| Champ                   | Valeur                                                       |
+| ----------------------- | ------------------------------------------------------------ |
+| _id                     | `1093155603676086272`                                        |
+| _index                  | `parcoursup_tweets`                                          |
+| _type                   | `tweet`                                                      |
+| collected_at_timestamp  | `1547110205.4710896`                                         |
+| collected_via_search    | -                                                            |
+| collected_via_stream    | `true`                                                       |
+| coordinates             | -                                                            |
+| created_at              | `Thu Jan 10 09:16:55 +0000 2019`                             |
+| favorite_count          | `12`                                                         |
+| hashtags                | `parcoursup`                                                 |
+| in_reply_to_screen_name | -                                                            |
+| lang                    | `fr`                                                         |
+| links                   | `https://t.co/qfgDqxLivf`                                    |
+| links_to_resolve        | `false`                                                      |
+| medias                  | -                                                            |
+| mentions_names          | -                                                            |
+| possibly_sensitive      | -                                                            |
+| proper_links            | `https://www.francetvinfo.fr/societe/parcoursup/antilles.html` |
+| quoted_user             | -                                                            |
+| reply_count             | `0`                                                          |
+| retweet_count           | `9`                                                          |
+| retweet_id              | -                                                            |
+| retweet_timestamp       | -                                                            |
+| source                  | `<a href="https://about.twitter.com/products/tweetdeck" rel="nofollow">TweetDeck</a>` |
+| text                    | `#Parcoursup : la justice demande à l'université des Antilles de publier son algorithme de classement https://t.co/qfgDqxLivf` |
+| timestamp               | `1547110200`                                                 |
+| url                     | `https://twitter.com/franceinfo/status/1093155603676086272`  |
+| user_created_at         | `Thu May 07 08:17:50 +0000 2009`                             |
+| user_description        | `L'actualité en direct et en continu avec le média global du service public.` |
+| user_favourites         | `17765`                                                      |
+| user_followers          | `1326943`                                                    |
+| user_friends            | `1296`                                                       |
+| user_id                 | `38395124`                                                   |
+| user_location           | `Paris, France`                                              |
+| user_name               | `franceinfo`                                                 |
+| user_url                | `http://franceinfo.fr`                                       |
+| user_verified           | `true`                                                       |
+
+*Un tweet, tel que collecté par Gazouilloire (illustration, tous les champs ne sont pas représentés)*
+
 
 Gazouilloire est un outil écrit en Python 2, faisant appel à une base de données MongoDB.
 
