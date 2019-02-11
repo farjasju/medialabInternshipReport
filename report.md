@@ -15,35 +15,33 @@ Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très
 
 # Sommaire
 
-[TOC]
-
-> * [[Notes]](#notes)
-> * [Remerciements](#remerciements)
-> * [Sommaire](#sommaire)
-> * [Résumé technique](#r%C3%A9sum%C3%A9-technique)
-> * [Introduction](#introduction)
-> * [1. Un Médialab à SciencesPo ?](#1-un-m%C3%A9dialab-%C3%A0-sciencespo-)
->   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
->   * [1.2 L'équipe](#12-l%C3%A9quipe)
-> * [2. Ma mission](#2-ma-mission)
->   * [2.1 Le sujet](#21-le-sujet)
->   * [2.2 Le planning](#22-le-planning)
->   * [2.3 Mes contributions](#23-mes-contributions)
->   * [2.4 Outils & technologies](#24-outils--technologies)
->   * [2.5 Prise de recul](#25-prise-de-recul)
-> * [3. Le travail réalisé](#3-le-travail-r%C3%A9alis%C3%A9)
->   * [3.1 Collecter](#31-collecter)
->     - [3.1.1 Twitter](#311-twitter)
->     - [3.1.2 Facebook](#312-facebook)
->     - [3.1.3 Pages web](#313-pages-web)
->   * [3.2 Traiter](#32-traiter)
->     - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
->     - [3.2.2 Extraction du contenu pertinent d'une page web](#322-extraction-du-contenu-pertinent-dune-page-web)
->     - [Minet](#minet)
-> * [Conclusion](#conclusion)
-> * [Bibliographie](#bibliographie)
-> * [Glossaire](#glossaire)
-> * [Annexes](#annexes)#un-medialab-a-sciencespo)
+ * [[Notes]](#notes)
+ * [Remerciements](#remerciements)
+ * [Sommaire](#sommaire)
+ * [Résumé technique](#résumé-technique)
+ * [Introduction](#introduction)
+ * [1. Un Médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
+   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
+   * [1.2 L'équipe](#12-léquipe)
+ * [2. Ma mission](#2-ma-mission)
+   * [2.1 Le sujet](#21-le-sujet)
+   * [2.2 Le planning](#22-le-planning)
+   * [2.3 Mes contributions](#23-mes-contributions)
+   * [2.4 Outils & technologies](#24-outils--technologies)
+   * [2.5 Prise de recul](#25-prise-de-recul)
+ * [3. Le travail réalisé](#3-le-travail-réalisé)
+   * [3.1 Collecter](#31-collecter)
+     - [3.1.1 Twitter](#311-twitter)
+     - [3.1.2 Facebook](#312-facebook)
+     - [3.1.3 Pages web](#313-pages-web)
+   * [3.2 Traiter](#32-traiter)
+     - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
+     - [3.2.2 Extraction du contenu pertinent d'une page web](#322-extraction-du-contenu-pertinent-dune-page-web)
+     - [Minet](#minet)
+ * [Conclusion](#conclusion)
+ * [Bibliographie](#bibliographie)
+ * [Glossaire](#glossaire)
+ * [Annexes](#annexes)
 
 # Résumé technique
 
@@ -203,10 +201,6 @@ Gazouilloire formate ensuite les champs récupérés pour chaque tweet (plus d'u
 
 ![Champs d'un tweet](data/tweet_fields.png)
 
-*Un tweet, tel que collecté par Gazouilloire (illustration, tous les champs ne sont pas représentés)*
-
-
-
 
 Techniquement, Gazouilloire est un outil écrit en Python 2, faisant appel à une base de données MongoDB.
 
@@ -216,11 +210,47 @@ Mon travail a d'abord consisté à rendre l'outil compatible Python 3, tout en g
 
 #### 3.1.1.2 Ébauche d'une interface
 
+##### Quels besoins ?
+
 Gazouilloire est un outil en ligne de commande, qui se lance donc via un terminal. Les paramètres de la collecte (mots-clés, hashtags, période, ...) sont entrés dans un fichier JSON avant le lancement du programme. Cela le rend difficilement accessible aux chercheurs en sciences sociales qui n'ayant pas de formation en informatique. 
 
-Pour le développment de l'interface, le choix d'un framework comme React se révèle pertinent. Le recours à material-ui permet d'utiliser des composants responsive préexistants.
+En outre, une interface de visualisation rapide des données stockées dans la base de données serait bienvenue, afin d'identifier des tendances ou de repérer d'éventuels problèmes.
+
+Enfin, la possibilité de surveiller l'état des collectes directement dans l'interface faciliterait grandement le suivi de celles-ci. 
+
+##### Quelles technologies ?
+
+Il faut distinguer les différentes composantes nécessaires au fonctionnement de l'interface de l'application.
+
+- un client, qui gère l'interface graphique (développé en Javascript)
+- un serveur simple (développé en Python, grâce au framework Flask)
+- une base de données (ici, MongoDB)
+
+![](data/webapp_diagram.png)
+
+**L'interface utilisateur**
+
+Pour le développement de l'interface, le choix d'un librairie comme [React](https://reactjs.org/) se révèle pertinent. Le recours au framework [material-ui](https://material-ui.com/) permet d'utiliser des composants pré-existants à la fois fonctionnels, esthétiques et responsive*. 
+
+![](data/react_material.png)
+
+React est une bibliothèque Javascript libre développée par Facebook qui vise à faciliter la création d'interface d'applications web. Elle est notamment utilisée par Netflix, Yahoo, Airbnb, Sony ainsi que WhatsApp et Instagram (appartenant à Facebook).[^fn1]
+
+React fonctionne par la création de composants réutilisables, possédant chacun un état pouvant évoluer avec le temps. Avec React a été développé un langage, le [JSX](https://reactjs.org/docs/introducing-jsx.html), hybride entre Javascript et HTML. Le JSX permet de générer des objets Javascript avec une notation similaire à celle du HTML :
+
+```jsx
+const element = <h1>Hello, {name}</h1>;
+```
+
+Une des particularités de React est l'utilisation d'un DOM* virtuel : plutôt que de regénérer tout le DOM à chaque modification de la page, le DOM est représenté comme une arborescence d'objets Javascript, ce qui permet à React de détecter la moindre modification de la page. Une fois la modification identifiée, React interagit avec le DOM pour ne changer que ce qui est nécessaire.
+
+
 
 Pages multiples : React Router
+
+**Le serveur**
+
+
 
 Gestion des routes avec le serveur Flask
 
@@ -230,13 +260,11 @@ Recharts : nb tweets / jour : agrégation Mongo
 
 
 
-![](data/webapp_diagram.png)
-
 monitoring
 
 
 
-#### 3.1.1.3 Compatibilité Python 3
+#### 3.1.1.3 Passage de Python 2 à Python 3
 
 future
 
@@ -361,7 +389,17 @@ Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dan
 
 https://stph.scenari-community.org/contribs/nos/es3/co/es3.html 
 
+[^fn1]: http://example.com
+
+
+
 # Glossaire
+
+**DOM (Document Object Model)** :  
+
+**Responsive** : un site est *responsive* lorsque son contenu s'adapte automatiquement à la résolution du terminal utilisé pour le visionner. De nos jours, la quasi-totalité des sites sont *responsive*.
+
+
 
 <div style="page-break-after: always;"></div>
 
