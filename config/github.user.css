@@ -1,0 +1,17 @@
+@page {
+  margin: 10%;
+
+  @top-center {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    content: counter(page);
+  }
+}
+
+.typora-export #write {
+    padding: 0 !important;
+    max-width: 1200px !important;
+    margin-right: 0mm !important;
+    margin-left: 0mm !important;
+}
