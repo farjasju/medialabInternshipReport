@@ -17,7 +17,33 @@ Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très
 
 [TOC]
 
-
+> * [[Notes]](#notes)
+> * [Remerciements](#remerciements)
+> * [Sommaire](#sommaire)
+> * [Résumé technique](#r%C3%A9sum%C3%A9-technique)
+> * [Introduction](#introduction)
+> * [1. Un Médialab à SciencesPo ?](#1-un-m%C3%A9dialab-%C3%A0-sciencespo-)
+>   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
+>   * [1.2 L'équipe](#12-l%C3%A9quipe)
+> * [2. Ma mission](#2-ma-mission)
+>   * [2.1 Le sujet](#21-le-sujet)
+>   * [2.2 Le planning](#22-le-planning)
+>   * [2.3 Mes contributions](#23-mes-contributions)
+>   * [2.4 Outils & technologies](#24-outils--technologies)
+>   * [2.5 Prise de recul](#25-prise-de-recul)
+> * [3. Le travail réalisé](#3-le-travail-r%C3%A9alis%C3%A9)
+>   * [3.1 Collecter](#31-collecter)
+>     - [3.1.1 Twitter](#311-twitter)
+>     - [3.1.2 Facebook](#312-facebook)
+>     - [3.1.3 Pages web](#313-pages-web)
+>   * [3.2 Traiter](#32-traiter)
+>     - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
+>     - [3.2.2 Extraction du contenu pertinent d'une page web](#322-extraction-du-contenu-pertinent-dune-page-web)
+>     - [Minet](#minet)
+> * [Conclusion](#conclusion)
+> * [Bibliographie](#bibliographie)
+> * [Glossaire](#glossaire)
+> * [Annexes](#annexes)#un-medialab-a-sciencespo)
 
 # Résumé technique
 
@@ -31,7 +57,7 @@ Mon stage a principalement consisté en l'amélioration d'outils et de librairie
 
 # 1. Un Médialab à SciencesPo ?
 
-## Un laboratoire un peu particulier
+## 1.1 Un laboratoire un peu particulier
 
 Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été fondé en 2009 par le sociologue et philosophe [Bruno Latour](https://fr.wikipedia.org/wiki/Bruno_Latour) pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Ces données numériques sont au coeur des projets de recherche du labo : comment on perçoit/utilise les données numériques dans la société, ce qu'on en fait, quels outils on peut créer pour les collecter, les étudier, les exploiter, les visualiser, et ce, dans divers domaines (socio, histoire, art, ingénierie, design, pédagogie).
 Il en ressort des productions de types très variés et peu courants pour un laboratoire de sciences sociales : aux traditionnels "papiers" (articles, livres, working paper, OpEd...) s'ajoutent des applis, des outils de collecte, d'exploration, de visualisation des données...
@@ -44,7 +70,7 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 
 On peut citer comme laboratoires similaires le [Digital Methods Initiative](https://wiki.digitalmethods.net/) d'Amsterdam , l'[Oxford Internet Institute](https://www.oii.ox.ac.uk/), le [TANT-Lab](https://www.tantlab.aau.dk/) danois, ainsi que le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/) répondant aux mêmes types de problématiques abordées par le Médialab. Ces deux laboratoires américains diffèrent cependant du Médialab sur certains points, notamment l'effectif - le Berkman Klein Center compte plus de 200 personnes - et les financements - le médialab du MIT est financé entièrement par des sponsors.
 
-## L'équipe
+## 1.2 L'équipe
 
 Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
 
@@ -64,9 +90,9 @@ La très grande majorité des outils développés par le laboratoire le sont en 
 
 L'équipe s'organise d'une part via une réunion hebdomadaire de tous les membres du laboratoire, où l'on partage les avancées et projets de chacun et où ont lieux des réflexions plus larges et globales sur le laboratoire, et d'autre part via la réunion technique, bimensuelle. C'est pendant cette réunion technique que sont gérés les projets en cours et à suivre, via une méthode agile.
 
-# Ma mission
+# 2. Ma mission
 
-## Le sujet
+## 2.1 Le sujet
 
 *Sujet initial*
 
@@ -114,14 +140,14 @@ Un des objectifs du laboratoire en termes de collecte de données est d'élargir
 
 
 
-## Le planning
+## 2.2 Le planning
 
 *Vous pouvez présenter le planning initial et le planning réel avec les dates importantes.
 Quelles ont été les étapes importantes ? Indiquez celles qui auraient été les plus difficiles, les plus intéressantes, etc.*
 
 Itérations de 2 semaines.
 
-## Mes contributions
+## 2.3 Mes contributions
 
 *Etat du projet à votre arrivée ? Et à la fin ?*
 
@@ -129,7 +155,7 @@ Itérations de 2 semaines.
 
 
 
-## Outils & technologies
+## 2.4 Outils & technologies
 
 *Outils, environnements, logiciels*
 
@@ -145,7 +171,7 @@ La plupart des librairies comportent des tests unitaires, qui sont vérifiés gr
 
 
 
-## Prise de recul
+## 2.5 Prise de recul
 
 *Quel a été l'intérêt de votre travail pour l'entreprise ? Que va devenir votre contribution ? Présenter les perspectives.
 Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
@@ -153,7 +179,7 @@ Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur le
 
 Amélioration d'outils répondant à des besoins récurrents des chercheurs.
 
-# Le travail réalisé
+# 3. Le travail réalisé
 
 *Cette partie est la plus longue ; vous y présenterez votre travail.
 Si besoin, vous pourriez structurer le reste du rapport en plusieurs parties et non une seule. La ou les parties devraient elles-mêmes êtres structurées en plusieurs sous-sections au sein d'une même partie. Dans tous les cas, la logique du plan doit apparaître clairement.
@@ -163,11 +189,11 @@ Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du 
 
 
 
-## Collecter
+## 3.1 Collecter
 
-### Twitter
+### 3.1.1 Twitter
 
-#### Fonctionnement de l'outil Gazouilloire
+#### 3.1.1.1 Fonctionnement de l'outil Gazouilloire
 
 Pour récolter des tweets, le laboratoire utilise un outil maison, [Gazouilloire](https://github.com/medialab/gazouilloire). 
 
@@ -188,7 +214,7 @@ Mon travail a d'abord consisté à rendre l'outil compatible Python 3, tout en g
 
 
 
-#### Ébauche d'une interface
+#### 3.1.1.2 Ébauche d'une interface
 
 Gazouilloire est un outil en ligne de commande, qui se lance donc via un terminal. Les paramètres de la collecte (mots-clés, hashtags, période, ...) sont entrés dans un fichier JSON avant le lancement du programme. Cela le rend difficilement accessible aux chercheurs en sciences sociales qui n'ayant pas de formation en informatique. 
 
@@ -210,7 +236,7 @@ monitoring
 
 
 
-#### Compatibilité Python 3
+#### 3.1.1.3 Compatibilité Python 3
 
 future
 
@@ -218,7 +244,7 @@ encodage
 
 urlsresolver : test Travis
 
-#### Migration de MongoDB à Elasticsearch
+#### 3.1.1.4 Migration de MongoDB à Elasticsearch
 
 ##### Pourquoi changer de base de données ?
 
@@ -268,17 +294,27 @@ Réseau de tweets : https://mail.google.com/mail/u/1/#search/jeanphilippe.cointe
 
 Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0NxLY3Zyi_7ubbLQ9RuqJknMk/edit?ts=5b31e7ec 
 
-### Facebook
+### 3.1.2 Facebook
 
 1 appel toutes les 15s : 84h (3,5 jours) pour 10k pages
 
 -> doc utilisation graph API sur polarisation
 
-### Pages web
+problématique
 
-## Traiter
+différentes options
 
-### Normalisation des urls
+### 3.1.3 Pages web
+
+## 3.2 Traiter
+
+### 3.2.1 Normalisation des urls
+
+utilité
+
+architecture
+
+tests unitaires
 
 ural fonctions
 
@@ -288,19 +324,7 @@ lruTRIE
 
 join
 
-### Extraction du contenu pertinent d'une page web
-
-
-
-### Gazouilloire
-
-
-
-### Urlsresolver
-
-
-
-### Extraction du contenu texte à partir de HTML
+### 3.2.2 Extraction du contenu pertinent d'une page web
 
 Une des problématiques récurrentes rencontrée par les chercheurs du laboratoire consiste en l'analyse du contenu d'un corpus de pages web.
 
@@ -321,26 +345,6 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 -> Multithreading 
 
  
-
-
-
-### Facebook
-
-problématique
-
-différentes options
-
-### Graphology
-
-graphology-utils
-
-### Ural
-
-utilité
-
-architecture
-
-tests unitaires
 
 ### Minet
 
