@@ -303,11 +303,35 @@ fetch('adresse_du_serveur/timeevolution')
 
 L'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
 
-#### 3.1.1.3 Passage de Python 2 à Python 3
+#### 3.1.1.3 Comment passer de Python 2 à Python 3 ?
 
-future
+Le support de Python 2 s'arrêtant officiellement en 2020, et Python 2 étant une source de problèmes éventuels (d'encodage, de compatibilité si intégration de nouvelles dépendances/librairies), la migration vers Python 3 s'impose. On souhaite cependant conserver une pleine compatibilité avec Python 2, pour éviter tout _breaking-change*_.
 
-encodage
+**Utiliser futurize**
+
+Basé sur les librairies [2to3](https://docs.python.org/2/library/2to3.html), [3to2](https://pypi.org/project/3to2/) et [python-modernize](https://python-modernize.readthedocs.io/en/latest/), [futurize](https://python-future.org/automatic_conversion.html) est un script du projet `python-future`, qui vise à assurer une compatibilité Python 2 et 3. `python-future` s'installe ainsi :
+
+```bash
+pip install future
+```
+
+`futurize` agit en 2 étapes : une première qui ne fait que des changements conservant une compatibilité totale avec Python 2 (parenthèses aux `print`, division entière, ...). La seconde étape se base sur une dépendance à `future`. 
+
+```bash
+futurize --stage1 -w script.py
+```
+
+```bash
+futurize --stage2 --unicode-literals -w script.py
+```
+
+L'option `-w` permet d'appliquer directement les changements nécessaires au fichier, et `--unicode-literals` permet de considérer par défaut toutes les `string` comme du texte (`str` en Python 3, `unicode` en Python 2), et non du binaire.
+
+**Vérifier le reste à la main**
+
+Habituellement, d'autres problèmes ont besoin d'être résolus avant d'avoir une réelle compatibilité Python 2 & 3 ; typiquement la compatiblité des dépendances elles-mêmes.
+
+Ici, Gazouilloire fait appel à la librairie [urlsresolver](https://github.com/phpdude/python-urlsresolver), qui n'est compatible qu'avec Python 2. 
 
 urlsresolver : test Travis
 
@@ -445,6 +469,8 @@ https://stph.scenari-community.org/contribs/nos/es3/co/es3.html
 # Glossaire
 
 **Requête d'agrégation** :
+
+**Breaking change** :
 
 **DOM (Document Object Model)** :  
 
