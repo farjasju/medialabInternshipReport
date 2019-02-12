@@ -331,7 +331,7 @@ L'option `-w` permet d'appliquer directement les changements nécessaires au fic
 
 Habituellement, d'autres problèmes ont besoin d'être résolus avant d'avoir une réelle compatibilité Python 2 & 3 ; typiquement la compatiblité des dépendances elles-mêmes.
 
-Ici, Gazouilloire fait appel à la librairie [urlsresolver](https://github.com/phpdude/python-urlsresolver), qui n'est compatible qu'avec Python 2. 
+Ici, Gazouilloire fait appel à la librairie [urlsresolver](https://github.com/phpdude/python-urlsresolver), qui n'est compatible qu'avec Python 2. C'est l'occasion de 
 
 urlsresolver : test Travis
 
@@ -355,7 +355,9 @@ Avec MongoDB et des corpus dépassant les centaines de milliers de documents, l'
 
 ##### Comment changer de base de données ?
 
+La première tâche consiste à tester le fonctionnement de l'interface à partir de données stockées dans Elasticsearch (sans qu'il y ait besoin que la collecte se fasse directement dans Elasticsearch).
 
+La réalisation d'un script requêtant tous les enregistrements de la Mongo et les indexant dans Elasticsearch permet de construire une base de test identique à la Mongo, et ainsi de comparer les résultats de requêtes.
 
 script d'indexation à partir de la mongo vers ES
 
