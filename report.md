@@ -5,13 +5,15 @@
 - réflexion sur la portée de vos réalisations, leurs avantages et inconvénients, leur devenir dans l'entreprise
 - philosophie de l'open-source (contributions dans les 2 sens)
 
-
-
 Résumé : web-mining, open source
 
 # Remerciements
 
 Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux, ainsi que toute l'équipe du laboratoire auprès de qui effectuer ce stage fut un plaisir.
+
+Je remercie Paul de m'avoir fait confiance pour ce stage.
+
+// REDIGER REMERCIEMENTS DETAILLES
 
 # Sommaire
 
@@ -45,11 +47,13 @@ Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très
 
 # Résumé technique
 
-Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Les développements ont été principalement réalisés en Python, 
+Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Les développements ont été principalement réalisés en Python.
+
+// RESUME TECHNIQUE
 
 # Introduction
 
-
+// INTRODUCTION
 
 
 
@@ -57,18 +61,18 @@ Mon stage a principalement consisté en l'amélioration d'outils et de librairie
 
 ## 1.1 Un laboratoire un peu particulier
 
-Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été fondé en 2009 par le sociologue et philosophe [Bruno Latour](https://fr.wikipedia.org/wiki/Bruno_Latour) pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Ces données numériques sont au coeur des projets de recherche du labo : comment on perçoit/utilise les données numériques dans la société, ce qu'on en fait, quels outils on peut créer pour les collecter, les étudier, les exploiter, les visualiser, et ce, dans divers domaines (socio, histoire, art, ingénierie, design, pédagogie).
-Il en ressort des productions de types très variés et peu courants pour un laboratoire de sciences sociales : aux traditionnels "papiers" (articles, livres, working paper, OpEd...) s'ajoutent des applis, des outils de collecte, d'exploration, de visualisation des données...
+Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été fondé en 2009 par le sociologue et philosophe [Bruno Latour](https://fr.wikipedia.org/wiki/Bruno_Latour) pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Comment perçoit-on/utilise-t-on les données numériques dans la société ? Qu'en fait-on ? Quels outils peut-on créer pour les collecter, les étudier, les exploiter, les visualiser, dans des domaine aussi variés que la sociologie, l'histoire, l'art, l'ingénierie, le design et la pédagogie ?
+Il en ressort des productions de types très variés et peu courants pour un laboratoire de sciences sociales : aux traditionnels "papiers" s'ajoutent des applis, des outils de collecte, d'exploration, de visualisation des données...
 
 Constituée d'une trentaine de personnes, son équipe se distingue de celles des autres laboratoires de SciencesPo par sa grande diversité : chercheurs en sciences sociales, designers, ingénieurs pédagogiques et développeurs s'y côtoient.
 
 Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://www.lafabriquedelaloi.fr) qui propose une visualisation graphique  et détaillée des procédures parlementaires, le projet [Datapol](https://medialab.github.io/datapol/app/#!/) qui analyse les données numériques de la campagne présidentielle de 2017, ou [Dime Web](https://dime-shs.sciencespo.fr/instruments/dime-web/), qui vise à établir un ensemble d'outils open source permettant de collecter des données sur le web et sur les réseaux sociaux (Twitter notamment).
 
-*Laboratoires similaires ?*
-
 On peut citer comme laboratoires similaires le [Digital Methods Initiative](https://wiki.digitalmethods.net/) d'Amsterdam , l'[Oxford Internet Institute](https://www.oii.ox.ac.uk/), le [TANT-Lab](https://www.tantlab.aau.dk/) danois, ainsi que le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/) répondant aux mêmes types de problématiques abordées par le Médialab. Ces deux laboratoires américains diffèrent cependant du Médialab sur certains points, notamment l'effectif - le Berkman Klein Center compte plus de 200 personnes - et les financements - le médialab du MIT est financé entièrement par des sponsors.
 
 ## 1.2 L'équipe
+
+// A REDIGER
 
 Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
 
@@ -244,25 +248,60 @@ const element = <h1>Hello, {name}</h1>;
 
 Une des particularités de React est l'utilisation d'un DOM* virtuel : plutôt que de regénérer tout le DOM à chaque modification de la page, le DOM est représenté comme une arborescence d'objets Javascript, ce qui permet à React de détecter la moindre modification de la page. Une fois la modification identifiée, React interagit avec le DOM pour ne changer que ce qui est nécessaire.
 
+Dans une perspective d'usages multiples (collecte, analyse et monitoring), l'application se doit de dédier une page (ou onglet) à chacun de ceux-ci. Cela peut se faire via un élément cliquable comme un bouton, dans lequel on indique une url pointant vers la page voulue.
 
+![](data/button.png)
 
-Pages multiples : React Router
+Il reste à afficher le bon contenu lorsqu'on accède à l'url en question.
+
+Cela peut se faire grâce à un routeur comme `react-router-dom` :
+
+```jsx
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+<Router>
+	<Route path="/collect" component={CollectPage} />
+	<Route path="/analyze" component={AnalyzePage} />
+    <Route path="/monitor" component={MonitoringPage} />
+</Router>
+```
+
+Ici, `CollectPage`, `AnalyzePage` et `MonitoringPage` sont des composants contenant tous les éléments affichés respectivement sur les pages de collecte, d'analyse et de monitoring.
+
+On souhaite ici afficher des visualisations de données dans le composant `AnalyzePage`. Il existe pour cela plusieurs librairies Javascript : [D3.js](https://d3js.org/), [Chart.js](https://www.chartjs.org/), [Chartist.js](https://gionkunz.github.io/chartist-js/) ou [Recharts](http://recharts.org/en-US/) pour en citer quelques-unes.
+
+Le choix s'est ici porté sur Recharts, pour sa logique basée sur des composants React. Recharts se base sur D3.js, largement répandu mais moins évident à utiliser.
+
+Le choix de Recharts s'est révélé payant pour l'implémentation de graphiques simples (bar charts, pie charts & line charts), mais la personnalisation des composants s'est révélée ardue. Concernant le graphique du nombre de tweets par jour, il m'a fallu manuellement coder une fonction de zoom dynamique (sur une période choisie à la souris) par exemple.
 
 **Le serveur**
 
+Toutes les visualisations présentes dans l'interface ne sont à la base que des données. Il faut donc bien que le client aille chercher ces données quelque part : il va les demander au serveur.
+
+La mission du serveur est simple : répondre aux requêtes du client avec les données adéquates.
+
+C'est lui qui va gérer la connexion et les requêtes faites à la base de données, et les renvoyer dans un format adapté au client.
+
+Le choix s'est porté sur le microframework [Flask](http://flask.pocoo.org/), pour sa simplicité - il suffit d'un fichier Python - et sa légèreté.
+
+```python
+@app.route("/timeevolution")
+def getDayCount():
+    days = [day for day in mongo.db.tweets.aggregate("REQUETE D'AGGREGATION PAR DATE")]
+    return make_response(jsonify(days))
+```
+
+Il suffit alors, du côté du client, de faire une requête à la route indiquée pour récupérer les données :
+
+```javascript
+fetch('adresse_du_serveur/timeevolution')
+```
 
 
-Gestion des routes avec le serveur Flask
 
-Visualisations simples : D3.js ? Chart.js ? Chartist.js ? Recharts
+// Recharts : nb tweets / jour : agrégation Mongo
 
-Recharts : nb tweets / jour : agrégation Mongo
-
-
-
-monitoring
-
-
+L'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
 
 #### 3.1.1.3 Passage de Python 2 à Python 3
 
@@ -276,21 +315,23 @@ urlsresolver : test Travis
 
 ##### Pourquoi changer de base de données ?
 
-[ MongoDB est un système de gestion de base de données très souple, et adapté au stockage de grandes masses de données. La limitation : la vitesse de lecture (indexation limitée), qui rend toute aggrégation impossible à partir d'une centaine de milliers de documents. ]
-
 MongoDB est un système de bases de données non-relationnelles, très souple à l'usage : nul besoin de spécifier à l'avance le format des données que l'on va insérer dans la base, par exemple. Il est ainsi possible d'insérer l'objet `{Nom : "Davis", Prénom : "Miles"}` puis l'objet `{Nom : "Parker", Prénom : "Charlie", Lieu de naissance : "Kansas City"}` sans redéfinir la base en ajoutant un champ `Lieu de naissance`.  Une caractéristique particulièrement intéressante dans le cas de Gazouilloire : parmi la cinquantaine de champs potentiellement stockés par tweet (auteur, contenu, hashtags, ...), plusieurs ne seront pas présents dans tous les cas, comme la géolocalisation. MongoDB nous permet donc de stocker chaque tweet avec les informations qu'il possède sans se soucier des champs qu'il possède.
 
-S'il permet de stocker rapidement de grandes quantités de données, l'accès à ces données en lecture (une fois stockées) est en revanche limité en vitesse. Cela est particulièrement vrai pour les requêtes d'*agrégation*. Une requête d'agrégation va consister à  Ce qui n'est pas problématique si l'on veut afficher une liste de 100 tweets, mais qui devient très handicapant lorsque l'on souhaite afficher la distribution temporelle d'un corpus de 2 millions de tweets.
+S'il permet de stocker rapidement de grandes quantités de données, l'accès à ces données en lecture (une fois stockées) est en revanche limité en vitesse. Cela est particulièrement vrai pour les requêtes d'agrégation*. Une requête d'agrégation va consister à grouper tous les enregistrements (ici, tweets) qui répondent à un critère : par exemple, qui datent du jour J. MongoDB n'utilisant pas d'indexation par défaut, cela nécessite de chercher dans toute la base les enregistrements correspondant.
 
-Agrégation temporelle (nombre de tweets par jour) sur un corpus de 2 millions de tweets :
+Ce qui n'est pas problématique si l'on veut afficher une liste de 100 tweets, mais qui devient très handicapant lorsque l'on souhaite afficher la distribution temporelle d'un corpus de 2 millions de tweets.
+
+Illustration sur une requête d'agrégation temporelle destinée à afficher une courbe du nombre de tweets par jour, sur un corpus de 2 millions de tweets :
 
 | MongoDB       | Elasticsearch |
 | ------------- | ------------- |
 | 26,7 secondes | 120 ms        |
 
-
+Avec MongoDB et des corpus dépassant les centaines de milliers de documents, l'interface devient inutilisable. Il était donc nécessaire de migrer vers une base de données Elasticsearch.
 
 ##### Comment changer de base de données ?
+
+
 
 script d'indexation à partir de la mongo vers ES
 
@@ -334,6 +375,8 @@ différentes options
 
 ### 3.1.3 Pages web
 
+
+
 ## 3.2 Traiter
 
 ### 3.2.1 Normalisation des urls
@@ -376,6 +419,12 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 
 ### Minet
 
+| url             |
+| --------------- |
+| url1.com/bidule |
+| url2.com/truc   |
+| url3.com/machin |
+
 -> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
 
 # Conclusion
@@ -385,15 +434,17 @@ En général, on commence par présenter un résumé du rapport puis les perspec
 Vous pouvez ensuite exposer les points positifs et négatifs de votre stage.
 Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dans votre projet professionnel. Vos objectifs ont-ils évolué ? Par exemple, en quoi ce stage confirme (ou infirme) votre choix de filière ?*
 
+==> collaboration avec Benkler / Zuckermann ?
+
 # Bibliographie
 
 https://stph.scenari-community.org/contribs/nos/es3/co/es3.html 
 
-[^fn1]: http://example.com
-
 
 
 # Glossaire
+
+**Requête d'agrégation** :
 
 **DOM (Document Object Model)** :  
 
