@@ -467,6 +467,35 @@ Il reste à écrire les méthodes de chaque classe, avec les requêtes adéquate
 >
 > heap size
 
+Afin d'optimiser la vitesse d'indexation, il est possible d'effectuer les requêtes par paquets (_bulk_indexing_).
+
+Avec le client Python, l'idéal est d'avoir un générateur de requêtes : 
+
+```python
+ def stream_tweets(tweets, index):
+        """Yields an update action for every tweet of a list"""
+        for tweet in tweets:
+            yield {
+                "_id": tweet["_id"],
+                "_type": "tweet",
+                "_index": index,
+                "_op_type": "update",
+                "_source": {
+                    "doc": format_tweet_fields(tweet)
+                }
+            }
+```
+
+Ici, `stream_tweets` génère une requête mettant à jour (`"update"`) le tweet d'id spécifié avec le contenu fourni (préalablement formaté), pour chaque tweet dans `tweets`. Il suffit ensuite d'utiliser ce générateur de requêtes dans un `streaming_bulk` :
+
+```python
+from elasticsearch import helpers
+
+es = Elasticsearch("HOST:PORT")
+
+helpers.streaming_bulk(es, actions=stream_tweets_batch(batch))
+```
+
 
 
 
