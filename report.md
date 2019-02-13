@@ -312,7 +312,7 @@ L'établissement de cette interface de visualisation simple a permis de mettre e
 
 Le support de Python 2 s'arrêtant officiellement en 2020, et Python 2 étant une source de problèmes éventuels (d'encodage, de compatibilité si intégration de nouvelles dépendances/librairies), la migration vers Python 3 s'impose. On souhaite cependant conserver une pleine compatibilité avec Python 2, pour éviter tout _breaking-change*_.
 
-**Utiliser futurize**
+**Futurize**
 
 Basé sur les librairies [2to3](https://docs.python.org/2/library/2to3.html), [3to2](https://pypi.org/project/3to2/) et [python-modernize](https://python-modernize.readthedocs.io/en/latest/), [futurize](https://python-future.org/automatic_conversion.html) est un script du projet `python-future`, qui vise à assurer une compatibilité Python 2 et 3. `python-future` s'installe ainsi :
 
@@ -336,7 +336,7 @@ L'option `-w` permet d'appliquer directement les changements nécessaires au fic
 
 Habituellement, d'autres problèmes ont besoin d'être résolus avant d'avoir une réelle compatibilité Python 2 & 3 ; typiquement la compatiblité des dépendances elles-mêmes.
 
-Ici, Gazouilloire fait appel à la librairie [urlsresolver](https://github.com/phpdude/python-urlsresolver), qui n'est compatible qu'avec Python 2. 
+Ici, Gazouilloire fait appel à la librairie [urlsresolver](https://github.com/phpdude/python-urlsresolver), utilisée pour résoudre les liens raccourcis présents dans les tweets, et stocker les liens réels. qui n'est compatible qu'avec Python 2. 
 
 C'est l'occasion d'expérimenter concrètement ce qu'est le milieu de l'open source libre : le code d'urlsresolver étant accessible à tous sur un repo Github, il est possible de _cloner_* le repo et d'en modifier le code de son côté.
 
@@ -344,7 +344,7 @@ C'est l'occasion d'expérimenter concrètement ce qu'est le milieu de l'open sou
 git clone git@github.com:phpdude/python-urlsresolver.git
 ```
 
-J'ai donc rendu la librairie compatible Python 3, ajouté des _tests unitaires_* pour s'assurer que le code reste fonctionnel de Python 2.7 à Python 3.7, et effectué une _Pull Request_*. 
+J'ai donc modifié la librairie pôur la rendre compatible Python 3, ajouté des _tests unitaires_* pour s'assurer que le code reste fonctionnel de Python 2.7 à Python 3.7, et effectué une _Pull Request_* au créateur de la librairie ([@phpdude](https://github.com/phpdude)). Ce dernier m'a répondu, a étudié ma Pull Request et l'a acceptée, ajoutant ainsi mes modifications à la librairie.
 
 ![](data/pull_request.png)
 
@@ -352,6 +352,8 @@ J'ai donc rendu la librairie compatible Python 3, ajouté des _tests unitaires_*
 >
 
 #### 3.1.1.4 Migration de MongoDB à Elasticsearch
+
+![](data/mongotoes.png)
 
 ##### Pourquoi changer de base de données ?
 
@@ -371,13 +373,56 @@ Avec MongoDB et des corpus dépassant les centaines de milliers de documents, l'
 
 ##### Comment changer de base de données ?
 
-​	**Étape 1 - Construire une base de test**
+​	**Étape 1 - Identifer les différences de structure**
 
-On souhaite commencer par tester le fonctionnement de l'interface avec des données stockées dans Elasticsearch (sans qu'il y ait besoin pour l'instant que la collecte se fasse directement dans Elasticsearch).
+MongoDB possède une arborescence à 2 niveaux : on peut créer plusieurs `databases`, lesquelles contiennent une ou plusieurs `collections`. Dans Gazouilloire, une collecte correspond à une `database`, contenant une `collection` _"tweets"_ et une collection _"links"_ (stockant les liens contenus dans les tweets).
 
-La réalisation d'un script requêtant tous les enregistrements de la Mongo et les indexant dans Elasticsearch permet de construire une base de test identique à la Mongo, et ainsi de comparer les résultats de requêtes.
+Elasticsearch ne fonctionne qu'à un seul niveau, celui des `index` (équivalent des `databases` Mongo), sans sous-index ou équivalent des `collections`.
 
-​	**Étape 2 - Brancher l'interface sur la base de test**
+La solution retenue ici est de créer deux `index` pour chaque collecte :
+
+![](/home/jules/dev/medialabInternshipReport/data/collections_indices.png)
+
+​	**Étape 2 - Construire une base de données Elasticsearch**
+
+Bien évidemment, il faut avant toute chose [installer Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html), ainsi que son client Python (`pip install elasticsearch`) dans notre cas.
+
+On souhaite se construire une base de données Elasticsearch contenant des tweets (sans avoir à migrer au préalable toute la machinerie de collecte), afin de tester le fonctionnement de l'interface avec cette base.
+
+L'idéal est de réaliser un script requêtant tous les enregistrements de la Mongo et les indexant dans Elasticsearch, afin de construire une base de test identique à la Mongo, et ainsi de s'assurer que les résultats des requêtes sont les mêmes quel que soit le type de base.
+
+Il faut donc d'abord créer un index Elasticsearch : 
+
+```python
+es.indices.create(index='test-index', body=mappings)
+```
+
+La variable `mappings` est importante : la bibliothèque sur laquelle est basée Elasticsearch, Lucene, a besoin de savoir comment lire les données qu'elle stocke. Pour cela, il faut établir un _mapping_ à la création de chaque index. Celui-ci définit, entre autres, le type de chaque champ de l'index :
+
+```json
+"mappings": {
+    "favorite_count": {
+            "type": "integer"
+    },
+    "timestamp": {
+        "type": "date",
+        "format": "epoch_second"
+    },
+    "text": {
+        "type": "text"
+    },
+    "lang": {
+        "type": "keyword"
+    },
+    ...
+}
+```
+
+Les mappings sont déterminés automatiquement s'ils ne sont pas spécifiés, mais cela menant souvent à des erreurs (entiers pris pour des chaînes de caractères par exemple), il est déconseillé de procéder ainsi.
+
+> On notera aussi la différence entre les types `"text"` et `"keyword"` : les champs de type `text` sont analysés (découpés en une liste de termes individuels) avant d'être indexés, ce qui permet ensuite de rechercher un mot en particulier _à l'intérieur_ du texte stocké. Il n'est en revanche pas possible d'effectuer de requête de tri ou d'agrégation (grouper selon certains critères) sur un champ `text`, tandis que ça l'est avec un champ `keyword` (qui lui n'est pas analysé, donc pas recherchable autrement qu'avec sa valeur exacte).
+
+​	**Étape 3 - Brancher l'interface sur la base de test**
 
 Pour que l'interface puisse accéder aux données stockées dans Elasticsearch, il faut modifier le serveur Flask, en ajoutant des routes requêtant la base Elasticsearch.
 
@@ -394,37 +439,43 @@ def getDayCount():
 
 A noter que la forme des réponses Mongo et Elasticsearch n'étant pas les mêmes, il est souhaitable de formater les réponses dans le serveur pour qu'on puisse utiliser indifféremment des résultats provenant de Mongo ou d'Elasticsearch.
 
-​	**Étape 3 - Abstraire la base de données**
+
+
+​	**Étape 4 - Abstraire la base de données**
 
 Afin d'assurer une certaine lisibilité dans le code et la possibilité de choisir facilement entre une base Mongo ou Elasticsearch, a été fait le choix d'abstraire la base de données. Abstraire la base de données, c'est utiliser un objet générique - qu'on peut appeler `Database`  - possédant les méthodes nécessaires au fonctionnement de Gazouilloire (`find`, `update`, `count` par exemple), et qui effectue les bonnes requêtes selon le type de base choisie.
 
-Les deux classes n'ayant que très peu de méthodes et attributs communs, l'option d'une classe abstraite dont hériteraient deux sous-classes n'est pas réellement pertinente. Il a donc été fait le choix d'implémenter deux classes indépendantes, mais possédant les mêmes méthodes.
+Les deux classes n'ayant que très peu de méthodes et attributs communs, l'option d'une classe abstraite dont hériteraient deux sous-classes n'est pas réellement pertinente. Il a donc été fait le choix d'implémenter deux classes `MongoManager` et `ElasticManager` indépendantes, mais possédant les mêmes méthodes.
 
 ![](data/abstraction.png)
 
+Dans le script principal, il suffit alors d'utiliser DBManager pour instancier une base de données du type souhaité (définie dans le fichier de configuration, ici `conf`) :
+
+```python
+db = db_manager(conf['database'])
+```
+
+```python
+db.update(tweet, value) # Utilise la requête d'update adéquate
+```
+
+Il reste à écrire les méthodes de chaque classe, avec les requêtes adéquates.
+
+​	**Étape 5 - Optimiser les performances**
+
+> bulk indexing
+>
+> heap size
 
 
 
 
-> script d'indexation à partir de la mongo vers ES
->
-> Branchement de l'interface sur ES (modification du serveur Flask)
->
-> abstraction : 2 classes
->
-> pb des 2 niveaux différents : Mongo (db1 -> tweets & links), ES (db1_tweets, db1_links)
->
-> mappings
->
-> choix de plusieurs collectes : plusieurs index
->
+
 > remplacement des liens
 >
 > bulk indexing
 >
 > ids des tweets comme IDs ES
->
-> keyword/text
 >
 > text analysis : fielddata, pas d'agrégatino avec les champs text (SEARCH : quels docs contiennent ce terme ?, AGG/SORT : Quelle est la valeur de ce champ pour tel doc ?)
 >
@@ -438,6 +489,8 @@ Les deux classes n'ayant que très peu de méthodes et attributs communs, l'opti
 >
 
 ### 3.1.2 Facebook
+
+
 
 > 1 appel toutes les 15s : 84h (3,5 jours) pour 10k pages
 >
