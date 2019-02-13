@@ -110,10 +110,6 @@ Concrètement, cette polarisation s'étudie via la construction de réseaux : on
 
 ![reseau_tweets](data/reseau_tweets.png)
 
-*Graphe produit à partir d'un corpus de 60 millions de tweets contenant des liens vers des médias français*
-
-
-
 > [ Répliquer une étude du Berkman Center : intercitation des médias, comment les gens partagent ces médias, informations révélées apr le réseau, vérifier des hyptohèses sociologiques, Benalla : comment les thèmes d'un sujet se diffusent au travers des différents médias, légitimité des médias ?, 
 >
 > Hypothèse de l'institut Montaigne : aux US grosse polarisation des médias (gauche/droite assez hermétiques), qui s'accentue (Berkman). Hypothèse du directeur de Berkman : la droite s'éloigne (jeu dégueulasse) et le centre
@@ -422,6 +418,8 @@ Les mappings sont déterminés automatiquement s'ils ne sont pas spécifiés, ma
 
 > On notera aussi la différence entre les types `"text"` et `"keyword"` : les champs de type `text` sont analysés (découpés en une liste de termes individuels) avant d'être indexés, ce qui permet ensuite de rechercher un mot en particulier _à l'intérieur_ du texte stocké. Il n'est en revanche pas possible d'effectuer de requête de tri ou d'agrégation (grouper selon certains critères) sur un champ `text`, tandis que ça l'est avec un champ `keyword` (qui lui n'est pas analysé, donc pas recherchable autrement qu'avec sa valeur exacte).
 
+> text analysis : fielddata, pas d'agrégatino avec les champs text (SEARCH : quels docs contiennent ce terme ?, AGG/SORT : Quelle est la valeur de ce champ pour tel doc ?)
+
 ​	**Étape 3 - Brancher l'interface sur la base de test**
 
 Pour que l'interface puisse accéder aux données stockées dans Elasticsearch, il faut modifier le serveur Flask, en ajoutant des routes requêtant la base Elasticsearch.
@@ -486,32 +484,22 @@ Avec le client Python, l'idéal est d'avoir un générateur de requêtes :
             }
 ```
 
-Ici, `stream_tweets` génère une requête mettant à jour (`"update"`) le tweet d'id spécifié avec le contenu fourni (préalablement formaté), pour chaque tweet dans `tweets`. Il suffit ensuite d'utiliser ce générateur de requêtes dans un `streaming_bulk` :
+Ici, `stream_tweets` génère une requête mettant à jour l'enregistrement correspondant à l'id spécifié avec le contenu fourni (préalablement formaté) pour chaque tweet dans `tweets`. Il suffit ensuite d'utiliser ce générateur de requêtes dans un `streaming_bulk` :
 
 ```python
 from elasticsearch import helpers
 
 es = Elasticsearch("HOST:PORT")
 
-helpers.streaming_bulk(es, actions=stream_tweets_batch(batch))
+tweets_collectes = [tweet1, tweet2, tweet3, ...]
+
+helpers.streaming_bulk(es, actions=stream_tweets(tweets_collectes))
 ```
 
+Problèmes de vitesse mis à part, la quantité d'informations stockées doit aussi être prise en compte. Un outil de collecte comme Gazouilloire peut facilement être amené à collecter 1, 10 voire 100 millions de tweets, ce qui représente plusieurs dizaines voire centaines de gigas. _Lucene*_, et donc Elasticsearch, fonctionne en Java ; pour de très gros corpus, il est nécessaire de modifier sa configuration par défaut. Cela concerne en particulier la taille de la mémoire virtuelle Java (ou _JVM heap size_). 
 
+Par défaut à 1GB, il faut augmenter sa valeur pour des corpus de plus de 15 millions (cela se fait dans le fichier `/etc/elasticsearch/jvm.options` ).
 
-
-
-> remplacement des liens
->
-> bulk indexing
->
-> ids des tweets comme IDs ES
->
-> text analysis : fielddata, pas d'agrégatino avec les champs text (SEARCH : quels docs contiennent ce terme ?, AGG/SORT : Quelle est la valeur de ce champ pour tel doc ?)
->
-> heap size (tweets FR : 35M)
->
-> 
->
 > Réseau de tweets : https://mail.google.com/mail/u/1/#search/jeanphilippe.cointet%40sciencespo.fr/FMfcgxvzKbVkNHcsdwmSfplLpRGNcDvg
 >
 > Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0NxLY3Zyi_7ubbLQ9RuqJknMk/edit?ts=5b31e7ec 
@@ -519,20 +507,56 @@ helpers.streaming_bulk(es, actions=stream_tweets_batch(batch))
 
 ### 3.1.2 Facebook
 
+SI le laboratoire dispose d'un outil bien établi pour la collecte de tweets, ce n'est pas le cas pour la collecte de données Facebook. Twitter étant moins utilisé que Facebook,et pas forcément représentatif de la population, la question d'un biais dans les données récoltées se pose. Pour réduire celui-ci, ou du moins évaluer les différences entre les métriques de partage sur Facebook et sur Twitter, il est intéressant de pouvoir récupérer le nombre de partage Facebook pour telle url.
 
+#### 3.1.2.1 La méthode utilisant l'API
 
-> 1 appel toutes les 15s : 84h (3,5 jours) pour 10k pages
->
-> -> doc utilisation graph API sur polarisation
->
-> problématique
->
-> différentes options
->
+Facebook fournit la [Graph API](https://developers.facebook.com/docs/graph-api/), principal point d'entrée des développeurs souhaitant lire (ou écrire) des données Facebook. Utiliser l'API nécessite un compte développeur Facebook, qui fournit les clés _App ID_ et _App Secret_, utilisées pour effectuer les requêtes. 
 
-### 3.1.3 Pages web
+Le but ici est de récupérer les données d'activité pour un lien partagé sur le réseau, ce qui est possible via la [section URL](https://developers.facebook.com/docs/graph-api/reference/v3.2/url) de la Graph API. Ainsi, la requête suivante permet de récupérer le nombre de réactions, de commentaires, de partages et de commentaires externes pour une url donnée :
 
+```bash
+curl -i -X GET \
+	https://graph.facebook.com/v3.1/?id=URL&fields=FIELDS&access_token=ACCESSTOKEN
+```
 
+> Un `ACCESSTOKEN` permanent peut être généré grâce aux clés du compte développeur : `ACCESSTOKEN` = `APPID|SECRETKEY`. Le champ  `FIELDS`  permet lui de spécifier les informations que l'on souhaite obtenir, dans notre cas `FIELDS` = `"engagement"`.
+
+La réponse obtenue est de la forme suivante :
+
+```json
+{
+  "engagement": {
+    "reaction_count": 45315,
+    "comment_count": 31742,
+    "share_count": 25671,
+    "comment_plugin_count": 3
+  },
+  "id": "https://www.imdb.com/title/tt0166924/"
+}
+```
+
+Problème majeur de cette approche : les limitations en terme de nombre de requêtes imposées par l'API.
+
+Après plusieurs essais, il apparaît que la _rate limit_ se trouve à un peu moins d'**une requête toutes les 15 secondes**, ce qui est extrêmement lent et totalement rédhibitoire pour tout usage massif. Pour illustration, il faudrait _3,5 jours_ pour récupérer les données de 10 000 urls, quand certains corpus de recherche se comptent plutôt en centaines de milliers d'entrées.
+
+En outre, l'API est assez rigide sur l'url entrée en paramètre : si l'on veut être exhaustif, il faut faire la requête à la fois sur la page en http et la page en https, le résultat renvoyé n'étant pas le même. De même, les résultats diffèrent en fonction de la présence d'un  `/` final ou non.
+
+#### 3.1.2.2 La méthode contournant l'API
+
+Il a fallu trouver une alternative à l'usage conventionnel de l'API. Celle-ci se trouve dans le détournement du bouton "Like" destiné aux pages web tierces :
+
+![](data/facebook_button.png)
+
+On y accède via l'url suivante :
+
+```
+https://www.facebook.com/plugins/like.php?href=URL&layout=box_count
+```
+
+> À garder en tête, l'url cible (`URL`) doit être encodée avant d'être insérée dans l'adresse ci-dessus. Cet encodage peut se faire avec `quote` d'`urllib.parse` en Python, ou avec `encodeURI` en Javascript.
+
+Il suffit alors de scraper la valeur du bouton et de la convertir en `integer` pour avoir le nombre de partages (arrondi) de l'url voulue. Et surtout, il n'y a pas de limites de requêtes (ce n'est pas dans l'intérêt de Facebook de limiter la diffusion de son réseau social sur les sites tiers) : la seule limite est celle de votre connexion.
 
 ## 3.2 Traiter
 
