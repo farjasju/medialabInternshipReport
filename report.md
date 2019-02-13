@@ -1,11 +1,12 @@
 # [Notes]
 
-- réflexion sur la mission et la manière dont vous vous êtes organisés
-- réflexion sur les choix qui ont été faits
-- réflexion sur la portée de vos réalisations, leurs avantages et inconvénients, leur devenir dans l'entreprise
-- philosophie de l'open-source (contributions dans les 2 sens)
-
-Résumé : web-mining, open source
+> - réflexion sur la mission et la manière dont vous vous êtes organisés
+> - réflexion sur les choix qui ont été faits
+> - réflexion sur la portée de vos réalisations, leurs avantages et inconvénients, leur devenir dans l'entreprise
+> - philosophie de l'open-source (contributions dans les 2 sens)
+>
+> Résumé : web-mining, open source
+>
 
 # Remerciements
 
@@ -72,23 +73,24 @@ On peut citer comme laboratoires similaires le [Digital Methods Initiative](http
 
 ## 1.2 L'équipe
 
-// A REDIGER
-
-Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
+> // A REDIGER
+>
+> Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
+>
 
 L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'ingénieurs de recherche, de designers et de développeurs. L'organisation est très horizontale, et aucune hiérarchie ne transparaît au quotidien, les décisions étant prises en collectif, lors des réunions hebdomadaires et des conseils de laboratoires.
 
 J'ai principalement travaillé avec deux ingénieurs de recherche : mon tuteur Guillaume Plique et Benjamin Ooghe-Tabanou, présents quotidiennement dans le même bureau que le mien.
 
-*Donneurs d'ordre ? Comment l'info circule-t-elle ?*
+> *Donneurs d'ordre ? Comment l'info circule-t-elle ?*
 
 Les objectifs de long terme sont déterminés en commun avec mon tuteur, tandis que les tâches annexes et ponctuelles, comme le traitement d'un corpus spécifique, sont principalement définies par mail ou de vive-voix.
 
-*Technologies maîtrisées par l'équipe ?*
+> *Technologies maîtrisées par l'équipe ?*
 
 La très grande majorité des outils développés par le laboratoire le sont en Python ou en Javascript. Des frameworks comme React sont utilisés, ainsi que des outils de déploiement et d'intégration comme Gitlab CI, Docker, Rancher. Tous les outils développés le sont en open-source, et sont publiés sur le [repo du laboratoire](https://github.com/medialab) le plus souvent sous licence AGPL-3.0, GPL-3.0 ou MIT.
 
-*Méthodes et outils utilisés (agile, git) ? Validation des développements (tests) ?*
+> *Méthodes et outils utilisés (agile, git) ? Validation des développements (tests) ?*
 
 L'équipe s'organise d'une part via une réunion hebdomadaire de tous les membres du laboratoire, où l'on partage les avancées et projets de chacun et où ont lieux des réflexions plus larges et globales sur le laboratoire, et d'autre part via la réunion technique, bimensuelle. C'est pendant cette réunion technique que sont gérés les projets en cours et à suivre, via une méthode agile.
 
@@ -96,7 +98,7 @@ L'équipe s'organise d'une part via une réunion hebdomadaire de tous les membre
 
 ## 2.1 Le sujet
 
-*Sujet initial*
+> *Sujet initial*
 
 Dans le cadre d'un projet de recherche de [Dominique Cardon](https://fr.wikipedia.org/wiki/Dominique_Cardon_(sociologue)) étudiant la polarisation de l'espace médiatique numérique français, le stage porte sur les techniques de récolte de données web (sites, réseaux sociaux) et de visualisation de celles-ci. 
 
@@ -112,31 +114,32 @@ Concrètement, cette polarisation s'étudie via la construction de réseaux : on
 
 
 
-[ Répliquer une étude du Berkman Center : intercitation des médias, comment les gens partagent ces médias, informations révélées apr le réseau, vérifier des hyptohèses sociologiques, Benalla : comment les thèmes d'un sujet se diffusent au travers des différents médias, légitimité des médias ?, 
-
-Hypothèse de l'institut Montaigne : aux US grosse polarisation des médias (gauche/droite assez hermétiques), qui s'accentue (Berkman). Hypothèse du directeur de Berkman : la droite s'éloigne (jeu dégueulasse) et le centre
-
-Même chose en France : globalement oui, mais bien moins dramatique. Médias alternatifs très peu considérés 
-
-Polarisation : réseaux de co-occurence de tweets (réseau bipartite : 2 types de noeuds : un utilisateur partage un média n fois) réseau de similarité de média par le truchement des utilisateurs
-
-Chaque média est un vecteur de ses utilisateurs -> similarité cosinus
-
-Deux médias seront liés s'ils ont un profil de gens qui les partagent similaire
-
-Problème : on finit par prouver des trucs qu'on savait déjà depuis longtemps en socio]
+> [ Répliquer une étude du Berkman Center : intercitation des médias, comment les gens partagent ces médias, informations révélées apr le réseau, vérifier des hyptohèses sociologiques, Benalla : comment les thèmes d'un sujet se diffusent au travers des différents médias, légitimité des médias ?, 
+>
+> Hypothèse de l'institut Montaigne : aux US grosse polarisation des médias (gauche/droite assez hermétiques), qui s'accentue (Berkman). Hypothèse du directeur de Berkman : la droite s'éloigne (jeu dégueulasse) et le centre
+>
+> Même chose en France : globalement oui, mais bien moins dramatique. Médias alternatifs très peu considérés 
+>
+> Polarisation : réseaux de co-occurence de tweets (réseau bipartite : 2 types de noeuds : un utilisateur partage un média n fois) réseau de similarité de média par le truchement des utilisateurs
+>
+> Chaque média est un vecteur de ses utilisateurs -> similarité cosinus
+>
+> Deux médias seront liés s'ils ont un profil de gens qui les partagent similaire
+>
+> Problème : on finit par prouver des trucs qu'on savait déjà depuis longtemps en socio]
+>
 
 Afin d'établir ce genre de visualisations, il est nécessaire de collecter et de traiter les données du corpus étudié. 
 
-*Ses évolutions (et leurs causes)*
+> *Ses évolutions (et leurs causes)*
 
 Les besoins de collecte et de traitement de données étant multiples, j'ai été amené à travailler sur plusieurs outils, répondant chacun à un besoin particulier mais relevant du domaine du web-mining : collecter de grandes quantités de tweets, récupérer des données de partages Facebook, extraire le contenu pertinent d'une page web, normaliser des urls.
 
-*Situer le sujet dans les objectifs du labo*
+> *Situer le sujet dans les objectifs du labo*
 
 Un des objectifs du laboratoire en termes de collecte de données est d'élargir son spectre de sources : les données récoltées proviennent actuellement de pages web (via le *crawler* [Hyphe](https://github.com/medialab/hyphe)) et de Twitter (via l'outil [Gazouilloire](https://github.com/medialab/gazouilloire)). Une partie importante de l'espace médiatique numérique échappe donc aux outils du laboratoire : Facebook, LinkedIn, Instagram par exemple. 
 
-*Cahier des charges précis ou participation à son élaboration ?*
+> *Cahier des charges précis ou participation à son élaboration ?*
 
 
 
@@ -144,22 +147,23 @@ Un des objectifs du laboratoire en termes de collecte de données est d'élargir
 
 ## 2.2 Le planning
 
-*Vous pouvez présenter le planning initial et le planning réel avec les dates importantes.
-Quelles ont été les étapes importantes ? Indiquez celles qui auraient été les plus difficiles, les plus intéressantes, etc.*
+> *Vous pouvez présenter le planning initial et le planning réel avec les dates importantes.
+> Quelles ont été les étapes importantes ? Indiquez celles qui auraient été les plus difficiles, les plus intéressantes, etc.*
 
 Itérations de 2 semaines.
 
 ## 2.3 Mes contributions
 
-*Etat du projet à votre arrivée ? Et à la fin ?*
-
-*Avez-vous réalisé une étude, une maquette, une preuve de concept, un produit ou une application complète ? Que reste-t-il à faire pour rendre utilisable votre travail ?*
+> *Etat du projet à votre arrivée ? Et à la fin ?*
+>
+> *Avez-vous réalisé une étude, une maquette, une preuve de concept, un produit ou une application complète ? Que reste-t-il à faire pour rendre utilisable votre travail ?*
+>
 
 
 
 ## 2.4 Outils & technologies
 
-*Outils, environnements, logiciels*
+> *Outils, environnements, logiciels*
 
 Tout le travail effectué l'a été en Python ou en Javascript. En Python, le gestionnaire d'environnement virtuels pyenv a été utilisé, pour compartimenter la version de Python et les dépendances propres à chaque projet. 
 
@@ -167,7 +171,7 @@ Concernant les bases de données, ont été utilisés Elasticsearch (ainsi que s
 
 Pour le développement d'interfaces, React et material-ui ont été plébiscités, ainsi que Recharts pour la visualisation de données.
 
-*Comment les développements ont été vérifiés/testés/validés ?*
+> *Comment les développements ont été vérifiés/testés/validés ?*
 
 La plupart des librairies comportent des tests unitaires, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI. Les développements de nouvelles fonctionnalités ont été faits sur des branches dédiées sur git, puis envoyés sous forme de Pull Requests avant d'être mergées à la branche master.
 
@@ -175,19 +179,19 @@ La plupart des librairies comportent des tests unitaires, qui sont vérifiés gr
 
 ## 2.5 Prise de recul
 
-*Quel a été l'intérêt de votre travail pour l'entreprise ? Que va devenir votre contribution ? Présenter les perspectives.
-Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
-Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur les utilisateurs**, les nouveaux usages, le respect de la **vie privée** ou de l'environnement...*
+> *Quel a été l'intérêt de votre travail pour l'entreprise ? Que va devenir votre contribution ? Présenter les perspectives.
+> Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
+> Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur les utilisateurs**, les nouveaux usages, le respect de la **vie privée** ou de l'environnement...*
 
 Amélioration d'outils répondant à des besoins récurrents des chercheurs.
 
 # 3. Le travail réalisé
 
-*Cette partie est la plus longue ; vous y présenterez votre travail.
-Si besoin, vous pourriez structurer le reste du rapport en plusieurs parties et non une seule. La ou les parties devraient elles-mêmes êtres structurées en plusieurs sous-sections au sein d'une même partie. Dans tous les cas, la logique du plan doit apparaître clairement.
-Travaillez les liaisons pour aboutir à une lecture fluide. Voici un exemple (un peu exagéré) : "Après avoir inventorié les technologies disponibles dans la section précédente, cette section est consacrée aux expérimentations que nous avons menées avec chacune d'elles. Ce travail nous permettra de sélectionner les technologies retenues, présentées dans la section suivante."
-Présentez votre réflexion et vos choix, qui devraient être justifiés. Examinez rapidement les autres alternatives.
-Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du général au particulier. Evitez de présenter un catalogue des fonctions développées.*
+> *Cette partie est la plus longue ; vous y présenterez votre travail.
+> Si besoin, vous pourriez structurer le reste du rapport en plusieurs parties et non une seule. La ou les parties devraient elles-mêmes êtres structurées en plusieurs sous-sections au sein d'une même partie. Dans tous les cas, la logique du plan doit apparaître clairement.
+> Travaillez les liaisons pour aboutir à une lecture fluide. Voici un exemple (un peu exagéré) : "Après avoir inventorié les technologies disponibles dans la section précédente, cette section est consacrée aux expérimentations que nous avons menées avec chacune d'elles. Ce travail nous permettra de sélectionner les technologies retenues, présentées dans la section suivante."
+> Présentez votre réflexion et vos choix, qui devraient être justifiés. Examinez rapidement les autres alternatives.
+> Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du général au particulier. Evitez de présenter un catalogue des fonctions développées.*
 
 
 
@@ -230,7 +234,7 @@ Il faut distinguer les différentes composantes nécessaires au fonctionnement d
 - un serveur simple (développé en Python, grâce au framework Flask)
 - une base de données (ici, MongoDB)
 
-![](data/webapp_diagram.png)
+![](data/clean_webapp_diagram.png)
 
 **L'interface utilisateur**
 
@@ -299,7 +303,8 @@ fetch('adresse_du_serveur/timeevolution')
 
 
 
-// Recharts : nb tweets / jour : agrégation Mongo
+> // Recharts : nb tweets / jour : agrégation Mongo
+>
 
 L'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
 
@@ -331,9 +336,20 @@ L'option `-w` permet d'appliquer directement les changements nécessaires au fic
 
 Habituellement, d'autres problèmes ont besoin d'être résolus avant d'avoir une réelle compatibilité Python 2 & 3 ; typiquement la compatiblité des dépendances elles-mêmes.
 
-Ici, Gazouilloire fait appel à la librairie [urlsresolver](https://github.com/phpdude/python-urlsresolver), qui n'est compatible qu'avec Python 2. C'est l'occasion de 
+Ici, Gazouilloire fait appel à la librairie [urlsresolver](https://github.com/phpdude/python-urlsresolver), qui n'est compatible qu'avec Python 2. 
 
-urlsresolver : test Travis
+C'est l'occasion d'expérimenter concrètement ce qu'est le milieu de l'open source libre : le code d'urlsresolver étant accessible à tous sur un repo Github, il est possible de _cloner_* le repo et d'en modifier le code de son côté.
+
+```bash
+git clone git@github.com:phpdude/python-urlsresolver.git
+```
+
+J'ai donc rendu la librairie compatible Python 3, ajouté des _tests unitaires_* pour s'assurer que le code reste fonctionnel de Python 2.7 à Python 3.7, et effectué une _Pull Request_*. 
+
+![](data/pull_request.png)
+
+> urlsresolver : test Travis
+>
 
 #### 3.1.1.4 Migration de MongoDB à Elasticsearch
 
@@ -355,49 +371,82 @@ Avec MongoDB et des corpus dépassant les centaines de milliers de documents, l'
 
 ##### Comment changer de base de données ?
 
-La première tâche consiste à tester le fonctionnement de l'interface à partir de données stockées dans Elasticsearch (sans qu'il y ait besoin que la collecte se fasse directement dans Elasticsearch).
+​	**Étape 1 - Construire une base de test**
+
+On souhaite commencer par tester le fonctionnement de l'interface avec des données stockées dans Elasticsearch (sans qu'il y ait besoin pour l'instant que la collecte se fasse directement dans Elasticsearch).
 
 La réalisation d'un script requêtant tous les enregistrements de la Mongo et les indexant dans Elasticsearch permet de construire une base de test identique à la Mongo, et ainsi de comparer les résultats de requêtes.
 
-script d'indexation à partir de la mongo vers ES
+​	**Étape 2 - Brancher l'interface sur la base de test**
 
-Branchement de l'interface sur ES (modification du serveur Flask)
+Pour que l'interface puisse accéder aux données stockées dans Elasticsearch, il faut modifier le serveur Flask, en ajoutant des routes requêtant la base Elasticsearch.
 
-abstraction : 2 classes
+```python
+es = Elasticsearch('http://HOST:PORT')
+```
 
-pb des 2 niveaux différents : Mongo (db1 -> tweets & links), ES (db1_tweets, db1_links)
+```python
+@app.route("/elastictimeevolution")
+def getDayCount():
+    data = es.search("REQUETE ELASTICSEARCH")
+    return make_response(jsonify(days))
+```
 
-mappings
+A noter que la forme des réponses Mongo et Elasticsearch n'étant pas les mêmes, il est souhaitable de formater les réponses dans le serveur pour qu'on puisse utiliser indifféremment des résultats provenant de Mongo ou d'Elasticsearch.
 
-choix de plusieurs collectes : plusieurs index
+​	**Étape 3 - Abstraire la base de données**
 
-remplacement des liens
+Afin d'assurer une certaine lisibilité dans le code et la possibilité de choisir facilement entre une base Mongo ou Elasticsearch, a été fait le choix d'abstraire la base de données. Abstraire la base de données, c'est utiliser un objet générique - qu'on peut appeler `Database`  - possédant les méthodes nécessaires au fonctionnement de Gazouilloire (`find`, `update`, `count` par exemple), et qui effectue les bonnes requêtes selon le type de base choisie.
 
-bulk indexing
+Les deux classes n'ayant que très peu de méthodes et attributs communs, l'option d'une classe abstraite dont hériteraient deux sous-classes n'est pas réellement pertinente. Il a donc été fait le choix d'implémenter deux classes indépendantes, mais possédant les mêmes méthodes.
 
-ids des tweets comme IDs ES
-
-keyword/text
-
-text analysis : fielddata, pas d'agrégatino avec les champs text (SEARCH : quels docs contiennent ce terme ?, AGG/SORT : Quelle est la valeur de ce champ pour tel doc ?)
-
-heap size (tweets FR : 35M)
-
+![](data/abstraction.png)
 
 
-Réseau de tweets : https://mail.google.com/mail/u/1/#search/jeanphilippe.cointet%40sciencespo.fr/FMfcgxvzKbVkNHcsdwmSfplLpRGNcDvg
 
-Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0NxLY3Zyi_7ubbLQ9RuqJknMk/edit?ts=5b31e7ec 
+
+
+> script d'indexation à partir de la mongo vers ES
+>
+> Branchement de l'interface sur ES (modification du serveur Flask)
+>
+> abstraction : 2 classes
+>
+> pb des 2 niveaux différents : Mongo (db1 -> tweets & links), ES (db1_tweets, db1_links)
+>
+> mappings
+>
+> choix de plusieurs collectes : plusieurs index
+>
+> remplacement des liens
+>
+> bulk indexing
+>
+> ids des tweets comme IDs ES
+>
+> keyword/text
+>
+> text analysis : fielddata, pas d'agrégatino avec les champs text (SEARCH : quels docs contiennent ce terme ?, AGG/SORT : Quelle est la valeur de ce champ pour tel doc ?)
+>
+> heap size (tweets FR : 35M)
+>
+> 
+>
+> Réseau de tweets : https://mail.google.com/mail/u/1/#search/jeanphilippe.cointet%40sciencespo.fr/FMfcgxvzKbVkNHcsdwmSfplLpRGNcDvg
+>
+> Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0NxLY3Zyi_7ubbLQ9RuqJknMk/edit?ts=5b31e7ec 
+>
 
 ### 3.1.2 Facebook
 
-1 appel toutes les 15s : 84h (3,5 jours) pour 10k pages
-
--> doc utilisation graph API sur polarisation
-
-problématique
-
-différentes options
+> 1 appel toutes les 15s : 84h (3,5 jours) pour 10k pages
+>
+> -> doc utilisation graph API sur polarisation
+>
+> problématique
+>
+> différentes options
+>
 
 ### 3.1.3 Pages web
 
@@ -407,19 +456,20 @@ différentes options
 
 ### 3.2.1 Normalisation des urls
 
-utilité
-
-architecture
-
-tests unitaires
-
-ural fonctions
-
-CLI
-
-lruTRIE
-
-join
+> utilité
+>
+> architecture
+>
+> tests unitaires
+>
+> ural fonctions
+>
+> CLI
+>
+> lruTRIE
+>
+> join
+>
 
 ### 3.2.2 Extraction du contenu pertinent d'une page web
 
@@ -455,10 +505,10 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 
 # Conclusion
 
-*La conclusion devrait faire de une à deux pages.
-En général, on commence par présenter un résumé du rapport puis les perspectives et éventuellement les travaux restant à mener.
-Vous pouvez ensuite exposer les points positifs et négatifs de votre stage.
-Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dans votre projet professionnel. Vos objectifs ont-ils évolué ? Par exemple, en quoi ce stage confirme (ou infirme) votre choix de filière ?*
+> *La conclusion devrait faire de une à deux pages.
+> En général, on commence par présenter un résumé du rapport puis les perspectives et éventuellement les travaux restant à mener.
+> Vous pouvez ensuite exposer les points positifs et négatifs de votre stage.
+> Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dans votre projet professionnel. Vos objectifs ont-ils évolué ? Par exemple, en quoi ce stage confirme (ou infirme) votre choix de filière ?*
 
 ==> collaboration avec Benkler / Zuckermann ?
 
@@ -476,7 +526,15 @@ https://stph.scenari-community.org/contribs/nos/es3/co/es3.html
 
 **DOM (Document Object Model)** :  
 
+**Clone (git)** :
+
+**Git** : 
+
+**Pull request (git)** :
+
 **Responsive** : un site est *responsive* lorsque son contenu s'adapte automatiquement à la résolution du terminal utilisé pour le visionner. De nos jours, la quasi-totalité des sites sont *responsive*.
+
+**Test unitaire** :
 
 
 
