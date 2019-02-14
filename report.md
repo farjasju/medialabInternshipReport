@@ -152,16 +152,6 @@ Pour le développement d'interfaces, React et material-ui ont été plébiscité
 
 La plupart des librairies comportent des _tests unitaires_*, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI. Les développements de nouvelles fonctionnalités ont été faits sur des branches dédiées sur git, puis envoyés sous forme de Pull Requests avant d'être mergées à la branche master.
 
-
-
-## 2.5 Prise de recul
-
-> *Quel a été l'intérêt de votre travail pour l'entreprise ? Que va devenir votre contribution ? Présenter les perspectives.
-> Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
-> Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur les utilisateurs**, les nouveaux usages, le respect de la **vie privée** ou de l'environnement...*
-
-// A FAIRE
-
 # 3. Le travail réalisé
 
 > *Cette partie est la plus longue ; vous y présenterez votre travail.
@@ -195,7 +185,7 @@ Mon travail a d'abord consisté à rendre l'outil compatible Python 3, tout en g
 
 ##### Quels besoins ?
 
-Gazouilloire est un outil en ligne de commande, qui se lance donc via un terminal. Les paramètres de la collecte (mots-clés, hashtags, période, ...) sont entrés dans un fichier JSON avant le lancement du programme. Cela le rend difficilement accessible aux chercheurs en sciences sociales qui n'ayant pas de formation en informatique. 
+Gazouilloire est un outil en ligne de commande, qui se lance donc via un terminal. Les paramètres de la collecte (mots-clés, hashtags, période, ...) sont entrés dans un fichier JSON avant le lancement du programme. Cela le rend difficilement accessible aux chercheurs en sciences sociales n'ayant pas de formation en informatique. 
 
 En outre, une interface de visualisation rapide des données stockées dans la base de données serait bienvenue, afin d'identifier des tendances ou de repérer d'éventuels problèmes.
 
@@ -241,7 +231,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 <Router>
 	<Route path="/collect" component={CollectPage} />
 	<Route path="/analyze" component={AnalyzePage} />
-    <Route path="/monitor" component={MonitoringPage} />
+	<Route path="/monitor" component={MonitoringPage} />
 </Router>
 ```
 
@@ -496,7 +486,7 @@ Outre les points de performance évoqués plus haut, un des points forts d'Elast
 
 ### 3.1.2 Facebook
 
-SI le laboratoire dispose d'un outil bien établi pour la collecte de tweets, ce n'est pas le cas pour la collecte de données Facebook. Twitter étant moins utilisé que Facebook,et pas forcément représentatif de la population, la question d'un biais dans les données récoltées se pose. Pour réduire celui-ci, ou du moins évaluer les différences entre les métriques de partage sur Facebook et sur Twitter, il est intéressant de pouvoir récupérer le nombre de partage Facebook pour telle url.
+SI le laboratoire dispose d'un outil bien établi pour la collecte de tweets, ce n'est pas le cas pour la collecte de données Facebook. Twitter étant moins utilisé que Facebook, et pas forcément représentatif de la population, la question d'un biais dans les données récoltées se pose. Pour réduire celui-ci, ou du moins évaluer les différences entre les métriques de partage sur Facebook et sur Twitter, il est intéressant de pouvoir récupérer le nombre de partage Facebook pour telle url.
 
 #### 3.1.2.1 La méthode utilisant l'API
 
@@ -631,6 +621,20 @@ Minet
 
 -> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
 
+
+
+RGPD ?
+
+## 3.3 Prise de recul
+
+> *Quel a été l'intérêt de votre travail pour l'entreprise ? Que va devenir votre contribution ? Présenter les perspectives.
+> Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
+> Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur les utilisateurs**, les nouveaux usages, le respect de la **vie privée** ou de l'environnement...*
+
+// A FAIRE
+
+
+
 # Conclusion
 
 > *La conclusion devrait faire de une à deux pages.
@@ -651,7 +655,7 @@ https://stph.scenari-community.org/contribs/nos/es3/co/es3.html
 
 # Glossaire
 
-**Agrégation (requête)** :
+**Agrégation (requête)** : re
 
 **Breaking change** :
 
