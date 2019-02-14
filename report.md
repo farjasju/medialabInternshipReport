@@ -7,10 +7,6 @@
 >
 > Résumé : web-mining, open source
 
----
-title: Document Center
----
-
 # Remerciements
 
 Je tiens tout d'abord à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. Effectuer mon premier stage avec un tuteur du niveau de compétences et de pédagogie de Guillaume
