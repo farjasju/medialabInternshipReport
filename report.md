@@ -6,13 +6,20 @@
 > - philosophie de l'open-source (contributions dans les 2 sens)
 >
 > Résumé : web-mining, open source
->
+
+---
+title: Document Center
+---
 
 # Remerciements
 
-Je tiens à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux, ainsi que toute l'équipe du laboratoire auprès de qui effectuer ce stage fut un plaisir.
+Je tiens tout d'abord à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. Effectuer mon premier stage avec un tuteur du niveau de compétences et de pédagogie de Guillaume
 
-Je remercie Paul de m'avoir fait confiance pour ce stage.
+Je remercie Paul et l'équipe de m'avoir fait confiance pour ce stage.
+
+Merci à Barbara, Damien, Robin, Arnaud, Donato, Léna ainsi que toute l'équipe auprès de qui travailler pendant ces six mois fut un plaisir.
+
+
 
 // REDIGER REMERCIEMENTS DETAILLES
 
@@ -300,7 +307,12 @@ fetch('adresse_du_serveur/timeevolution')
 
 
 > // Recharts : nb tweets / jour : agrégation Mongo
->
+
+![](data/gazou1.png)
+
+![](data/gazou2.png)
+
+![](data/gazou3.png)
 
 L'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
 
@@ -496,14 +508,19 @@ tweets_collectes = [tweet1, tweet2, tweet3, ...]
 helpers.streaming_bulk(es, actions=stream_tweets(tweets_collectes))
 ```
 
-Problèmes de vitesse mis à part, la quantité d'informations stockées doit aussi être prise en compte. Un outil de collecte comme Gazouilloire peut facilement être amené à collecter 1, 10 voire 100 millions de tweets, ce qui représente plusieurs dizaines voire centaines de gigas. _Lucene*_, et donc Elasticsearch, fonctionne en Java ; pour de très gros corpus, il est nécessaire de modifier sa configuration par défaut. Cela concerne en particulier la taille de la mémoire virtuelle Java (ou _JVM heap size_). 
+Problèmes de vitesse mis à part, la quantité d'informations stockées doit aussi être prise en compte. Un outil de collecte comme Gazouilloire peut facilement être amené à collecter 1, 10 voire 100 millions de tweets, ce qui représente plusieurs dizaines voire centaines de gigas. _Lucene*_, et donc Elasticsearch, fonctionne en Java ; pour de très gros corpus, il est nécessaire de modifier sa configuration par défaut. Cela concerne en particulier la taille de la mémoire virtuelle Java (ou _JVM heap size_), qui sature si le corpus est trop important :
+
+![](data/JVM_heap_size.png)
 
 Par défaut à 1GB, il faut augmenter sa valeur pour des corpus de plus de 15 millions (cela se fait dans le fichier `/etc/elasticsearch/jvm.options` ).
 
 > Réseau de tweets : https://mail.google.com/mail/u/1/#search/jeanphilippe.cointet%40sciencespo.fr/FMfcgxvzKbVkNHcsdwmSfplLpRGNcDvg
 >
 > Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0NxLY3Zyi_7ubbLQ9RuqJknMk/edit?ts=5b31e7ec 
->
+
+##### Les avantages d'Elasticsearch : Kibana
+
+Outre les points de performance évoqués plus haut, un des points forts d'Elasticsearch est le fait qu'on puisse lui joindre [Kibana](https://www.elastic.co/fr/products/kibana), le greffon de visualisation de données de la suite Elastic. Cela facilite grandement l'exploration de données, ainsi que le monitoring de chaque index.
 
 ### 3.1.2 Facebook
 
@@ -556,9 +573,15 @@ https://www.facebook.com/plugins/like.php?href=URL&layout=box_count
 
 > À garder en tête, l'url cible (`URL`) doit être encodée avant d'être insérée dans l'adresse ci-dessus. Cet encodage peut se faire avec `quote` d'`urllib.parse` en Python, ou avec `encodeURI` en Javascript.
 
-Il suffit alors de scraper la valeur du bouton et de la convertir en `integer` pour avoir le nombre de partages (arrondi) de l'url voulue. Et surtout, il n'y a pas de limites de requêtes (ce n'est pas dans l'intérêt de Facebook de limiter la diffusion de son réseau social sur les sites tiers) : la seule limite est celle de votre connexion.
+Il suffit alors de scraper la valeur du bouton et de la convertir en `integer` pour avoir le nombre de partages (arrondi) de l'url voulue. Et surtout, il n'y a pas de limites de requêtes (ce n'est pas dans l'intérêt de Facebook de limiter la diffusion de son réseau social sur les sites tiers) : la seule limite est celle de la connexion.
 
 ## 3.2 Traiter
+
+Collecter des données c'est bien, encore faut-il que celles-ci soient exploitable.
+
+Pour les tweets, l'API de Twitter fournit des données propres et ordonnées, qu'il est facile d'utiliser dans Gazouilloire. Pour Facebook, les deux méthodes donnent des résultats sous forme d'entiers, parfaitement exploitables. Les problèmes potentiels se situent au niveau des urls pour lesquelles on applique les scripts de collecte. 
+
+Mettons-nous à la place du chercheur en sciences sociales souhaitant collecter des données de partage Facebook pour un corpus de liens sur un sujet en particulier. Celui-ci n'ayant potentiellement que des compétences de base en informatique, la façon dont les urls seront entrées ne sera pas forcément adaptée (càd uniforme et cohérente). 
 
 ### 3.2.1 Normalisation des urls
 
