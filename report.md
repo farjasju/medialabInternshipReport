@@ -1,12 +1,3 @@
-# [Notes]
-
-> - réflexion sur la mission et la manière dont vous vous êtes organisés
-> - réflexion sur les choix qui ont été faits
-> - réflexion sur la portée de vos réalisations, leurs avantages et inconvénients, leur devenir dans l'entreprise
-> - philosophie de l'open-source (contributions dans les 2 sens)
->
-> Résumé : web-mining, open source
-
 ![](data/frontpage.png)
 
 # Remerciements
@@ -19,11 +10,6 @@ Merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Audrey, D
 
 # Sommaire
 
-> // Updater le sommaire
-
-
-
- * [[Notes]](#notes)
  * [Remerciements](#remerciements)
  * [Sommaire](#sommaire)
  * [Résumé technique](#résumé-technique)
