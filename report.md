@@ -21,26 +21,36 @@ Merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Audrey, D
 
 > // Updater le sommaire
 
-> * [[Notes]](#notes)
-> * [Remerciements](#remerciements)
-> * [Sommaire](#sommaire)
-> * [Résumé technique](#résumé-technique)
-> * [Introduction](#introduction)
-> * [1. Un Médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
->   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
->   * [1.2 L'équipe](#12-léquipe)
-> * [2. Ma mission](#2-ma-mission)
->   * [2.1 Le sujet](#21-le-sujet)
->   * [2.2 Le planning](#22-le-planning)
->   * [2.3 Mes contributions](#23-mes-contributions)
->   * [2.4 Outils & technologies](#24-outils--technologies)
->   * [2.5 Prise de recul](#25-prise-de-recul)
-> * [3. Le travail réalisé](#3-le-travail-réalisé)
->   * [3.1 Collecter](#31-collecter)
->     - [3.1.1 Twitter](#311-twitter)
->     - [3.1.2 Facebook](#312-facebook)
->   * [3.2 Traiter](#32-traiter)
->     - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
+
+
+ * [[Notes]](#notes)
+ * [Remerciements](#remerciements)
+ * [Sommaire](#sommaire)
+ * [Résumé technique](#résumé-technique)
+ * [Introduction](#introduction)
+ * [1. Un Médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
+   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
+   * [1.2 L'équipe](#12-léquipe)
+ * [2. Ma mission](#2-ma-mission)
+   * [2.1 Le sujet](#21-le-sujet)
+   * [2.2 Le planning](#22-le-planning)
+   * [2.3 Mes contributions](#23-mes-contributions)
+   * [2.4 Outils & technologies](#24-outils--technologies)
+   * [2.5 Prise de recul](#25-prise-de-recul)
+ * [3. Le travail réalisé](#3-le-travail-réalisé)
+   * [3.1 Collecter](#31-collecter)
+     - [3.1.1 Twitter](#311-twitter)
+     - [3.1.2 Facebook](#312-facebook)
+   * [3.2 Traiter](#32-traiter)
+     - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
+     - [3.2.2 Extraction du contenu pertinent d'une page web](#322-extraction-du-contenu-pertinent-dune-page-web)
+     - [3.2.3 Création d'une librairie/outil en ligne de commande Python](#323-création-dune-librairieoutil-en-ligne-de-commande-python)
+ * [Conclusion](#conclusion)
+ * [Bibliographie](#bibliographie)
+ * [Glossaire](#glossaire)
+ * [Annexes](#annexes)
+
+ 
 
 # Résumé technique
 
@@ -124,7 +134,7 @@ Un des objectifs du laboratoire en termes de collecte de données est d'élargir
 
 > *Cahier des charges précis ou participation à son élaboration ?*
 
-
+// Y EN A PAS TROP
 
 
 
@@ -133,7 +143,7 @@ Un des objectifs du laboratoire en termes de collecte de données est d'élargir
 > *Vous pouvez présenter le planning initial et le planning réel avec les dates importantes.
 > Quelles ont été les étapes importantes ? Indiquez celles qui auraient été les plus difficiles, les plus intéressantes, etc.*
 
-Itérations de 2 semaines.
+// Y EN A PAS TROP
 
 ## 2.3 Mes contributions
 
@@ -142,7 +152,7 @@ Itérations de 2 semaines.
 > *Avez-vous réalisé une étude, une maquette, une preuve de concept, un produit ou une application complète ? Que reste-t-il à faire pour rendre utilisable votre travail ?*
 >
 
-
+// REDONDANT ?
 
 ## 2.4 Outils & technologies
 
@@ -166,7 +176,7 @@ La plupart des librairies comportent des _tests unitaires_*, qui sont vérifiés
 > Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
 > Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur les utilisateurs**, les nouveaux usages, le respect de la **vie privée** ou de l'environnement...*
 
-Amélioration d'outils répondant à des besoins récurrents des chercheurs.
+// A FAIRE
 
 # 3. Le travail réalisé
 
@@ -175,8 +185,6 @@ Amélioration d'outils répondant à des besoins récurrents des chercheurs.
 > Travaillez les liaisons pour aboutir à une lecture fluide. Voici un exemple (un peu exagéré) : "Après avoir inventorié les technologies disponibles dans la section précédente, cette section est consacrée aux expérimentations que nous avons menées avec chacune d'elles. Ce travail nous permettra de sélectionner les technologies retenues, présentées dans la section suivante."
 > Présentez votre réflexion et vos choix, qui devraient être justifiés. Examinez rapidement les autres alternatives.
 > Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du général au particulier. Evitez de présenter un catalogue des fonctions développées.*
-
-
 
 ## 3.1 Collecter
 
@@ -578,30 +586,45 @@ Avec l'aide de mon tuteur, j'ai donc développé une librairie Python destinée 
 
 #### 3.2.1.1 Normalisation d'une url
 
-Ural va implémenter plusieurs fonctions, dont certaines très basiques, comme `ensure_protocol`, `force_protocol`, `strip_protocol`  ou `is_url` qui respectivement ajoutent, suppriment, remplacent le protocole d'une url et vérifie qu'une chaîne de caractères est bien une url. Deux fonctions `urls_from_html` et `urls_from_text` permettent d'extraire les urls présentes dans une page web ou un texte.
+Ural va implémenter plusieurs fonctions, dont certaines très basiques, comme `ensure_protocol`, `force_protocol`, `strip_protocol`  ou `is_url` qui respectivement ajoutent, suppriment, remplacent le protocole d'une url et vérifient qu'une chaîne de caractères est bien une url. Deux fonctions `urls_from_html` et `urls_from_text` permettent d'extraire les urls présentes dans une page web ou un texte.
 
-La fonction la plus utile est certainement `normalize_url`. En effet, imaginons que l'on dispose de deux fichiers _csv_* 
+La fonction la plus utile est certainement `normalize_url`. Imaginons que l'on dispose de deux fichiers _csv_* : l'un contenant une liste d'urls vers des article de presse, avec pour chaque lien sa date de publication, l'autre contenant une autre liste d'urls (se recoupant potentiellement avec la première) avec cette fois les sujets de chaque article. Il y a de grandes chances que des urls se retrouvent dans chacun des fichiers, et on aimerait bien pouvoir lier les deux fichiers pour déterminer quels sujets sont traités sur quelles périodes. Problème : si deux mêmes pages se trouvent bien dans chacun des deux fichiers, leur url peut différer pour chacune des raisons vues plus haut. Dans ce cas, difficile d'effectuer une jointure entre les deux fichiers sans *normaliser* les urls au préalable. `normalize_url` réduit l'url à son minimum vital en enlevant toutes les informations superflues.
 
 ```python
 from ural import normalize_url
 
-normalize_url('https://www2.lemonde.fr/index.php?utm_source=google')
->>> 'lemonde.fr'
+normalize_url('https://www2.lemonde.fr/politique/index.php?utm_source=google')
+>>> 'lemonde.fr/politique'
 ```
+Ural étant aussi un outil en ligne de commande, il est possible de créer une commande `join` utilisant `normalize` :
+
+```bash
+ural join COLUMN1 file1.csv COLUMN2 file2.csv -o result.csv
+```
+
+
+
+// A REDIGER :
+
 > utilité
 >
 > architecture
 >
 > tests unitaires
 >
-> ural fonctions
->
 > CLI
 >
 > lruTRIE
 >
 > join
->
+#### 3.2.1.2 Hiérarchisation d'une url
+
+![](data/lru.png)
+
+Concept des LRU
+
+Cas d'usage
+
 ### 3.2.2 Extraction du contenu pertinent d'une page web
 
 Une des problématiques récurrentes rencontrée par les chercheurs du laboratoire consiste en l'analyse du contenu d'un corpus de pages web.
@@ -620,6 +643,8 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 
 ### 3.2.3 Création d'une librairie/outil en ligne de commande Python
 
+Minet
+
 -> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
 
 # Conclusion
@@ -632,6 +657,8 @@ Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus 
 
 > Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dans votre projet professionnel. Vos objectifs ont-ils évolué ? Par exemple, en quoi ce stage confirme (ou infirme) votre choix de filière ?*
 
+// A REDIGER
+
 ==> collaboration avec Benkler / Zuckermann ?
 
 # Bibliographie
@@ -640,13 +667,13 @@ https://stph.scenari-community.org/contribs/nos/es3/co/es3.html
 
 # Glossaire
 
-**Requête d'agrégation** :
+**Agrégation (requête)** :
 
 **Breaking change** :
 
-**DOM (Document Object Model)** :  
-
 **Clone (git)** :
+
+**DOM (Document Object Model)** :  
 
 **Git** : 
 
