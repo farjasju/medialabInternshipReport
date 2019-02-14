@@ -7,25 +7,19 @@
 >
 > Résumé : web-mining, open source
 
----
-title: Report
----
-
 ![](data/frontpage.png)
 
 # Remerciements
 
-Je tiens tout d'abord à remercier Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. Effectuer mon premier stage avec un tuteur du niveau de compétences et de pédagogie de Guillaume
+Je tiens tout d'abord à remercier mes collègues de bureau Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. Effectuer mon premier stage avec un tuteur du niveau de compétences et de pédagogie de Guillaume fut très appréciable et enrichissant.
 
 Je remercie Paul et l'équipe de m'avoir fait confiance pour ce stage.
 
-Merci à Barbara, Damien, Robin, Arnaud, Donato, Léna ainsi que toute l'équipe auprès de qui travailler pendant ces six mois fut un plaisir.
-
-
-
-// REDIGER REMERCIEMENTS DETAILLES
+Merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Audrey, Diego ainsi que toute l'équipe auprès de qui travailler pendant ces six mois fut un réel plaisir.
 
 # Sommaire
+
+> // Updater le sommaire
 
  * [[Notes]](#notes)
  * [Remerciements](#remerciements)
@@ -57,15 +51,13 @@ Merci à Barbara, Damien, Robin, Arnaud, Donato, Léna ainsi que toute l'équipe
 
 # Résumé technique
 
-Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Les développements ont été principalement réalisés en Python.
-
-// RESUME TECHNIQUE
+Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Tous les développements ont été réalisés en Python ou en Javascript, et publiés en open-source. Mes travaux ont porté sur un outil de collecte de tweets, que j'ai migré d'une base MongoDB à une base Elasticsearch ainsi que de Python 2 à Python 3, et pour lequel j'ai développé une interface (à l'aide de React et d'un serveur Flask). J'ai également développé des scripts Python récupérant le nombre de partages Facebook pour une url donnée, et benchmarké puis implémenté des méthodes d'extraction de contenu texte pertinent dans une page HTML. J'ai aussi contribué à l'élaboration d'une librairie de traitement d'urls. Pour finir, j'ai réuni ces scripts dans un outil en ligne de commande développé en Python.
 
 # Introduction
 
 // INTRODUCTION
 
-
+Dans le milieu de la recherche en sciences humaines et sociales (SHS), l'émergence d'Internet offre une nouvelle prise sur les questions fondamentales de la théorie sociale et sur l'étude des médias. Le dynamisme des réseaux sociaux, les multiples sites de presse générale ou "alternative" et autres médias d'opinion sont autant de données produites en permanence et disponibles en masse. Ces données sont par exemple l'opportunité de vérifier empiriquement des théories de sciences sociales, d'identifier des tendances, des réseaux. Cette précieuse matière première est disponible de façon brute, forme sous laquelle elle n'est guère utilisable pour un chercheur en SHS sans compétences en informatiques. Ces données se collectent, se formatent, se traitent à l'aide d'outils et de technologies spécifiques : c'est l'objet de ce rapport.
 
 # 1. Un Médialab à SciencesPo ?
 
@@ -81,11 +73,6 @@ Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://
 On peut citer comme laboratoires similaires le [Digital Methods Initiative](https://wiki.digitalmethods.net/) d'Amsterdam , l'[Oxford Internet Institute](https://www.oii.ox.ac.uk/), le [TANT-Lab](https://www.tantlab.aau.dk/) danois, ainsi que le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/) répondant aux mêmes types de problématiques abordées par le Médialab. Ces deux laboratoires américains diffèrent cependant du Médialab sur certains points, notamment l'effectif - le Berkman Klein Center compte plus de 200 personnes - et les financements - le médialab du MIT est financé entièrement par des sponsors.
 
 ## 1.2 L'équipe
-
-> // A REDIGER
->
-> Paul, Guillaume, Benjamin, Jean-Philippe, Robin, Donato, Damien, Audrey, Diego
->
 
 L'équipe technique du laboratoire se compose d'un directeur technique (Paul Girard), d'ingénieurs de recherche, de designers et de développeurs. L'organisation est très horizontale, et aucune hiérarchie ne transparaît au quotidien, les décisions étant prises en collectif, lors des réunions hebdomadaires et des conseils de laboratoires.
 
@@ -142,7 +129,7 @@ Les besoins de collecte et de traitement de données étant multiples, j'ai ét�
 
 > *Situer le sujet dans les objectifs du labo*
 
-Un des objectifs du laboratoire en termes de collecte de données est d'élargir son spectre de sources : les données récoltées proviennent actuellement de pages web (via le *crawler* [Hyphe](https://github.com/medialab/hyphe)) et de Twitter (via l'outil [Gazouilloire](https://github.com/medialab/gazouilloire)). Une partie importante de l'espace médiatique numérique échappe donc aux outils du laboratoire : Facebook, LinkedIn, Instagram par exemple. 
+Un des objectifs du laboratoire en termes de collecte de données est d'élargir son spectre de sources : les données récoltées proviennent actuellement de pages web (via le *crawler* [Hyphe](https://github.com/medialab/hyphe)) et de Twitter (via l'outil [Gazouilloire](https://github.com/medialab/gazouilloire)). Une partie importante de l'espace médiatique numérique échappe donc aux outils du laboratoire : Facebook, LinkedIn, Instagram par exemple. Un des buts de ce stage est aussi de répondre aux besoins ponctuels récurrents des chercheurs, comme extraire le contenu d'un ensemble de pages web pour effectuer de l'analyse textuelle par exemple.
 
 > *Cahier des charges précis ou participation à son élaboration ?*
 
@@ -168,7 +155,7 @@ Itérations de 2 semaines.
 
 ## 2.4 Outils & technologies
 
-> *Outils, environnements, logiciels*
+**Outils, environnements et logiciels**
 
 Tout le travail effectué l'a été en Python ou en Javascript. En Python, le gestionnaire d'environnement virtuels pyenv a été utilisé, pour compartimenter la version de Python et les dépendances propres à chaque projet. 
 
@@ -176,9 +163,9 @@ Concernant les bases de données, ont été utilisés Elasticsearch (ainsi que s
 
 Pour le développement d'interfaces, React et material-ui ont été plébiscités, ainsi que Recharts pour la visualisation de données.
 
-> *Comment les développements ont été vérifiés/testés/validés ?*
+**Vérifications et tests**
 
-La plupart des librairies comportent des tests unitaires, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI. Les développements de nouvelles fonctionnalités ont été faits sur des branches dédiées sur git, puis envoyés sous forme de Pull Requests avant d'être mergées à la branche master.
+La plupart des librairies comportent des _tests unitaires_*, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI. Les développements de nouvelles fonctionnalités ont été faits sur des branches dédiées sur git, puis envoyés sous forme de Pull Requests avant d'être mergées à la branche master.
 
 
 
@@ -318,7 +305,7 @@ fetch('adresse_du_serveur/timeevolution')
 
 L'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
 
-#### 3.1.1.3 Comment passer de Python 2 à Python 3 ?
+#### 3.1.1.3 Passage de Python 2 à Python 3
 
 Le support de Python 2 s'arrêtant officiellement en 2020, et Python 2 étant une source de problèmes éventuels (d'encodage, de compatibilité si intégration de nouvelles dépendances/librairies), la migration vers Python 3 s'impose. On souhaite cependant conserver une pleine compatibilité avec Python 2, pour éviter tout _breaking-change*_.
 
@@ -579,96 +566,35 @@ Il suffit alors de scraper la valeur du bouton et de la convertir en `integer` p
 
 ## 3.2 Traiter
 
-Collecter des données c'est bien, encore faut-il que celles-ci soient exploitable.
+Mettons-nous à la place du chercheur en sciences sociales souhaitant collecter des données de partage Facebook pour un corpus de liens sur un sujet en particulier. Celui-ci n'ayant potentiellement que des compétences de base en informatique, il va établir une liste d'urls en les copiant-collant de sources diverses, sans forcément se soucier des contraintes liées à un traitement ultérieur. Quelques exemples de ce qu'on peut trouver dans un même fichier d'urls :
 
-Pour les tweets, l'API de Twitter fournit des données propres et ordonnées, qu'il est facile d'utiliser dans Gazouilloire. Pour Facebook, les deux méthodes donnent des résultats sous forme d'entiers, parfaitement exploitables. Les problèmes potentiels se situent au niveau des urls pour lesquelles on applique les scripts de collecte. 
+- des urls en HTTP
+- des urls en HTTPS
+- des urls sans protocole
+- des urls avec des détails non pertinents (des paramètres ou _queries_ comme `?utm_source=google`, des ancres ou _fragments_ comme `#2`)
+- des urls avec des sous-domaines (comme `mobile`) ...
 
-Mettons-nous à la place du chercheur en sciences sociales souhaitant collecter des données de partage Facebook pour un corpus de liens sur un sujet en particulier. Celui-ci n'ayant potentiellement que des compétences de base en informatique, la façon dont les urls seront entrées ne sera pas forcément adaptée (càd uniforme et cohérente). 
+Autre besoin récurrent : le chercheur souhaitant déterminer quel média parle le plus de quel sujet devra analyser le contenu des pages web qui l'intéressent. Cela représente une autre tâche de traitement non négligeable : extraire le contenu pertinent d'une page web.
 
 ### 3.2.1 Normalisation des urls
 
-> utilité
->
-> architecture
->
-> tests unitaires
->
-> ural fonctions
->
-> CLI
->
-> lruTRIE
->
-> join
->
+Deux problèmes principaux se posent lorsque l'on travaille avec des urls :
 
-### 3.2.2 Extraction du contenu pertinent d'une page web
+- la diversité des éléments (facultatifs ou non) qui les composent (comme vu au-dessus)
+- le fait qu'une url ne soit pas ordonnée de façon hiérarchique
 
-Une des problématiques récurrentes rencontrée par les chercheurs du laboratoire consiste en l'analyse du contenu d'un corpus de pages web.
+Avec l'aide de mon tuteur, j'ai donc développé une librairie Python destinée au traitement d'urls, [Ural](https://github.com/medialab/ural). Celle-ci implémente plusieurs heuristiques destinées à répondre aux deux problèmes précédents.
 
-Mettons-nous à la place d'un chercheur souhaitant analyser un ensemble d'articles de presse traitant de la santé, pour pouvoir ensuite les trier par sujet et identifier quelle page traite du glyphosate, des compteurs Linky ou des cabines à UV. Une première question d'ordre technique se pose : notre chercheur, face à sa liste de 10 000 urls, doit d'abord récupérer le contenu texte des articles, mais n'est pas très enthousiaste à l'idée de visiter chaque page et de copier son contenu à la main. Heureusement, cela s'automatise. Mais l'automatisation n'est pas évidente : comment notre programme fait-il la différence entre le contenu de l'article et les commentaires, l'en-tête du site, la liste des catégories ? Si encore tous les sites web avaient la même structure, on aurait pu établir des règles génériques (identifier la balise HTML contenant le texte). C'est évidemment loin d'être le cas.
+#### 3.2.1.1 Normalisation d'une url
 
-La problématique d'extraction de contenu texte à partir de HTML étant récurrente, il existe différents outils open-source y répondant, fonctionnant pour la plupart à l'aide d'heuristiques : Goose, Boilerpipe, eatiht, Dragnet, libextract... Mais quelle est la librairie la plus performante ?
+Ural va implémenter plusieurs fonctions, dont certaines très basiques, comme `ensure_protocol`, `force_protocol`, `strip_protocol`  ou `is_url` qui respectivement ajoutent, suppriment, remplacent le protocole d'une url et vérifie qu'une chaîne de caractères est bien une url. Deux fonctions `urls_from_html` et `urls_from_text` permettent d'extraire les urls présentes dans une page web ou un texte.
 
-L'évaluation automatisée des performances de tels outils est difficile à mettre en oeuvre puisqu'il n'y a pas de moyen simple de déterminer si le contenu extrait est bien le texte de l'article ou non. On peut évidemment établir une liste d'heuristiques se basant sur des mots-clés ("Error 404", "Cloudflare" ...) ou sur la taille du résultat, mais cela n'écarte que les cas d'échec les plus simples et nécessite tout de même un certain temps à mettre en place. Une alternative simple consiste donc à implémenter toutes les librairies dans un script Python affichant le résultat des différentes extractions, pour un fichier HTML tiré au hasard. En donnant un score (la notation étant forcément subjective mais commune) à chaque méthode, 
+La fonction la plus utile est certainement `normalize_url`. En effet, imaginons que l'on dispose de deux fichiers _csv_* 
 
+```python
+from ural import normalize_url
 
+normalize_url('https://www2.lemonde.fr/index.php?utm_source=google')
+>>> 'lemonde.fr'
+```
 
-J'ai donc implémenté les différents outils dans un script Python affichant les résultats des différentes extractions, pour un fichier HTML tiré au hasard, afin d'évaluer rapidement la qualité des résultats.
-
-Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus d'un travail de recherche, pour constituer un ensemble de pages sur lesquelles tester ces librairies. 
-
-![Image of Yaktocat](data/benchmark_results.png)
-
--> Multithreading 
-
- 
-
-### Minet
-
-| url             |
-| --------------- |
-| url1.com/bidule |
-| url2.com/truc   |
-| url3.com/machin |
-
--> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
-
-# Conclusion
-
-> *La conclusion devrait faire de une à deux pages.
-> En général, on commence par présenter un résumé du rapport puis les perspectives et éventuellement les travaux restant à mener.
-> Vous pouvez ensuite exposer les points positifs et négatifs de votre stage.
-> Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dans votre projet professionnel. Vos objectifs ont-ils évolué ? Par exemple, en quoi ce stage confirme (ou infirme) votre choix de filière ?*
-
-==> collaboration avec Benkler / Zuckermann ?
-
-# Bibliographie
-
-https://stph.scenari-community.org/contribs/nos/es3/co/es3.html 
-
-
-
-# Glossaire
-
-**Requête d'agrégation** :
-
-**Breaking change** :
-
-**DOM (Document Object Model)** :  
-
-**Clone (git)** :
-
-**Git** : 
-
-**Pull request (git)** :
-
-**Responsive** : un site est *responsive* lorsque son contenu s'adapte automatiquement à la résolution du terminal utilisé pour le visionner. De nos jours, la quasi-totalité des sites sont *responsive*.
-
-**Test unitaire** :
-
-
-
-<div style="page-break-after: always;"></div>
-
-# Annexes
