@@ -21,41 +21,32 @@ Merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Audrey, D
 
 > // Updater le sommaire
 
- * [[Notes]](#notes)
- * [Remerciements](#remerciements)
- * [Sommaire](#sommaire)
- * [Résumé technique](#résumé-technique)
- * [Introduction](#introduction)
- * [1. Un Médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
-   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
-   * [1.2 L'équipe](#12-léquipe)
- * [2. Ma mission](#2-ma-mission)
-   * [2.1 Le sujet](#21-le-sujet)
-   * [2.2 Le planning](#22-le-planning)
-   * [2.3 Mes contributions](#23-mes-contributions)
-   * [2.4 Outils & technologies](#24-outils--technologies)
-   * [2.5 Prise de recul](#25-prise-de-recul)
- * [3. Le travail réalisé](#3-le-travail-réalisé)
-   * [3.1 Collecter](#31-collecter)
-     - [3.1.1 Twitter](#311-twitter)
-     - [3.1.2 Facebook](#312-facebook)
-     - [3.1.3 Pages web](#313-pages-web)
-   * [3.2 Traiter](#32-traiter)
-     - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
-     - [3.2.2 Extraction du contenu pertinent d'une page web](#322-extraction-du-contenu-pertinent-dune-page-web)
-     - [Minet](#minet)
- * [Conclusion](#conclusion)
- * [Bibliographie](#bibliographie)
- * [Glossaire](#glossaire)
- * [Annexes](#annexes)
+> * [[Notes]](#notes)
+> * [Remerciements](#remerciements)
+> * [Sommaire](#sommaire)
+> * [Résumé technique](#résumé-technique)
+> * [Introduction](#introduction)
+> * [1. Un Médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
+>   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
+>   * [1.2 L'équipe](#12-léquipe)
+> * [2. Ma mission](#2-ma-mission)
+>   * [2.1 Le sujet](#21-le-sujet)
+>   * [2.2 Le planning](#22-le-planning)
+>   * [2.3 Mes contributions](#23-mes-contributions)
+>   * [2.4 Outils & technologies](#24-outils--technologies)
+>   * [2.5 Prise de recul](#25-prise-de-recul)
+> * [3. Le travail réalisé](#3-le-travail-réalisé)
+>   * [3.1 Collecter](#31-collecter)
+>     - [3.1.1 Twitter](#311-twitter)
+>     - [3.1.2 Facebook](#312-facebook)
+>   * [3.2 Traiter](#32-traiter)
+>     - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
 
 # Résumé technique
 
 Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Tous les développements ont été réalisés en Python ou en Javascript, et publiés en open-source. Mes travaux ont porté sur un outil de collecte de tweets, que j'ai migré d'une base MongoDB à une base Elasticsearch ainsi que de Python 2 à Python 3, et pour lequel j'ai développé une interface (à l'aide de React et d'un serveur Flask). J'ai également développé des scripts Python récupérant le nombre de partages Facebook pour une url donnée, et benchmarké puis implémenté des méthodes d'extraction de contenu texte pertinent dans une page HTML. J'ai aussi contribué à l'élaboration d'une librairie de traitement d'urls. Pour finir, j'ai réuni ces scripts dans un outil en ligne de commande développé en Python.
 
 # Introduction
-
-// INTRODUCTION
 
 Dans le milieu de la recherche en sciences humaines et sociales (SHS), l'émergence d'Internet offre une nouvelle prise sur les questions fondamentales de la théorie sociale et sur l'étude des médias. Le dynamisme des réseaux sociaux, les multiples sites de presse générale ou "alternative" et autres médias d'opinion sont autant de données produites en permanence et disponibles en masse. Ces données sont par exemple l'opportunité de vérifier empiriquement des théories de sciences sociales, d'identifier des tendances, des réseaux. Cette précieuse matière première est disponible de façon brute, forme sous laquelle elle n'est guère utilisable pour un chercheur en SHS sans compétences en informatiques. Ces données se collectent, se formatent, se traitent à l'aide d'outils et de technologies spécifiques : c'est l'objet de ce rapport.
 
@@ -597,4 +588,76 @@ from ural import normalize_url
 normalize_url('https://www2.lemonde.fr/index.php?utm_source=google')
 >>> 'lemonde.fr'
 ```
+> utilité
+>
+> architecture
+>
+> tests unitaires
+>
+> ural fonctions
+>
+> CLI
+>
+> lruTRIE
+>
+> join
+>
+### 3.2.2 Extraction du contenu pertinent d'une page web
 
+Une des problématiques récurrentes rencontrée par les chercheurs du laboratoire consiste en l'analyse du contenu d'un corpus de pages web.
+
+Mettons-nous à la place d'un chercheur souhaitant analyser un ensemble d'articles de presse traitant de la santé, pour pouvoir ensuite les trier par sujet et identifier quelle page traite du glyphosate, des compteurs Linky ou des cabines à UV. Une première question d'ordre technique se pose : notre chercheur, face à sa liste de 10 000 urls, doit d'abord récupérer le contenu texte des articles, mais n'est pas très enthousiaste à l'idée de visiter chaque page et de copier son contenu à la main. Heureusement, cela s'automatise. Mais l'automatisation n'est pas évidente : comment notre programme fait-il la différence entre le contenu de l'article et les commentaires, l'en-tête du site, la liste des catégories ? Si encore tous les sites web avaient la même structure, on aurait pu établir des règles génériques (identifier la balise HTML contenant le texte). C'est évidemment loin d'être le cas.
+
+La problématique d'extraction de contenu texte à partir de HTML étant récurrente, il existe différents outils open-source y répondant, fonctionnant pour la plupart à l'aide d'heuristiques : Goose, Boilerpipe, eatiht, Dragnet, libextract... Mais quelle est la librairie la plus performante ?
+
+L'évaluation automatisée des performances de tels outils est difficile à mettre en oeuvre puisqu'il n'y a pas de moyen simple de déterminer si le contenu extrait est bien le texte de l'article ou non. On peut évidemment établir une liste d'heuristiques se basant sur des mots-clés ("Error 404", "Cloudflare" ...) ou sur la taille du résultat, mais cela n'écarte que les cas d'échec les plus simples et nécessite tout de même un certain temps à mettre en place. Une alternative simple consiste donc à implémenter toutes les librairies dans un script Python affichant le résultat des différentes extractions, pour un fichier HTML tiré au hasard. En donnant un score (la notation étant forcément subjective mais commune) à chaque méthode, 
+
+J'ai donc implémenté les différents outils dans un script Python affichant les résultats des différentes extractions, pour un fichier HTML tiré au hasard, afin d'évaluer rapidement la qualité des résultats.
+
+Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus d'un travail de recherche, pour constituer un ensemble de pages sur lesquelles tester ces librairies. 
+
+![Image of Yaktocat](data/benchmark_results.png)
+
+### 3.2.3 Création d'une librairie/outil en ligne de commande Python
+
+-> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
+
+# Conclusion
+
+> *La conclusion devrait faire de une à deux pages.
+
+> En général, on commence par présenter un résumé du rapport puis les perspectives et éventuellement les travaux restant à mener.
+
+> Vous pouvez ensuite exposer les points positifs et négatifs de votre stage.
+
+> Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dans votre projet professionnel. Vos objectifs ont-ils évolué ? Par exemple, en quoi ce stage confirme (ou infirme) votre choix de filière ?*
+
+==> collaboration avec Benkler / Zuckermann ?
+
+# Bibliographie
+
+https://stph.scenari-community.org/contribs/nos/es3/co/es3.html 
+
+# Glossaire
+
+**Requête d'agrégation** :
+
+**Breaking change** :
+
+**DOM (Document Object Model)** :  
+
+**Clone (git)** :
+
+**Git** : 
+
+**Pull request (git)** :
+
+**Responsive** : un site est *responsive* lorsque son contenu s'adapte automatiquement à la résolution du terminal utilisé pour le visionner. De nos jours, la quasi-totalité des sites sont *responsive*.
+
+**Test unitaire** :
+
+
+
+    <div style="page-break-after: always;"></div>
+
+# Annexes
