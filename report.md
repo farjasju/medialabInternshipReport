@@ -14,33 +14,30 @@ Enfin, merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Au
 
 # Sommaire
 
-> UPDATER LE SOMMAIRE
-
- * [Remerciements](#remerciements)
- * [Sommaire](#sommaire)
- * [Résumé technique](#résumé-technique)
- * [Introduction](#introduction)
- * [1. Un médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
-   * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
-   * [1.2 L'équipe](#12-léquipe)
- * [2. Ma mission](#2-ma-mission)
-   * [2.1 Le sujet](#21-le-sujet)
-   * [2.2 Le planning](#22-le-planning)
-   * [2.3 Mes contributions](#23-mes-contributions)
-   * [2.4 Outils & technologies](#24-outils--technologies)
-   * [2.5 Prise de recul](#25-prise-de-recul)
- * [3. Le travail réalisé](#3-le-travail-réalisé)
-   * [3.1 Collecter](#31-collecter)
+ - [**Remerciements**](#remerciements)
+ - [**Sommaire**](#sommaire)
+ - [**Résumé technique**](#résumé-technique)
+ - [**Introduction**](#introduction)
+ - [**1. Un médialab à SciencesPo ?**](#1-un-médialab-à-sciencespo-)
+   - [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
+   - [1.2 L'équipe](#12-léquipe)
+ - [**2. Ma mission**](#2-ma-mission)
+   - [2.1 Récolter des données web pour étudier la polarisation de l’espace médiatique](#21-récolter-des-données-web-pour-étudier-la-polarisation-de-lespace-médiatique)
+   - [2.2 Mes contributions](#22-mes-contributions)
+   - [2.3 Outils & technologies](#23-outils--technologies)
+ - [**3. Le travail réalisé**](#3-le-travail-réalisé)
+   - [3.1 Collecter](#31-collecter)
      - [3.1.1 Twitter](#311-twitter)
      - [3.1.2 Facebook](#312-facebook)
-   * [3.2 Traiter](#32-traiter)
+   - [3.2 Traiter](#32-traiter)
      - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
      - [3.2.2 Extraction du contenu pertinent d'une page web](#322-extraction-du-contenu-pertinent-dune-page-web)
-     - [3.2.3 Création d'une librairie/outil en ligne de commande Python](#323-création-dune-librairieoutil-en-ligne-de-commande-python)
- * [Conclusion](#conclusion)
- * [Bibliographie](#bibliographie)
- * [Glossaire](#glossaire)
- * [Annexes](#annexes)
+     - [3.2.3 Création d'une librairie & outil en ligne de commande Python](#323-création-dune-librairie--outil-en-ligne-de-commande-python)
+   - [3.3 Prise de recul](#33-prise-de-recul)
+ - [**Conclusion**](#conclusion)
+ - [**Bibliographie**](#bibliographie)
+ - [**Glossaire**](#glossaire)
+ - [**Annexes**](#annexes)
 
  
 
@@ -83,15 +80,11 @@ Les objectifs de long terme sont déterminés en commun avec mon tuteur, tandis 
 
 La très grande majorité des outils développés par le laboratoire le sont en Python ou en Javascript. Des frameworks comme React sont utilisés, ainsi que des outils de déploiement et d'intégration comme Gitlab CI, Docker, Rancher. Tous les outils développés le sont en open-source, et sont publiés sur le [repo du laboratoire](https://github.com/medialab) le plus souvent sous licence AGPL-3.0, GPL-3.0 ou MIT.
 
-> *Méthodes et outils utilisés (agile, git) ? Validation des développements (tests) ?*
-
 
 
 # 2. Ma mission
 
 ## 2.1 Récolter des données web pour étudier la polarisation de l’espace médiatique
-
-> *Sujet initial*
 
 Dans le cadre d'un projet de recherche de [Dominique Cardon](https://fr.wikipedia.org/wiki/Dominique_Cardon_(sociologue)) étudiant la polarisation de l'espace médiatique numérique français, le stage porte sur les techniques de récolte de données web (sites, réseaux sociaux) et de visualisation de celles-ci. 
 
@@ -103,44 +96,11 @@ Concrètement, cette polarisation s'étudie via la construction de réseaux : on
 
 ![reseau_tweets](data/reseau_tweets.png)
 
-> [ Répliquer une étude du Berkman Center : intercitation des médias, comment les gens partagent ces médias, informations révélées apr le réseau, vérifier des hyptohèses sociologiques, Benalla : comment les thèmes d'un sujet se diffusent au travers des différents médias, légitimité des médias ?, 
->
-> Hypothèse de l'institut Montaigne : aux US grosse polarisation des médias (gauche/droite assez hermétiques), qui s'accentue (Berkman). Hypothèse du directeur de Berkman : la droite s'éloigne (jeu dégueulasse) et le centre
->
-> Même chose en France : globalement oui, mais bien moins dramatique. Médias alternatifs très peu considérés 
->
-> Polarisation : réseaux de co-occurence de tweets (réseau bipartite : 2 types de noeuds : un utilisateur partage un média n fois) réseau de similarité de média par le truchement des utilisateurs
->
-> Chaque média est un vecteur de ses utilisateurs -> similarité cosinus
->
-> Deux médias seront liés s'ils ont un profil de gens qui les partagent similaire
->
-> Problème : on finit par prouver des trucs qu'on savait déjà depuis longtemps en socio]
->
-
 Afin d'établir ce genre de visualisations, il est nécessaire de collecter et de traiter les données du corpus étudié : c'est ma mission en tant qu'assistant ingénieur.
-
-> *Ses évolutions (et leurs causes)*
 
 Les besoins de collecte et de traitement de données étant multiples, j'ai été amené à travailler sur plusieurs outils, répondant chacun à un besoin particulier mais relevant du domaine du web-mining : collecter de grandes quantités de tweets, récupérer des données de partages Facebook, extraire le contenu pertinent d'une page web, normaliser des urls.
 
-> *Situer le sujet dans les objectifs du labo*
-
 Un des objectifs du laboratoire en termes de collecte de données est d'élargir son spectre de sources : les données récoltées proviennent actuellement de pages web (via le *crawler* [Hyphe](https://github.com/medialab/hyphe)) et de Twitter (via l'outil [Gazouilloire](https://github.com/medialab/gazouilloire)). Une partie importante de l'espace médiatique numérique échappe donc aux outils du laboratoire : Facebook, LinkedIn, Instagram par exemple. Un des buts de ce stage est aussi de répondre aux besoins ponctuels récurrents des chercheurs, comme extraire le contenu d'un ensemble de pages web pour effectuer de l'analyse textuelle par exemple.
-
-> *Cahier des charges précis ou participation à son élaboration ?*
-
-// Y EN A PAS TROP
-
-
-
-## 2.2 Mes contributions
-
-> *Etat du projet à votre arrivée ? Et à la fin ?*
->
-> *Avez-vous réalisé une étude, une maquette, une preuve de concept, un produit ou une application complète ? Que reste-t-il à faire pour rendre utilisable votre travail ?*
-
-// REDONDANT ?
 
 
 
@@ -161,12 +121,6 @@ La plupart des librairies comportent des _tests unitaires_*, qui sont vérifiés
 
 
 # 3. Le travail réalisé
-
-> *Cette partie est la plus longue ; vous y présenterez votre travail.
-> Si besoin, vous pourriez structurer le reste du rapport en plusieurs parties et non une seule. La ou les parties devraient elles-mêmes êtres structurées en plusieurs sous-sections au sein d'une même partie. Dans tous les cas, la logique du plan doit apparaître clairement.
-> Travaillez les liaisons pour aboutir à une lecture fluide. Voici un exemple (un peu exagéré) : "Après avoir inventorié les technologies disponibles dans la section précédente, cette section est consacrée aux expérimentations que nous avons menées avec chacune d'elles. Ce travail nous permettra de sélectionner les technologies retenues, présentées dans la section suivante."
-> Présentez votre réflexion et vos choix, qui devraient être justifiés. Examinez rapidement les autres alternatives.
-> Sélectionnez les détails pertinents et laissez les autres en annexe. Allez du général au particulier. Evitez de présenter un catalogue des fonctions développées.*
 
 ## 3.1 Collecter
 
@@ -274,9 +228,7 @@ Il suffit alors, du côté du client, de faire une requête à la route indiqué
 fetch('adresse_du_serveur/timeevolution')
 ```
 
-
-
-> // Recharts : nb tweets / jour : agrégation Mongo
+On est alors en mesure d'obtenir une interface fonctionnelle :
 
 ![](data/gazou1.png)
 
@@ -284,7 +236,7 @@ fetch('adresse_du_serveur/timeevolution')
 
 ![](data/gazou3.png)
 
-L'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
+Cependant, comme détaillé en 3.1.1.4, l'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
 
 
 
@@ -328,9 +280,6 @@ J'ai donc modifié la librairie pôur la rendre compatible Python 3, ajouté des
 
 ![](data/pull_request.png)
 
-> urlsresolver : test Travis
->
-
 #### 3.1.1.4 Migration de MongoDB à Elasticsearch
 
 ![](data/mongotoes.png)
@@ -339,7 +288,7 @@ J'ai donc modifié la librairie pôur la rendre compatible Python 3, ajouté des
 
 MongoDB est un système de bases de données non-relationnelles, très souple à l'usage : nul besoin de spécifier à l'avance le format des données que l'on va insérer dans la base, par exemple. Il est ainsi possible d'insérer l'objet `{Nom : "Davis", Prénom : "Miles"}` puis l'objet `{Nom : "Parker", Prénom : "Charlie", Lieu de naissance : "Kansas City"}` sans redéfinir la base en ajoutant un champ `Lieu de naissance`.  Une caractéristique particulièrement intéressante dans le cas de Gazouilloire : parmi la cinquantaine de champs potentiellement stockés par tweet (auteur, contenu, hashtags, ...), plusieurs ne seront pas présents dans tous les cas, comme la géolocalisation. MongoDB nous permet donc de stocker chaque tweet avec les informations qu'il possède sans se soucier des champs qu'il possède.
 
-S'il permet de stocker rapidement de grandes quantités de données, l'accès à ces données en lecture (une fois stockées) est en revanche limité en vitesse. Cela est particulièrement vrai pour les requêtes d'agrégation*. Une requête d'agrégation va consister à grouper tous les enregistrements (ici, tweets) qui répondent à un critère : par exemple, qui datent du jour J. MongoDB n'utilisant pas d'indexation par défaut, cela nécessite de chercher dans toute la base les enregistrements correspondant.
+S'il permet de stocker rapidement de grandes quantités de données, l'accès à ces données en lecture (une fois stockées) est en revanche limité en vitesse. Cela est particulièrement vrai pour les requêtes d'_agrégation_*. Une requête d'agrégation va consister à grouper tous les enregistrements (ici, tweets) qui répondent à un critère : par exemple, qui datent du jour J. MongoDB n'utilisant pas d'indexation par défaut, cela nécessite de chercher dans toute la base les enregistrements correspondant.
 
 Ce qui n'est pas problématique si l'on veut afficher une liste de 100 tweets, mais qui devient très handicapant lorsque l'on souhaite afficher la distribution temporelle d'un corpus de 2 millions de tweets.
 
@@ -361,7 +310,7 @@ MongoDB possède une arborescence à 2 niveaux : on peut créer plusieurs `datab
 
 Elasticsearch ne fonctionne qu'à un seul niveau, celui des `index` (équivalent des `databases` Mongo), sans sous-index ou équivalent des `collections`.
 
-La solution retenue ici est de créer deux `index` pour chaque collecte :
+La solution retenue ici est de créer deux `index` pour chaque collecte, un pour les tweets et un pour les liens :
 
 ![](/home/jules/dev/medialabInternshipReport/data/collections_indices.png)
 
@@ -404,8 +353,6 @@ Les mappings sont déterminés automatiquement s'ils ne sont pas spécifiés, ma
 
 > On notera aussi la différence entre les types `"text"` et `"keyword"` : les champs de type `text` sont analysés (découpés en une liste de termes individuels) avant d'être indexés, ce qui permet ensuite de rechercher un mot en particulier _à l'intérieur_ du texte stocké. Il n'est en revanche pas possible d'effectuer de requête de tri ou d'agrégation (grouper selon certains critères) sur un champ `text`, tandis que ça l'est avec un champ `keyword` (qui lui n'est pas analysé, donc pas recherchable autrement qu'avec sa valeur exacte).
 
-> text analysis : fielddata, pas d'agrégatino avec les champs text (SEARCH : quels docs contiennent ce terme ?, AGG/SORT : Quelle est la valeur de ce champ pour tel doc ?)
-
 ​	**Étape 3 - Brancher l'interface sur la base de test**
 
 Pour que l'interface puisse accéder aux données stockées dans Elasticsearch, il faut modifier le serveur Flask, en ajoutant des routes requêtant la base Elasticsearch.
@@ -431,10 +378,10 @@ Les deux classes n'ayant que très peu de méthodes et attributs communs, l'opti
 
 ![](data/abstraction.png)
 
-Dans le script principal, il suffit alors d'utiliser DBManager pour instancier une base de données du type souhaité (définie dans le fichier de configuration, ici `conf`) :
+Dans le script principal, il suffit alors d'utiliser `DBManager` pour instancier une base de données du type souhaité :
 
 ```python
-db = db_manager(conf['database'])
+db = db_manager(db_type) # db_type = 'mongo' ou 'elasticsearch'
 ```
 
 ```python
@@ -445,13 +392,9 @@ Il reste à écrire les méthodes de chaque classe, avec les requêtes adéquate
 
 ​	**Étape 5 - Optimiser les performances**
 
-> bulk indexing
->
-> heap size
+Tout d'abord, afin d'optimiser la vitesse d'indexation, il est possible d'effectuer les requêtes par paquets (_bulk_indexing_).
 
-Afin d'optimiser la vitesse d'indexation, il est possible d'effectuer les requêtes par paquets (_bulk_indexing_).
-
-Avec le client Python, l'idéal est d'avoir un générateur de requêtes : 
+Avec le client Python, l'idéal est d'avoir un _générateur_* de requêtes : 
 
 ```python
  def stream_tweets(tweets, index):
@@ -486,13 +429,11 @@ Problèmes de vitesse mis à part, la quantité d'informations stockées doit au
 
 Par défaut à 1GB, il faut augmenter sa valeur pour des corpus de plus de 15 millions (cela se fait dans le fichier `/etc/elasticsearch/jvm.options` ).
 
-> Réseau de tweets : https://mail.google.com/mail/u/1/#search/jeanphilippe.cointet%40sciencespo.fr/FMfcgxvzKbVkNHcsdwmSfplLpRGNcDvg
->
-> Rapport polarisation : https://docs.google.com/document/d/1IGq7wKhK-3mAitTN8g0NxLY3Zyi_7ubbLQ9RuqJknMk/edit?ts=5b31e7ec 
-
 ##### Les avantages d'Elasticsearch : Kibana
 
-Outre les points de performance évoqués plus haut, un des points forts d'Elasticsearch est le fait qu'on puisse lui joindre [Kibana](https://www.elastic.co/fr/products/kibana), le greffon de visualisation de données de la suite Elastic. Cela facilite grandement l'exploration de données, ainsi que le monitoring de chaque index.
+Outre les points de performance évoqués plus haut, un des points forts d'Elasticsearch est le fait qu'on puisse lui joindre [Kibana](https://www.elastic.co/fr/products/kibana), le greffon de visualisation de données de la suite Elastic. Cela facilite grandement l'exploration de données, ainsi que le monitoring de chaque index. Kibana fournit en effet un onglet _Discover_, permettant d'effectuer des requêtes de recherche et de voir les résultats ainsi que leur distribution temporelle, un onglet _Visualize_ permettant de construire bar charts, line charts, pie charts et word clouds, et un onglet Monitor affichant taille des index, vitesse d'indexation et nombre de documents.
+
+
 
 ### 3.1.2 Facebook
 
@@ -590,14 +531,6 @@ Ici : `ural join url sujets.csv url dates.csv -o resultat.csv` permet de réunir
 
 ![](data/url_join.png)
 
-
-
-// A REDIGER :
-
-> architecture
->
-> tests unitaires
->
 #### 3.2.1.2 Hiérarchisation d'une url
 
 Autre problème intrinsèque aux urls : le fait qu'elles ne soient pas ordonnées hiérarchiquement.
@@ -618,8 +551,8 @@ Les LRUs peuvent donc être stockées dans un _arbre préfixe_*, ou _trie_. Ural
 
 ```python
 trie = LRUTrie()
-trie.set('http://www.lemonde.fr')
-trie.match('http://www.lemonde.fr/politique')
+trie.set('http://www.lemonde.fr') # insertion d'une url dans l'arbre
+trie.match('http://www.lemonde.fr/politique') # renvoie le plus long préfixe commun
 >>> 'http://www.lemonde.fr'
 ```
 
@@ -645,6 +578,8 @@ La problématique d'extraction de contenu texte à partir de HTML étant récurr
 
 La première étape a donc été d'évaluer les performances de ces librairies.
 
+
+
 #### 3.2.2.1 Benchmarking des librairies existantes
 
 L'évaluation automatisée des performances de tels outils est difficile à mettre en oeuvre puisqu'il n'y a pas de moyen simple de déterminer si le contenu extrait est bien le texte de l'article ou non. On peut évidemment établir une liste d'heuristiques se basant sur des mots-clés (_"Error 404"_, _"Cloudflare"_ ...) ou sur la taille du résultat, mais cela n'écarte que les cas d'échec les plus simples et nécessite tout de même un certain temps à mettre en place. Une alternative simple consiste donc à implémenter toutes les librairies dans un script Python affichant le résultat des différentes extractions, pour un fichier HTML tiré au hasard. En donnant un score (la notation étant forcément subjective mais commune) à chaque méthode, 
@@ -658,8 +593,6 @@ Les résultats obtenus sont assez disparates : les librairies basées sur des he
 ![](data/benchmark_results.png)
 
 À noter, les résultats obtenus ici sont valables pour des corpus constitués d'articles de presse ou de blog.
-
-// ANNEXE METHODE ? 2EME BENCHMARK ?
 
 
 
@@ -761,6 +694,8 @@ Ainsi, les scripts correspondant aux fonctions de l'outil sont regroupés dans l
 
 Le fichier `requirements.txt` détaille les dépendances à installer pour utiliser l'outil, et le fichier `setup.py` contient la configuration nécessaire à une publication sur [PyPi](https://pypi.org/).
 
+
+
 #### 3.2.3.2 Interface de ligne de commande
 
 L'interface de ligne de commande, autorisant à taper les commandes comme `fetch` ou `extract` directement dans le terminal, peut se construire avec [argparse](https://docs.python.org/3/library/argparse.html), l'outil dédié intégré à Python.
@@ -785,12 +720,14 @@ def main():
 
 Le code ci-dessus définit la commande `'fetch'`, et exécute la fonction `fetch_action()` si la commande est entrée par l'utilisateur.
 
-Barre de progression
+Utile pour avoir un retour de l'activité du script (surtout pour un outil destiné à traiter des données massives), une barre de progression peut facilement être ajoutée via une librairie dédiée comme [tqdm](https://github.com/tqdm/tqdm), [progressbar2](https://github.com/WoLpH/python-progressbar) ou [progress](https://github.com/verigak/progress/). Ici, le résultat avec `progress `  :
 
 ```bash
 user@computer: $ minet fetch url data/urls.csv
 Fetching ▣▣▣▣▣▣▣▣▣▣▣▣▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢ 39%
 ```
+
+
 
 #### 3.2.3.3 Export comme exécutable
 
@@ -814,13 +751,7 @@ Comme nous sommes dans le cas d'une architecture à plusieurs fichiers, il faut 
 
 
 
-## 3.3 Prise de recul
 
-> *Quel a été l'intérêt de votre travail pour l'entreprise ? Que va devenir votre contribution ? Présenter les perspectives.
-> Quelles sont les améliorations à envisager ? Quelle est la maintenance à prévoir sur cette réalisation ou cette application ?
-> Selon les cas, présentez vos réflexions sur **l'impact de votre travail sur les utilisateurs**, les nouveaux usages, le respect de la **vie privée** ou de l'environnement...*
-
-// A FAIRE
 
 
 
@@ -836,36 +767,39 @@ Comme nous sommes dans le cas d'une architecture à plusieurs fichiers, il faut 
 
 // A REDIGER
 
+Prise de conscience des possibilités de l'open source
+
+
+
 ==> collaboration avec Benkler / Zuckermann ?
+
+_Rapport entièrement rédigé en Markdown, disponible à l'adresse https://farjasju.github.io/medialabInternshipReport/report._
 
 # Bibliographie
 
-https://stph.scenari-community.org/contribs/nos/es3/co/es3.html 
+
 
 # Glossaire
 
-**Agrégation (requête)** : re
+**Arbre préfixe (ou Trie) ** : arbre souvent utilisé pour stocker des chaînes de caractères, où tous les descendants d'un même noeud partagent le même préfixe. Chaque noeud n'est pas associé à une valeur stockée dans l'arbre, seuls les feuilles et les noeuds internes définis comme valeurs le sont.
 
-**Arbre préfixe** :
+**Breaking change** : mise à jour rompant la compatibilité avec une ou plusieurs ancienne(s) version(s) du programme en question.
 
-**Breaking change** :
+**Cloner (git)** : cloner un _repository_ revient à copier l'intégralité de ses dossiers sur son ordinateur (en local).
 
-**Clone (git)** :
+**csv (format de fichier)** : format texte ouvert représentant des données tabulaires sous forme de valeurs séparées par des virgules (comme son nom complet _Comma-Separated values_ l'indique). C'est un format largement utilisé pour stocker de grandes quantités de données, pour sa souplesse et sa légèreté (par rapport au JSON par exemple).
 
-**csv (format de fichier)** :
+**DOM (Document Object Model)** : représentation arborescente (sous forme d'objets) d'une page HTML.
 
-**DOM (Document Object Model)** :  
+**Générateur (Python)** : fonction qui se comporte comme un itérateur (qui peut donc être utilisée dans une boucle `for` par exemple). Les générateurs utilisent le mot-clé `yield` à la place de `return`.
 
-**Git** : 
+**Git** : logiciel libre et open-source de gestion de versions, utilisé par la grande majorité des développeurs afin de faciliter le travail collaboratif et le suivi de l'évolution de leur code.
 
-**Pull request (git)** :
+**Pull request (git)** : demande d'intégration de changements/ajouts effectués au code sur un projet.
 
 **Responsive** : un site est *responsive* lorsque son contenu s'adapte automatiquement à la résolution du terminal utilisé pour le visionner. De nos jours, la quasi-totalité des sites sont *responsive*.
 
-**Test unitaire** :
-
-
+**Test unitaire** : procédure permettant de vérifier le bon fonctionnement d'une partie spécifique d'un programme, le plus souvent dans un cas particulier.  
 
     <div style="page-break-after: always;"></div>
 
-# Annexes
