@@ -751,10 +751,6 @@ Comme nous sommes dans le cas d'une architecture à plusieurs fichiers, il faut 
 
 
 
-
-
-
-
 # Conclusion
 
 > *La conclusion devrait faire de une à deux pages.
@@ -774,8 +770,6 @@ Prise de conscience des possibilités de l'open source
 ==> collaboration avec Benkler / Zuckermann ?
 
 _Rapport entièrement rédigé en Markdown, disponible à l'adresse https://farjasju.github.io/medialabInternshipReport/report._
-
-# Bibliographie
 
 
 
