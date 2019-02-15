@@ -14,32 +14,34 @@ Enfin, merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Au
 
 # Sommaire
 
- - [**Remerciements**](#remerciements)
+- [**Remerciements**](#remerciements)
+
  - [**Sommaire**](#sommaire)
+
  - [**Résumé technique**](#résumé-technique)
+
  - [**Introduction**](#introduction)
+
  - [**1. Un médialab à SciencesPo ?**](#1-un-médialab-à-sciencespo-)
    - [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
    - [1.2 L'équipe](#12-léquipe)
- - [**2. Ma mission**](#2-ma-mission)
+
+ - [**2. Le sujet**](#2-le-sujet)
    - [2.1 Récolter des données web pour étudier la polarisation de l’espace médiatique](#21-récolter-des-données-web-pour-étudier-la-polarisation-de-lespace-médiatique)
-   - [2.2 Mes contributions](#22-mes-contributions)
-   - [2.3 Outils & technologies](#23-outils--technologies)
- - [**3. Le travail réalisé**](#3-le-travail-réalisé)
-   - [3.1 Collecter](#31-collecter)
+   - [2.2 Outils & technologies](#22-outils--technologies)
+
+ - [**3. Réalisations**](#3-réalisations)
+   - [3.1 Collecte de données](#31-collecte-de-données)
      - [3.1.1 Twitter](#311-twitter)
      - [3.1.2 Facebook](#312-facebook)
-   - [3.2 Traiter](#32-traiter)
+   - [3.2 Traitement de données](#32-traitement-de-données)
      - [3.2.1 Normalisation des urls](#321-normalisation-des-urls)
      - [3.2.2 Extraction du contenu pertinent d'une page web](#322-extraction-du-contenu-pertinent-dune-page-web)
      - [3.2.3 Création d'une librairie & outil en ligne de commande Python](#323-création-dune-librairie--outil-en-ligne-de-commande-python)
-   - [3.3 Prise de recul](#33-prise-de-recul)
- - [**Conclusion**](#conclusion)
- - [**Bibliographie**](#bibliographie)
- - [**Glossaire**](#glossaire)
- - [**Annexes**](#annexes)
 
- 
+ - [**Conclusion**](#conclusion)
+
+ - [**Glossaire**](#glossaire)
 
 # Résumé technique
 
