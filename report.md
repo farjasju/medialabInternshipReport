@@ -2,19 +2,25 @@
 
 # Remerciements
 
-Je tiens tout d'abord à remercier mes collègues de bureau Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux. Effectuer mon premier stage avec un tuteur du niveau de compétences et de pédagogie de Guillaume fut très appréciable et enrichissant.
+Je tiens tout d'abord à remercier mes collègues de bureau Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux.
 
-Je remercie Paul et l'équipe de m'avoir fait confiance pour ce stage.
+J'ai eu la chance de faire mon stage sous le tutorat de Guillaume qui, sans aucune exagération, excelle par son niveau de compétences et sa pédagogie. Merci pour toute les réponses éclairées à mes nombreuses questions.
 
-Merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Audrey, Diego ainsi que toute l'équipe auprès de qui travailler pendant ces six mois fut un réel plaisir.
+Je remercie également Paul et l'équipe de m'avoir fait confiance pour ce stage.
+
+Enfin, merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Audrey, Diego ainsi que toute l'équipe auprès de qui travailler pendant ces six mois fut un réel plaisir.
+
+
 
 # Sommaire
+
+> UPDATER LE SOMMAIRE
 
  * [Remerciements](#remerciements)
  * [Sommaire](#sommaire)
  * [Résumé technique](#résumé-technique)
  * [Introduction](#introduction)
- * [1. Un Médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
+ * [1. Un médialab à SciencesPo ?](#1-un-médialab-à-sciencespo-)
    * [1.1 Un laboratoire un peu particulier](#11-un-laboratoire-un-peu-particulier)
    * [1.2 L'équipe](#12-léquipe)
  * [2. Ma mission](#2-ma-mission)
@@ -40,24 +46,30 @@ Merci à Barbara, Damien, Robin, Jean-Philippe, Arnaud, Donato, Léna, Audrey, D
 
 # Résumé technique
 
-Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Tous les développements ont été réalisés en Python ou en Javascript, et publiés en open-source. Mes travaux ont porté sur un outil de collecte de tweets, que j'ai migré d'une base MongoDB à une base Elasticsearch ainsi que de Python 2 à Python 3, et pour lequel j'ai développé une interface (à l'aide de React et d'un serveur Flask). J'ai également développé des scripts Python récupérant le nombre de partages Facebook pour une url donnée, et benchmarké puis implémenté des méthodes d'extraction de contenu texte pertinent dans une page HTML. J'ai aussi contribué à l'élaboration d'une librairie de traitement d'urls. Pour finir, j'ai réuni ces scripts dans un outil en ligne de commande développé en Python.
+*Mon stage a principalement consisté en l'amélioration d'outils et de librairies destinées à répondre aux besoins de chercheurs traitant de grandes masses de données issues du web. Tous les développements ont été réalisés en Python ou en Javascript, et publiés en open-source. Mes travaux ont porté sur un outil de collecte de tweets, que j'ai migré d'une base MongoDB à une base Elasticsearch ainsi que de Python 2 à Python 3, et pour lequel j'ai développé une interface (à l'aide de React et d'un serveur Flask). J'ai également développé des scripts Python récupérant le nombre de partages Facebook pour une url donnée, et benchmarké puis implémenté des méthodes d'extraction de contenu texte pertinent dans une page HTML. J'ai aussi contribué à l'élaboration d'une librairie de traitement d'urls. Pour finir, j'ai réuni ces scripts dans un outil en ligne de commande développé en Python.*
+
+
 
 # Introduction
 
-Dans le milieu de la recherche en sciences humaines et sociales (SHS), l'émergence d'Internet offre une nouvelle prise sur les questions fondamentales de la théorie sociale et sur l'étude des médias. Le dynamisme des réseaux sociaux, les multiples sites de presse générale ou "alternative" et autres médias d'opinion sont autant de données produites en permanence et disponibles en masse. Ces données sont par exemple l'opportunité de vérifier empiriquement des théories de sciences sociales, d'identifier des tendances, des réseaux. Cette précieuse matière première est disponible de façon brute, forme sous laquelle elle n'est guère utilisable pour un chercheur en SHS sans compétences en informatiques. Ces données se collectent, se formatent, se traitent à l'aide d'outils et de technologies spécifiques : c'est l'objet de ce rapport.
+Dans le milieu de la recherche en sciences humaines et sociales (SHS), l'émergence d'Internet offre une nouvelle prise sur les questions fondamentales de la théorie sociale et sur l'étude des médias. Le dynamisme des réseaux sociaux, les multiples sites de presse générale ou "alternative" et autres médias d'opinion sont autant de données produites en permanence et disponibles en masse. Ces données sont par exemple l'opportunité de vérifier empiriquement des théories de sciences sociales, d'identifier des tendances, des réseaux. Cependant, cette précieuse matière première est disponible de façon brute, forme sous laquelle elle n'est guère utilisable par un chercheur en SHS sans compétences en informatiques. Ces données se collectent, se formatent, se traitent à l'aide d'outils et de technologies spécifiques : c'est l'objet de ce rapport.
 
-# 1. Un Médialab à SciencesPo ?
+
+
+# 1. Un médialab à SciencesPo ?
 
 ## 1.1 Un laboratoire un peu particulier
 
-Le Médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le Médialab a été fondé en 2009 par le sociologue et philosophe [Bruno Latour](https://fr.wikipedia.org/wiki/Bruno_Latour) pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Comment perçoit-on/utilise-t-on les données numériques dans la société ? Qu'en fait-on ? Quels outils peut-on créer pour les collecter, les étudier, les exploiter, les visualiser, dans des domaine aussi variés que la sociologie, l'histoire, l'art, l'ingénierie, le design et la pédagogie ?
+Le médialab est un des 10 centres de recherche de SciencesPo. Laboratoire numérique, le médialab a été fondé en 2009 par le sociologue et philosophe [Bruno Latour](https://fr.wikipedia.org/wiki/Bruno_Latour) pour aider les sciences sociales et humaines à tirer le meilleur profit de la masse de données rendues disponibles par la numérisation. Comment perçoit-on/utilise-t-on les données numériques dans la société ? Qu'en fait-on ? Quels outils peut-on créer pour les collecter, les étudier, les exploiter, les visualiser, dans des domaine aussi variés que la sociologie, l'histoire, l'art, l'ingénierie, le design et la pédagogie ?
 Il en ressort des productions de types très variés et peu courants pour un laboratoire de sciences sociales : aux traditionnels articles s'ajoutent des applis, des outils de collecte, d'exploration, de visualisation des données...
 
 Constituée d'une trentaine de personnes, son équipe se distingue de celles des autres laboratoires de SciencesPo par sa grande diversité : chercheurs en sciences sociales, designers, ingénieurs pédagogiques et développeurs s'y côtoient.
 
 Parmi les projets du laboratoire, on peut citer [La Fabrique de la Loi](https://www.lafabriquedelaloi.fr) qui propose une visualisation graphique  et détaillée des procédures parlementaires, le projet [Datapol](https://medialab.github.io/datapol/app/#!/) qui analyse les données numériques de la campagne présidentielle de 2017, ou [Dime Web](https://dime-shs.sciencespo.fr/instruments/dime-web/), qui vise à établir un ensemble d'outils open source permettant de collecter des données sur le web et sur les réseaux sociaux (Twitter notamment).
 
-On peut citer comme laboratoires similaires le [Digital Methods Initiative](https://wiki.digitalmethods.net/) d'Amsterdam , l'[Oxford Internet Institute](https://www.oii.ox.ac.uk/), le [TANT-Lab](https://www.tantlab.aau.dk/) danois, ainsi que le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/) répondant aux mêmes types de problématiques abordées par le Médialab. Ces deux laboratoires américains diffèrent cependant du Médialab sur certains points, notamment l'effectif - le Berkman Klein Center compte plus de 200 personnes - et les financements - le médialab du MIT est financé entièrement par des sponsors.
+On peut citer comme laboratoires similaires le [Digital Methods Initiative](https://wiki.digitalmethods.net/) d'Amsterdam, l'[Oxford Internet Institute](https://www.oii.ox.ac.uk/), le [TANT-Lab](https://www.tantlab.aau.dk/) danois, ainsi que le [MIT Center for Civic Media](https://civic.mit.edu/) et le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/), qui travaillent notamment sur la suite d'outils [Media Cloud](https://mediacloud.org/) répondant aux mêmes types de problématiques abordées par le médialab. Ces deux laboratoires américains diffèrent cependant du médialab sur certains points, notamment l'effectif - le *Berkman Klein Center* compte plus de 200 personnes - et les financements - le médialab du MIT est financé entièrement par des sponsors.
+
+
 
 ## 1.2 L'équipe
 
@@ -77,7 +89,7 @@ La très grande majorité des outils développés par le laboratoire le sont en 
 
 # 2. Ma mission
 
-## 2.1 Le sujet
+## 2.1 Récolter des données web pour étudier la polarisation de l’espace médiatique
 
 > *Sujet initial*
 
@@ -85,7 +97,7 @@ Dans le cadre d'un projet de recherche de [Dominique Cardon](https://fr.wikipedi
 
 La *polarisation de l'espace médiatique* ? Pour saisir les intentions de ce projet de recherche, il faut partir d'une étude du [Berkman Klein Center for Internet & Society]((https://cyber.harvard.edu/)) sur la campagne présidentielle américaine de 2016. En étudiant la façon dont les médias s'intercitent et la façon dont ils sont partagés en ligne, le laboratoire a conclu à une très forte polarisation, où d'un côté la gauche et le centre se rapprochent quand de l'autre la droite s'éloigne un peu plus vers la droite.  Il s'agit en quelque sorte de vérifier de façon empirique, sur de grandes quantitées de données, des hypothèses sociologiques.
 
-Le but de ce projet de recherche du Médialab, qu'on appellera le projet *Polarisation* dans la suite, est de répliquer cette analyse sur l'espace médiatique français. Comment une polémique d'actualité comme l'affaire Benalla se diffuse au travers des différents médias ? Les mêmes thèmes sont-ils abordés partout ? 
+Le but de ce projet de recherche du médialab, qu'on appellera le projet *Polarisation* dans la suite, est de répliquer cette analyse sur l'espace médiatique français. Comment une polémique d'actualité comme l'affaire Benalla se diffuse au travers des différents médias ? Les mêmes thèmes sont-ils abordés partout ? 
 
 Concrètement, cette polarisation s'étudie via la construction de réseaux : on peut par exemple établir un graphe de médias à partir des partages de liens sur les réseaux sociaux. Ainsi, deux médias seront liés si le même profil de personnes les partagent. Un tel graphe permet ensuite d'identifier des groupes, ou pôles, dans l'espace médiatique.
 
@@ -106,7 +118,7 @@ Concrètement, cette polarisation s'étudie via la construction de réseaux : on
 > Problème : on finit par prouver des trucs qu'on savait déjà depuis longtemps en socio]
 >
 
-Afin d'établir ce genre de visualisations, il est nécessaire de collecter et de traiter les données du corpus étudié. 
+Afin d'établir ce genre de visualisations, il est nécessaire de collecter et de traiter les données du corpus étudié : c'est ma mission en tant qu'assistant ingénieur.
 
 > *Ses évolutions (et leurs causes)*
 
@@ -122,23 +134,17 @@ Un des objectifs du laboratoire en termes de collecte de données est d'élargir
 
 
 
-## 2.2 Le planning
-
-> *Vous pouvez présenter le planning initial et le planning réel avec les dates importantes.
-> Quelles ont été les étapes importantes ? Indiquez celles qui auraient été les plus difficiles, les plus intéressantes, etc.*
-
-// Y EN A PAS TROP
-
-## 2.3 Mes contributions
+## 2.2 Mes contributions
 
 > *Etat du projet à votre arrivée ? Et à la fin ?*
 >
 > *Avez-vous réalisé une étude, une maquette, une preuve de concept, un produit ou une application complète ? Que reste-t-il à faire pour rendre utilisable votre travail ?*
->
 
 // REDONDANT ?
 
-## 2.4 Outils & technologies
+
+
+## 2.3 Outils & technologies
 
 **Outils, environnements et logiciels**
 
@@ -151,6 +157,8 @@ Pour le développement d'interfaces, React et material-ui ont été plébiscité
 **Vérifications et tests**
 
 La plupart des librairies comportent des _tests unitaires_*, qui sont vérifiés grâce au logiciel d'intégration continue Travis CI. Les développements de nouvelles fonctionnalités ont été faits sur des branches dédiées sur git, puis envoyés sous forme de Pull Requests avant d'être mergées à la branche master.
+
+
 
 # 3. Le travail réalisé
 
@@ -278,6 +286,8 @@ fetch('adresse_du_serveur/timeevolution')
 
 L'établissement de cette interface de visualisation simple a permis de mettre en avant d'importantes limitations de la configuration actuelle de l'outil. Ces conclusions ont mené à lancer deux chantiers de plus grande ampleur : la migration vers Elasticsearch, et le passage de l'outil de Python 2 à Python 3.
 
+
+
 #### 3.1.1.3 Passage de Python 2 à Python 3
 
 Le support de Python 2 s'arrêtant officiellement en 2020, et Python 2 étant une source de problèmes éventuels (d'encodage, de compatibilité si intégration de nouvelles dépendances/librairies), la migration vers Python 3 s'impose. On souhaite cependant conserver une pleine compatibilité avec Python 2, pour éviter tout _breaking-change*_.
@@ -340,6 +350,8 @@ Illustration sur une requête d'agrégation temporelle destinée à afficher une
 | 26,7 secondes | 120 ms        |
 
 Avec MongoDB et des corpus dépassant les centaines de milliers de documents, l'interface devient inutilisable. Il était donc nécessaire de migrer vers une base de données Elasticsearch.
+
+
 
 ##### Comment changer de base de données ?
 
@@ -410,8 +422,6 @@ def getDayCount():
 ```
 
 A noter que la forme des réponses Mongo et Elasticsearch n'étant pas les mêmes, il est souhaitable de formater les réponses dans le serveur pour qu'on puisse utiliser indifféremment des résultats provenant de Mongo ou d'Elasticsearch.
-
-
 
 ​	**Étape 4 - Abstraire la base de données**
 
@@ -521,7 +531,7 @@ Après plusieurs essais, il apparaît que la _rate limit_ se trouve à un peu mo
 
 En outre, l'API est assez rigide sur l'url entrée en paramètre : si l'on veut être exhaustif, il faut faire la requête à la fois sur la page en http et la page en https, le résultat renvoyé n'étant pas le même. De même, les résultats diffèrent en fonction de la présence d'un  `/` final ou non.
 
-#### 3.1.2.2 La méthode contournant l'API
+#### 3.1.2.2 La méthode sans API
 
 Il a fallu trouver une alternative à l'usage conventionnel de l'API. Celle-ci se trouve dans le détournement du bouton "Like" destiné aux pages web tierces :
 
@@ -570,54 +580,176 @@ from ural import normalize_url
 normalize_url('https://www2.lemonde.fr/politique/index.php?utm_source=google')
 >>> 'lemonde.fr/politique'
 ```
-Ural étant aussi un outil en ligne de commande, il est possible de créer une commande `join` utilisant `normalize` :
+Ural étant aussi un outil en ligne de commande, il est possible de créer une commande `join` (appliquant sous le capot `normalize` sur les urls d'un csv), retournant un csv réunissant toutes les informations d'une même url :
 
 ```bash
-ural join COLUMN1 file1.csv COLUMN2 file2.csv -o result.csv
+ural join COLUMN1 FILE1 COLUMN2 FILE2 -o OUTPUT
 ```
+
+Ici : `ural join url sujets.csv url dates.csv -o resultat.csv` permet de réunir ces 2 csv :
+
+![](data/url_join.png)
 
 
 
 // A REDIGER :
 
-> utilité
->
 > architecture
 >
 > tests unitaires
 >
-> CLI
->
-> lruTRIE
->
-> join
 #### 3.2.1.2 Hiérarchisation d'une url
+
+Autre problème intrinsèque aux urls : le fait qu'elles ne soient pas ordonnées hiérarchiquement.
+
+En effet, les différents éléments composant l'url (le protocole, le domaine, le _TLD_*, ...) ne sont pas ordonnés du plus général au plus spécifique : le `en.` de `en.wikipedia.org` n'est qu'un sous-ensemble de `wikipedia`, et pourtant se trouve au début de l'url. De même, le `.org`, bien que situé après `wikipedia`, regroupe bien tous les sites en _.org_, et est donc plus général que l'entité `wikipedia`.
+
+Une solution à cette problématique est d'introduire le concept de **Reversed URL** (ou _**LRU**_). Les LRUs sont une façon de réécrire une url sous la forme d'une liste de ses éléments organisés dans un ordre hiérarchique. Ainsi, `http://en.wikipedia.org/wiki/cat` devient `.org | wikipedia | en. | /wiki | /cat`.
 
 ![](data/lru.png)
 
-Concept des LRU
+En réalité, une LRU réelle comporte des identifiants : _s_ pour _scheme_, _h_ pour _host_, _p_ pour _path_... et ressemble donc à ça `s:https|h:org|h:wikipedia|h:en|p:wiki|p:cat`.
 
-Cas d'usage
+Les LRUs étant organisés de façon hiérarchique, elles ont la **structure d'un arbre** :
+
+![](data/lru_tree.png)
+
+Les LRUs peuvent donc être stockées dans un _arbre préfixe_*, ou _trie_. Ural implémente ainsi une classe `LRUTrie`, dans laquelle sont tokénisées puis stockées les urls. La structure d'arbre préfixe permet entre autres d'identifier le plus long préfixe commun entre une url et ce qui est stocké dans l'arbre, et ce de façon très efficace :
+
+```python
+trie = LRUTrie()
+trie.set('http://www.lemonde.fr')
+trie.match('http://www.lemonde.fr/politique')
+>>> 'http://www.lemonde.fr'
+```
+
+Cette gestion des urls par préfixe est très utile notamment dans Hyphe, le crawler web du laboratoire, dans lequel l'utilisateur définit des _web-entitées_, qui peuvent aller d'une simple page à un site entier. 
+
+
 
 ### 3.2.2 Extraction du contenu pertinent d'une page web
 
-Une des problématiques récurrentes rencontrée par les chercheurs du laboratoire consiste en l'analyse du contenu d'un corpus de pages web.
+Beaucoup d'études nécessitent une analyse textuelle, afin d'identifier les thèmes ou acteurs présents dans un articles par exemple. Il n'est cependant pas évident d'extraire uniquement le contenu texte pertinent d'une page web.
+
+![](data/text_extraction.png)
 
 Mettons-nous à la place d'un chercheur souhaitant analyser un ensemble d'articles de presse traitant de la santé, pour pouvoir ensuite les trier par sujet et identifier quelle page traite du glyphosate, des compteurs Linky ou des cabines à UV. Une première question d'ordre technique se pose : notre chercheur, face à sa liste de 10 000 urls, doit d'abord récupérer le contenu texte des articles, mais n'est pas très enthousiaste à l'idée de visiter chaque page et de copier son contenu à la main. Heureusement, cela s'automatise. Mais l'automatisation n'est pas évidente : comment notre programme fait-il la différence entre le contenu de l'article et les commentaires, l'en-tête du site, la liste des catégories ? Si encore tous les sites web avaient la même structure, on aurait pu établir des règles génériques (identifier la balise HTML contenant le texte). C'est évidemment loin d'être le cas.
 
-La problématique d'extraction de contenu texte à partir de HTML étant récurrente, il existe différents outils open-source y répondant, fonctionnant pour la plupart à l'aide d'heuristiques : Goose, Boilerpipe, eatiht, Dragnet, libextract... Mais quelle est la librairie la plus performante ?
+La problématique d'extraction de contenu texte à partir de HTML étant récurrente, il existe différents outils open-source y répondant, fonctionnant pour la plupart à l'aide d'heuristiques : 
 
-L'évaluation automatisée des performances de tels outils est difficile à mettre en oeuvre puisqu'il n'y a pas de moyen simple de déterminer si le contenu extrait est bien le texte de l'article ou non. On peut évidemment établir une liste d'heuristiques se basant sur des mots-clés ("Error 404", "Cloudflare" ...) ou sur la taille du résultat, mais cela n'écarte que les cas d'échec les plus simples et nécessite tout de même un certain temps à mettre en place. Une alternative simple consiste donc à implémenter toutes les librairies dans un script Python affichant le résultat des différentes extractions, pour un fichier HTML tiré au hasard. En donnant un score (la notation étant forcément subjective mais commune) à chaque méthode, 
+- [Goose](https://github.com/grangier/python-goose)
+- [eatiht](https://github.com/rodricios/eatiht) 
+- [Dragnet](https://github.com/dragnet-org/dragnet) 
+- [libextract](https://github.com/datalib/libextract) 
+- [BoilerPipe](https://github.com/misja/python-boilerpipe)...
+
+La première étape a donc été d'évaluer les performances de ces librairies.
+
+#### 3.2.2.1 Benchmarking des librairies existantes
+
+L'évaluation automatisée des performances de tels outils est difficile à mettre en oeuvre puisqu'il n'y a pas de moyen simple de déterminer si le contenu extrait est bien le texte de l'article ou non. On peut évidemment établir une liste d'heuristiques se basant sur des mots-clés (_"Error 404"_, _"Cloudflare"_ ...) ou sur la taille du résultat, mais cela n'écarte que les cas d'échec les plus simples et nécessite tout de même un certain temps à mettre en place. Une alternative simple consiste donc à implémenter toutes les librairies dans un script Python affichant le résultat des différentes extractions, pour un fichier HTML tiré au hasard. En donnant un score (la notation étant forcément subjective mais commune) à chaque méthode, 
 
 J'ai donc implémenté les différents outils dans un script Python affichant les résultats des différentes extractions, pour un fichier HTML tiré au hasard, afin d'évaluer rapidement la qualité des résultats.
 
 Pour déterminer cela, j'ai téléchargé le HTML brut d'un corpus d'urls issus d'un travail de recherche, pour constituer un ensemble de pages sur lesquelles tester ces librairies. 
 
-![Image of Yaktocat](data/benchmark_results.png)
+Les résultats obtenus sont assez disparates : les librairies basées sur des heuristiques simples sont en général moins performantes que celles qui utilisent du machine learning pour détecter les parties pertinentes.
 
-### 3.2.3 Création d'une librairie/outil en ligne de commande Python
+![](data/benchmark_results.png)
+
+À noter, les résultats obtenus ici sont valables pour des corpus constitués d'articles de presse ou de blog.
+
+// ANNEXE METHODE ? 2EME BENCHMARK ?
+
+
+
+#### 3.2.2.1 Implémentation de la librairie la plus performante
+
+Il nous faut donc un script extrayant le contenu de toutes les pages spécifiées dans un fichier csv.
+
+La librairie la plus performante s'étant avérée être [Dragnet](https://github.com/dragnet-org/dragnet), il faut maintenant l'implémenter dans un script.
+
+L'installation se fait via un `pip install dragnet`, après avoir pris le soin d'installer les dépendances nécessaires (assez nombreuses, nécessaires à l'apprentissage du modèle de machine learning intégré à Dragnet) : `numpy`, `scipy` et `cython`.
+
+Une fois l'installation faite, l'extraction se fait simplement :
+
+```python
+from dragnet import extract_content
+
+html = '<!DOCTYPE html>...'
+content = extract_content(html)
+```
+
+On pourrait faire cela à la volée : télécharger le HTML, appliquer l'extraction et écrire le résultat dans un csv de sortie, ligne par ligne. Cette méthode, en plus d'être lente car traitant les urls une par une, a l'inconvénient de ne pas conserver l'avancement en cas d'interruption du script. 
+
+**Sauvegarde de la progression**
+
+Une tâche d'extraction sur un corpus de plusieurs dizaines de milliers d'urls (corpus de taille moyenne) pouvant prendre plusieurs heures, il est préférable que le script reprenne là où il s'est arrêté en cas de problème. 
+
+Pour cela, la solution adoptée est de stocker des fichiers temporaires : pour chaque url, le fichier HTML de la page, puis le fichier texte avec son contenu une fois celui-ci extrait. 
+
+![](data/extract_archi.png)
+
+Ainsi, si le script venait à s'interrompre, les fichiers HTML et texte déjà générés n'auraient pas besoin de l'être à nouveau, et le script pourrait reprendre là où il s'est arrêté. Le csv final, contenant urls et contenu texte, n'est généré qu'à la fin du processus, à partir des fichiers temporaires.
+
+**Multithreading des requêtes**
+
+Effectuer des requêtes HTTP une à une, c'est lent. 
+
+![](data/multithreading.png)
+
+Pour la récupération des fichiers HTML des pages, le *multithreading* est pertinent, et fortement souhaitable. Pendant chaque requête, le processeur n'est actif qu'un court instant, la majorité du temps de celle-ci étant due à l'échange réseau. Le multithreading consiste à tirer parti de ce temps où le processeur est inactif, et à paralléliser les requêtes HTTP. Au final, le temps nécessaire pour récupérer toutes les pages est bien inférieur qu'avec une méthode itérative simple.
+
+En Python 3, le plus simple est d'utiliser une `ThreadPool` de la librairie [multiprocessing](https://docs.python.org/3.7/library/multiprocessing.html) :
+
+```python
+from multiprocessing.pool import ThreadPool
+
+p = ThreadPool(5)
+pool_output = p.map(request_function, range(3))
+```
+
+**Multiprocessing de l'extraction**
+
+Pour accélérer l'extraction, le problème est autre : c'est le processeur qui est mobilisé ici (et non plus le réseau), il s'agit donc de répartir la charge sur les processeurs disponibles. 
+
+En Python 3, la méthode est strictement la même que pour du multithreading, à l'exception près qu'on utilise une `Pool` classique :
+
+```python
+from multiprocessing.pool import Pool
+
+p = Pool(5)
+pool_output = p.map(request_function, range(3))
+```
+
+
+
+### 3.2.3 Création d'une librairie & outil en ligne de commande Python
 
 Minet
+
+Afin de réunir les scripts mentionnés plus haut et de les rendre plus facilement exploitables, il est apparu pertinent de créer un outil implémentant chacun de ceux-ci sous la forme d'une fonction dédiée.
+
+#### 3.2.3.1 Architecture
+
+#### 3.2.3.2 Interface de ligne de commande
+
+CLI
+
+Barre de progression
+
+```bash
+user@computer: $ minet fetch url data/urls.csv
+Fetching ▣▣▣▣▣▣▣▣▣▣▣▣▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢▢ 39%
+```
+
+#### 3.2.3.3 Export comme exécutable
+
+
+
+executable
+
+
 
 -> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
 
@@ -657,9 +789,13 @@ https://stph.scenari-community.org/contribs/nos/es3/co/es3.html
 
 **Agrégation (requête)** : re
 
+**Arbre préfixe** :
+
 **Breaking change** :
 
 **Clone (git)** :
+
+**csv (format de fichier)** :
 
 **DOM (Document Object Model)** :  
 
