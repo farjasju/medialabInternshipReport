@@ -82,7 +82,7 @@ La très grande majorité des outils développés par le laboratoire le sont en 
 
 
 
-# 2. Ma mission
+# 2. Le sujet
 
 ## 2.1 Récolter des données web pour étudier la polarisation de l’espace médiatique
 
@@ -104,7 +104,7 @@ Un des objectifs du laboratoire en termes de collecte de données est d'élargir
 
 
 
-## 2.3 Outils & technologies
+## 2.2 Outils & technologies
 
 **Outils, environnements et logiciels**
 
@@ -120,9 +120,9 @@ La plupart des librairies comportent des _tests unitaires_*, qui sont vérifiés
 
 
 
-# 3. Le travail réalisé
+# 3. Réalisations
 
-## 3.1 Collecter
+## 3.1 Collecte de données
 
 ### 3.1.1 Twitter
 
@@ -488,7 +488,7 @@ https://www.facebook.com/plugins/like.php?href=URL&layout=box_count
 
 Il suffit alors de scraper la valeur du bouton et de la convertir en `integer` pour avoir le nombre de partages (arrondi) de l'url voulue. Et surtout, il n'y a pas de limites de requêtes (ce n'est pas dans l'intérêt de Facebook de limiter la diffusion de son réseau social sur les sites tiers) : la seule limite est celle de la connexion.
 
-## 3.2 Traiter
+## 3.2 Traitement de données
 
 Mettons-nous à la place du chercheur en sciences sociales souhaitant collecter des données de partage Facebook pour un corpus de liens sur un sujet en particulier. Celui-ci n'ayant potentiellement que des compétences de base en informatique, il va établir une liste d'urls en les copiant-collant de sources diverses, sans forcément se soucier des contraintes liées à un traitement ultérieur. Quelques exemples de ce qu'on peut trouver dans un même fichier d'urls :
 
@@ -753,13 +753,15 @@ Comme nous sommes dans le cas d'une architecture à plusieurs fichiers, il faut 
 
 # Conclusion
 
-Les études de sciences humaines et sociales sur le numérique (ou utilisant le numérique) ayant en général besoin de s'appuyer sur de grands volumes de données, il est nécessaire que les chercheurs disposent d'outils adéquats. La taille des corpus étudiés soulève des enjeux à la fois au niveau de la collecte, du stockage et du traitement des données. L'association d'ingénieurs en informatique aux chercheurs en sciences humaines et sociales est alors à la fois nécessaire et fructueuse au regard du dynamisme du laboratoire. Au moment où je termine mon stage s'amorce d'ailleurs une collaboration (sur le projet de recherche _Polarisation_) avec le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/) d'Harvard.
+Les études de sciences humaines et sociales sur le numérique (ou utilisant le numérique) ayant en général besoin de s'appuyer sur de grands volumes de données, il est nécessaire que les chercheurs disposent d'outils adéquats. La taille des corpus étudiés soulève des enjeux à la fois au niveau de la collecte, du stockage et du traitement des données. L'association d'ingénieurs en informatique aux chercheurs en sciences humaines et sociales est alors à la fois nécessaire et fructueuse, au regard du dynamisme du laboratoire. Au moment où je termine mon stage s'amorce d'ailleurs une collaboration (sur le projet de recherche _Polarisation_) avec le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/) d'Harvard.
 
-J'ai pu découvrir le domaine du web-mining, sous plusieurs aspects très différents, et me familiariser avec le traitement de grandes masses de données. Cette expérience confirme ma volonté de poursuivre mes études en filière Fouille de Données.
+J'ai pu grâce à ce stage découvrir le domaine du web-mining, sous plusieurs aspects très différents, et me familiariser avec le traitement de grandes masses de données. Cette expérience confirme ma volonté de poursuivre mes études en filière Fouille de Données.
 
 Ce stage fut également l'occasion de découvrir le milieu de l'open-source, et de prendre conscience des possibilités d'une telle communauté qui construit, en permanence, une forme de savoir commun toujours plus avancé.
 
 _Rapport entièrement rédigé en Markdown, disponible à l'adresse https://farjasju.github.io/medialabInternshipReport/report._
+
+_Tout le code source des outils présentés est disponible sur le repository du médialab : https://github.com/medialab_
 
 
 
