@@ -726,15 +726,64 @@ pool_output = p.map(request_function, range(3))
 
 ### 3.2.3 Création d'une librairie & outil en ligne de commande Python
 
-Minet
-
-Afin de réunir les scripts mentionnés plus haut et de les rendre plus facilement exploitables, il est apparu pertinent de créer un outil implémentant chacun de ceux-ci sous la forme d'une fonction dédiée.
+Afin de réunir les scripts mentionnés plus haut et de les rendre plus facilement exploitables, il est apparu pertinent de créer un outil implémentant chacun de ceux-ci sous la forme d'une fonction dédiée. Cet outil étant dédié au web-mining, on l'appellera [**Minet**](https://github.com/medialab/minet).
 
 #### 3.2.3.1 Architecture
 
+Pour des questions de lisibilité et de maintenabilité, il est important d'établir une architecture ordonnée et cohérente. Un des enjeux de celle-ci est d'autoriser à la fois l'usage des fonctions en tant que librairie (importée dans un autre script Python) et dans le terminal en ligne de commande.
+
+Voici l'architecture choisie, affichée ici au niveau racine du dossier `minet` :
+
+- **minet**
+
+  - `extract.py`
+  - `facebook.py`
+  - `fetch.py`
+  - **cli**
+    - `__main__.py`
+    - `extract_action.py`
+    - `facebook_action.py`
+    - `fetch_action.py`
+
+- **test**
+
+  - `extract_test.py`
+  - `facebook_test.py`
+  - `fetch_test.py`
+
+- `README.md`
+
+- `requirements.txt`
+
+- `setup.py`
+
+Ainsi, les scripts correspondant aux fonctions de l'outil sont regroupés dans le dossier `minet`, et ainsi importables avec un simple `from minet import extract` par exemple. Les fonctions gérant la ligne de commande sont elles regroupées dans le dossier `cli`, les tests unitaires (un fichier par fonction) étant eux situés dans le dossier `test`.
+
+Le fichier `requirements.txt` détaille les dépendances à installer pour utiliser l'outil, et le fichier `setup.py` contient la configuration nécessaire à une publication sur [PyPi](https://pypi.org/).
+
 #### 3.2.3.2 Interface de ligne de commande
 
-CLI
+L'interface de ligne de commande, autorisant à taper les commandes comme `fetch` ou `extract` directement dans le terminal, peut se construire avec [argparse](https://docs.python.org/3/library/argparse.html), l'outil dédié intégré à Python.
+
+Dans le fichier `__main__.py` (voir plus haut), on détaille les différentes commandes souhaitées, ainsi que leurs arguments :
+
+```python
+from argparse import ArgumentParser
+from minet.cli.fetch_action import fetch_action
+
+def main():
+    parser = ArgumentParser(prog='minet')
+    subparsers = parser.add_subparsers(title='actions', dest='action')
+    fetch_subparser = subparsers.add_parser('fetch', description='Fetches the HTML of the urls of a given CSV column.')
+	fetch_subparser.add_argument('column', help='column')
+    fetch_subparser.add_argument('file', help='csv file containing the urls to fetch')
+    
+    args = parser.parse_args()
+    if args.action == 'fetch':
+        fetch_action(args)
+```
+
+Le code ci-dessus définit la commande `'fetch'`, et exécute la fonction `fetch_action()` si la commande est entrée par l'utilisateur.
 
 Barre de progression
 
@@ -745,17 +794,25 @@ Fetching ▣▣▣▣▣▣▣▣▣▣▣▣▢▢▢▢▢▢▢▢▢▢▢�
 
 #### 3.2.3.3 Export comme exécutable
 
+Il est intéressant d'avoir la possibilité d'exporter l'outil comme simple exécutable, afin de faciliter son utilisation (possibilité d'autant plus pertinente si l'on envisage le développement d'une interface graphique afin de rendre l'outil utilisable par tous).
+
+[Pyinstaller](https://www.pyinstaller.org/) est un outil très pratique pour cela, qui construit automatiquement un fichier exécutable contenant les dépendances nécessaires. Il s'installe via PyPi : 
+
+```
+pip install pyinstaller
+```
+
+La génération du fichier exécutable se lance via la commande suivante :
+
+```
+pyinstaller minet/cli/__main__.py --onefile
+```
+
+Comme nous sommes dans le cas d'une architecture à plusieurs fichiers, il faut spécifier le fichier qui correspond au point d'entrée de notre outil, ici le fichier `__main__.py` de notre interface en ligne de commande. Celui-ci faisant appel aux autres fichiers, Pyinstaller va les inclure automatiquement à l'exécutable.
+
+> À noter : si le but premier est de créer une interface graphique, le plus simple est certainement de développer l'outil en Javascript. Il sera bien plus simple de créer un exécutable (avec [Electron](https://electronjs.org/) par exemple), et cela ouvre des possibilité de scraping JS (à l'aide d'un navigateur headless) par exemple. Ici, les outils d'extraction de texte utilisés étant développés en Python, Javascript aurait nécessité une nouvelle étude et implémentation des outils disponibles.
 
 
-executable
-
-
-
--> javascript : bien plus pratique à packager (electron), possibilité d'utiliser du chrome headless très simplement, mais pas de text extraction et tout
-
-
-
-RGPD ?
 
 ## 3.3 Prise de recul
 
