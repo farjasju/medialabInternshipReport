@@ -747,27 +747,17 @@ pyinstaller minet/cli/__main__.py --onefile
 
 Comme nous sommes dans le cas d'une architecture à plusieurs fichiers, il faut spécifier le fichier qui correspond au point d'entrée de notre outil, ici le fichier `__main__.py` de notre interface en ligne de commande. Celui-ci faisant appel aux autres fichiers, Pyinstaller va les inclure automatiquement à l'exécutable.
 
-> À noter : si le but premier est de créer une interface graphique, le plus simple est certainement de développer l'outil en Javascript. Il sera bien plus simple de créer un exécutable (avec [Electron](https://electronjs.org/) par exemple), et cela ouvre des possibilité de scraping JS (à l'aide d'un navigateur headless) par exemple. Ici, les outils d'extraction de texte utilisés étant développés en Python, Javascript aurait nécessité une nouvelle étude et implémentation des outils disponibles.
+> À noter : si le but premier est de créer une interface graphique, le plus évident est certainement de développer l'outil en Javascript. Il sera bien plus simple de créer un exécutable (avec [Electron](https://electronjs.org/) par exemple), et cela ouvre des possibilité de scraping JS (à l'aide d'un navigateur headless) par exemple. Ici, les outils d'extraction de texte utilisés étant développés en Python, Javascript aurait nécessité une nouvelle étude et implémentation des outils disponibles.
 
 
 
 # Conclusion
 
-> *La conclusion devrait faire de une à deux pages.
+Les études de sciences humaines et sociales sur le numérique (ou utilisant le numérique) ayant en général besoin de s'appuyer sur de grands volumes de données, il est nécessaire que les chercheurs disposent d'outils adéquats. La taille des corpus étudiés soulève des enjeux à la fois au niveau de la collecte, du stockage et du traitement des données. L'association d'ingénieurs en informatique aux chercheurs en sciences humaines et sociales est alors à la fois nécessaire et fructueuse au regard du dynamisme du laboratoire. Au moment où je termine mon stage s'amorce d'ailleurs une collaboration (sur le projet de recherche _Polarisation_) avec le [Berkman Klein Center for Internet & Society](https://cyber.harvard.edu/) d'Harvard.
 
-> En général, on commence par présenter un résumé du rapport puis les perspectives et éventuellement les travaux restant à mener.
+J'ai pu découvrir le domaine du web-mining, sous plusieurs aspects très différents, et me familiariser avec le traitement de grandes masses de données. Cette expérience confirme ma volonté de poursuivre mes études en filière Fouille de Données.
 
-> Vous pouvez ensuite exposer les points positifs et négatifs de votre stage.
-
-> Enfin, vous pouvez re-situer votre stage dans votre parcours de formation et dans votre projet professionnel. Vos objectifs ont-ils évolué ? Par exemple, en quoi ce stage confirme (ou infirme) votre choix de filière ?*
-
-// A REDIGER
-
-Prise de conscience des possibilités de l'open source
-
-
-
-==> collaboration avec Benkler / Zuckermann ?
+Ce stage fut également l'occasion de découvrir le milieu de l'open-source, et de prendre conscience des possibilités d'une telle communauté qui construit, en permanence, une forme de savoir commun toujours plus avancé.
 
 _Rapport entièrement rédigé en Markdown, disponible à l'adresse https://farjasju.github.io/medialabInternshipReport/report._
 
@@ -795,5 +785,5 @@ _Rapport entièrement rédigé en Markdown, disponible à l'adresse https://farj
 
 **Test unitaire** : procédure permettant de vérifier le bon fonctionnement d'une partie spécifique d'un programme, le plus souvent dans un cas particulier.  
 
-    <div style="page-break-after: always;"></div>
+
 
