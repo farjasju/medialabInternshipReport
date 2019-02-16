@@ -661,7 +661,11 @@ pool_output = p.map(request_function, range(3))
 
 ### 3.2.3 Création d'une librairie & outil en ligne de commande Python
 
-Afin de réunir les scripts mentionnés plus haut et de les rendre plus facilement exploitables, il est apparu pertinent de créer un outil implémentant chacun de ceux-ci sous la forme d'une fonction dédiée. Cet outil étant dédié au web-mining, on l'appellera [**Minet**](https://github.com/medialab/minet).
+Afin de réunir les scripts mentionnés plus haut et de les rendre plus facilement exploitables, il est apparu pertinent de créer un outil implémentant chacun de ceux-ci sous la forme d'une fonction dédiée. Cet outil étant dédié au web-mining, on lui donnera le nom (un peu douteux) de [**Minet**](https://github.com/medialab/minet). Minet sera donc destiné à la récolte de données sur une liste de pages web (fournie sous la forme d'un fichier csv listant les urls) :
+
+- récupération en multithreading du HTML des pages
+- extraction du contenu pertinent des pages en multiprocessing
+- récupération du nombre de partages sur Facebook des pages en question
 
 #### 3.2.3.1 Architecture
 
