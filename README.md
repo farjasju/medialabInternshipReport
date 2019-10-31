@@ -4,7 +4,7 @@
 
 Je tiens tout d'abord à remercier mes collègues de bureau Guillaume Plique et Benjamin Ooghe-Tabanou pour leur très grande disponibilité tout au long du stage et pour tout ce que j'ai appris grâce à eux.
 
-J'ai eu la chance de faire mon stage sous le tutorat de Guillaume qui, sans aucune exagération, excelle par son niveau de compétences et sa pédagogie. Merci pour toute les réponses éclairées à mes nombreuses questions.
+J'ai eu la chance de faire mon stage sous le tutorat de Guillaume qui, sans aucune exagération, excelle par son niveau de compétences et sa pédagogie. Merci pour toutes les réponses éclairées à mes nombreuses questions.
 
 Je remercie également Paul et l'équipe de m'avoir fait confiance pour ce stage.
 
