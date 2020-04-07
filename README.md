@@ -777,7 +777,7 @@ _Tout le code source des outils présentés est disponible sur le repository du 
 
 # Glossaire
 
-**Arbre préfixe (ou Trie) ** : arbre souvent utilisé pour stocker des chaînes de caractères, où tous les descendants d'un même noeud partagent le même préfixe. Chaque noeud n'est pas associé à une valeur stockée dans l'arbre, seuls les feuilles et les noeuds internes définis comme valeurs le sont.
+**Arbre préfixe (ou Trie)** : arbre souvent utilisé pour stocker des chaînes de caractères, où tous les descendants d'un même noeud partagent le même préfixe. Chaque noeud n'est pas associé à une valeur stockée dans l'arbre, seuls les feuilles et les noeuds internes définis comme valeurs le sont.
 
 **Breaking change** : mise à jour rompant la compatibilité avec une ou plusieurs ancienne(s) version(s) du programme en question.
 
